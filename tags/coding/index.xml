@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>coding on Hi, I am Kane Li</title>
+    <link>https://kingchou007.github.io/tags/coding/</link>
+    <description>Recent content in coding on Hi, I am Kane Li</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 27 Jun 2021 22:06:35 +0800</lastBuildDate><atom:link href="https://kingchou007.github.io/tags/coding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用hugo建立个人网站</title>
+      <link>https://kingchou007.github.io/posts/2021/06/%E7%94%A8hugo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Sun, 27 Jun 2021 22:06:35 +0800</pubDate>
+      
+      <guid>https://kingchou007.github.io/posts/2021/06/%E7%94%A8hugo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/</guid>
+      <description>1 环境设置（基于MacOS） 第一步：下载hugo brew install hugo, 需要提前下载好brew； 第二步：创建hugo website hugo new site test, test是文件夹名； 第三步：前往hugo官网选择主题，根据主题中的提示下载文件。
+2 编辑网站 在步骤一下载完hugo后会有许多文件夹，有几个文件或文件夹需要特别注意：
+# 管理网页内容 📂 contents - 📂 posts (步骤4.1创建) - 📂 about - 📂 xxxxx # 编辑文件 📃 config.toml 3 命令 3.1 创建文章 hugo new [posts]/文章名.md 创建文章后，可以使用Vim或者打开VS code进行markdown文件编写。
+3.2 本地预览自己的网站 完成前面的设置后
+hugo server -t xxx --buildDrafts # my example hugo server -t hello-friend-ng --buildDrafts note: xxx 是themes名 3.3 本地修改后同步到博客 # 启动hugo hugo -t 主题名 --baseUrl=&amp;quot;https://xxx(github user name).</description>
+    </item>
+    
+  </channel>
+</rss>

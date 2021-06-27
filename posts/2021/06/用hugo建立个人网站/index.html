@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Kane Li ">
+<meta name="description" content="1 环境设置（基于MacOS） 第一步：下载hugo brew install hugo, 需要提前下载好brew； 第二步：创建hugo website hugo new site test, test是文件夹名； 第三步：前往hugo官网选择主题，根据主题中的提示下载文件。
+2 编辑网站 在步骤一下载完hugo后会有许多文件夹，有几个文件或文件夹需要特别注意：
+# 管理网页内容 📂 contents - 📂 posts (步骤4.1创建) - 📂 about - 📂 xxxxx # 编辑文件 📃 config.toml 3 命令 3.1 创建文章 hugo new [posts]/文章名.md 创建文章后，可以使用Vim或者打开VS code进行markdown文件编写。
+3.2 本地预览自己的网站 完成前面的设置后
+hugo server -t xxx --buildDrafts # my example hugo server -t hello-friend-ng --buildDrafts note: xxx 是themes名 3.3 本地修改后同步到博客 # 启动hugo hugo -t 主题名 --baseUrl=&amp;quot;https://xxx(github user name)." />
+<meta name="keywords" content=", coding" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://kingchou007.github.io/posts/2021/06/%E7%94%A8hugo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" />
+
+
+    <title>
+        
+            用hugo建立个人网站 :: Hi, I am Kane Li 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://kingchou007.github.io/main.1b0c2a43eaa94aafc5b56185098d0d43797dccf963fa479c7a153b858461d09a.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://kingchou007.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://kingchou007.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://kingchou007.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://kingchou007.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://kingchou007.github.io/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://kingchou007.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="用hugo建立个人网站">
+<meta itemprop="description" content="1 环境设置（基于MacOS） 第一步：下载hugo brew install hugo, 需要提前下载好brew； 第二步：创建hugo website hugo new site test, test是文件夹名； 第三步：前往hugo官网选择主题，根据主题中的提示下载文件。
+2 编辑网站 在步骤一下载完hugo后会有许多文件夹，有几个文件或文件夹需要特别注意：
+# 管理网页内容 📂 contents - 📂 posts (步骤4.1创建) - 📂 about - 📂 xxxxx # 编辑文件 📃 config.toml 3 命令 3.1 创建文章 hugo new [posts]/文章名.md 创建文章后，可以使用Vim或者打开VS code进行markdown文件编写。
+3.2 本地预览自己的网站 完成前面的设置后
+hugo server -t xxx --buildDrafts # my example hugo server -t hello-friend-ng --buildDrafts note: xxx 是themes名 3.3 本地修改后同步到博客 # 启动hugo hugo -t 主题名 --baseUrl=&quot;https://xxx(github user name)."><meta itemprop="datePublished" content="2021-06-27T22:06:35&#43;08:00" />
+<meta itemprop="dateModified" content="2021-06-27T22:06:35&#43;08:00" />
+<meta itemprop="wordCount" content="117"><meta itemprop="image" content="https://kingchou007.github.io/"/>
+<meta itemprop="keywords" content="coding," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://kingchou007.github.io/"/>
+
+<meta name="twitter:title" content="用hugo建立个人网站"/>
+<meta name="twitter:description" content="1 环境设置（基于MacOS） 第一步：下载hugo brew install hugo, 需要提前下载好brew； 第二步：创建hugo website hugo new site test, test是文件夹名； 第三步：前往hugo官网选择主题，根据主题中的提示下载文件。
+2 编辑网站 在步骤一下载完hugo后会有许多文件夹，有几个文件或文件夹需要特别注意：
+# 管理网页内容 📂 contents - 📂 posts (步骤4.1创建) - 📂 about - 📂 xxxxx # 编辑文件 📃 config.toml 3 命令 3.1 创建文章 hugo new [posts]/文章名.md 创建文章后，可以使用Vim或者打开VS code进行markdown文件编写。
+3.2 本地预览自己的网站 完成前面的设置后
+hugo server -t xxx --buildDrafts # my example hugo server -t hello-friend-ng --buildDrafts note: xxx 是themes名 3.3 本地修改后同步到博客 # 启动hugo hugo -t 主题名 --baseUrl=&quot;https://xxx(github user name)."/>
+
+
+
+
+    <meta property="og:title" content="用hugo建立个人网站" />
+<meta property="og:description" content="1 环境设置（基于MacOS） 第一步：下载hugo brew install hugo, 需要提前下载好brew； 第二步：创建hugo website hugo new site test, test是文件夹名； 第三步：前往hugo官网选择主题，根据主题中的提示下载文件。
+2 编辑网站 在步骤一下载完hugo后会有许多文件夹，有几个文件或文件夹需要特别注意：
+# 管理网页内容 📂 contents - 📂 posts (步骤4.1创建) - 📂 about - 📂 xxxxx # 编辑文件 📃 config.toml 3 命令 3.1 创建文章 hugo new [posts]/文章名.md 创建文章后，可以使用Vim或者打开VS code进行markdown文件编写。
+3.2 本地预览自己的网站 完成前面的设置后
+hugo server -t xxx --buildDrafts # my example hugo server -t hello-friend-ng --buildDrafts note: xxx 是themes名 3.3 本地修改后同步到博客 # 启动hugo hugo -t 主题名 --baseUrl=&quot;https://xxx(github user name)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kingchou007.github.io/posts/2021/06/%E7%94%A8hugo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" /><meta property="og:image" content="https://kingchou007.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-27T22:06:35&#43;08:00" />
+<meta property="article:modified_time" content="2021-06-27T22:06:35&#43;08:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2021-06-27 22:06:35 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://kingchou007.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://kingchou007.github.io/about/">About</a></li><li><a href="https://kingchou007.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        One minute
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://kingchou007.github.io/posts/2021/06/%E7%94%A8hugo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/">用hugo建立个人网站</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <h2 id="1-环境设置基于macos">1 环境设置（基于MacOS）</h2>
+<p>第一步：下载hugo <code>brew install hugo</code>, 需要提前下载好brew；
+第二步：创建hugo website <code>hugo new site test</code>, test是文件夹名；
+第三步：前往hugo官网选择<a href="https://themes.gohugo.io/">主题</a>，根据主题中的提示下载文件。</p>
+<!-- raw HTML omitted -->
+<h2 id="2-编辑网站">2 编辑网站</h2>
+<p>在步骤一下载完hugo后会有许多文件夹，有几个文件或文件夹需要特别注意：</p>
+<pre><code># 管理网页内容
+📂 contents
+- 📂 posts (步骤4.1创建)
+- 📂 about
+- 📂 xxxxx
+
+# 编辑文件
+📃 config.toml
+</code></pre><h2 id="3-命令">3 命令</h2>
+<h4 id="31-创建文章">3.1 创建文章</h4>
+<pre><code>hugo new [posts]/文章名.md
+</code></pre><p>创建文章后，可以使用Vim或者打开VS code进行markdown文件编写。</p>
+<h4 id="32-本地预览自己的网站">3.2 本地预览自己的网站</h4>
+<p>完成前面的设置后</p>
+<pre><code>hugo server -t xxx --buildDrafts
+# my example
+hugo server -t hello-friend-ng --buildDrafts
+note: xxx 是themes名
+</code></pre><h4 id="33-本地修改后同步到博客">3.3 本地修改后同步到博客</h4>
+<pre><code># 启动hugo
+hugo -t 主题名 --baseUrl=&quot;https://xxx(github user name).github.io/&quot; --buildDrafts
+# my example
+hugo -t hello-friend-ng --baseUrl=&quot;https://kingchou007.github.io/&quot; --buildDrafts
+
+# 移动到public文件夹
+cd public
+
+# 添加并上传
+git add - A 
+git commit -m &quot;修改的内容&quot;
+git push origin master
+</code></pre><p>后面有时间补充&hellip;</p>
+<hr>
+<p>###我的常用命令</p>
+<pre><code># 预览
+hugo server -t hello-friend-ng --buildDrafts
+# 更新
+hugo -t hello-friend-ng --baseUrl=&quot;https://kingchou007.github.io/&quot; --buildDrafts
+</code></pre>
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kingchou007.github.io/tags/coding/">coding</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        117 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-06-27 22:06
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://kingchou007.github.io/">Kane Li</a></span>
+            
+            
+            
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://kingchou007.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+
+
+
+    </body>
+</html>

@@ -6,7 +6,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-        <lastBuildDate>Sun, 27 Jun 2021 16:29:28 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 27 Jun 2021 22:06:35 +0800</lastBuildDate>
         <atom:link href="https://kingchou007.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
@@ -19,6 +19,65 @@
             <content type="html"><![CDATA[<h2 id="brand-new-personal-web">Brand new personal web</h2>
 <p>Hi, this is my blog 3.0~</p>
 ]]></content>
+        </item>
+        
+        <item>
+            <title>用hugo建立个人网站</title>
+            <link>https://kingchou007.github.io/posts/2021/06/%E7%94%A8hugo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/</link>
+            <pubDate>Sun, 27 Jun 2021 22:06:35 +0800</pubDate>
+            
+            <guid>https://kingchou007.github.io/posts/2021/06/%E7%94%A8hugo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/</guid>
+            <description>1 环境设置（基于MacOS） 第一步：下载hugo brew install hugo, 需要提前下载好brew； 第二步：创建hugo website hugo new site test, test是文件夹名； 第三步：前往hugo官网选择主题，根据主题中的提示下载文件。
+2 编辑网站 在步骤一下载完hugo后会有许多文件夹，有几个文件或文件夹需要特别注意：
+# 管理网页内容 📂 contents - 📂 posts (步骤4.1创建) - 📂 about - 📂 xxxxx # 编辑文件 📃 config.toml 3 命令 3.1 创建文章 hugo new [posts]/文章名.md 创建文章后，可以使用Vim或者打开VS code进行markdown文件编写。
+3.2 本地预览自己的网站 完成前面的设置后
+hugo server -t xxx --buildDrafts # my example hugo server -t hello-friend-ng --buildDrafts note: xxx 是themes名 3.3 本地修改后同步到博客 # 启动hugo hugo -t 主题名 --baseUrl=&amp;quot;https://xxx(github user name).</description>
+            <content type="html"><![CDATA[<h2 id="1-环境设置基于macos">1 环境设置（基于MacOS）</h2>
+<p>第一步：下载hugo <code>brew install hugo</code>, 需要提前下载好brew；
+第二步：创建hugo website <code>hugo new site test</code>, test是文件夹名；
+第三步：前往hugo官网选择<a href="https://themes.gohugo.io/">主题</a>，根据主题中的提示下载文件。</p>
+<!-- raw HTML omitted -->
+<h2 id="2-编辑网站">2 编辑网站</h2>
+<p>在步骤一下载完hugo后会有许多文件夹，有几个文件或文件夹需要特别注意：</p>
+<pre><code># 管理网页内容
+📂 contents
+- 📂 posts (步骤4.1创建)
+- 📂 about
+- 📂 xxxxx
+
+# 编辑文件
+📃 config.toml
+</code></pre><h2 id="3-命令">3 命令</h2>
+<h4 id="31-创建文章">3.1 创建文章</h4>
+<pre><code>hugo new [posts]/文章名.md
+</code></pre><p>创建文章后，可以使用Vim或者打开VS code进行markdown文件编写。</p>
+<h4 id="32-本地预览自己的网站">3.2 本地预览自己的网站</h4>
+<p>完成前面的设置后</p>
+<pre><code>hugo server -t xxx --buildDrafts
+# my example
+hugo server -t hello-friend-ng --buildDrafts
+note: xxx 是themes名
+</code></pre><h4 id="33-本地修改后同步到博客">3.3 本地修改后同步到博客</h4>
+<pre><code># 启动hugo
+hugo -t 主题名 --baseUrl=&quot;https://xxx(github user name).github.io/&quot; --buildDrafts
+# my example
+hugo -t hello-friend-ng --baseUrl=&quot;https://kingchou007.github.io/&quot; --buildDrafts
+
+# 移动到public文件夹
+cd public
+
+# 添加并上传
+git add - A 
+git commit -m &quot;修改的内容&quot;
+git push origin master
+</code></pre><p>后面有时间补充&hellip;</p>
+<hr>
+<p>###我的常用命令</p>
+<pre><code># 预览
+hugo server -t hello-friend-ng --buildDrafts
+# 更新
+hugo -t hello-friend-ng --baseUrl=&quot;https://kingchou007.github.io/&quot; --buildDrafts
+</code></pre>]]></content>
         </item>
         
     </channel>
