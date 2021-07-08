@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Kane Li ">
+<meta name="description" content="1. 冒泡排序（Bubble Sort） 重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。
+比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+def bubbleSort(arr): for i in range(1, len(arr)): for j in range(0, len(arr)-i): if arr[j] &amp;gt; arr[j&#43;1]: arr[j], arr[j &#43; 1] = arr[j &#43; 1], arr[j] return arr 2. 选择排序 (Selection Sort) 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。 重复第二步，直到所有元素均排序完毕。 选择排序是一种简单直观的排序算法，无论什么数据进去都是 O(n²) 的时间复杂度。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。
+def selectionSort(arr): for i in range(len(arr) - 1): # 记录最小数的索引 minIndex = i for j in range(i &#43; 1, len(arr)): if arr[j] &amp;lt; arr[minIndex]: minIndex = j # i 不是最小数时，将 i 和最小数进行交换 if i !" />
+<meta name="keywords" content=", algorithm" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://kingchou007.github.io/posts/2021/06/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" />
+
+
+    <title>
+        
+            十大排序算法 :: Hi, I am Kane Li 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://kingchou007.github.io/main.1b0c2a43eaa94aafc5b56185098d0d43797dccf963fa479c7a153b858461d09a.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://kingchou007.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://kingchou007.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://kingchou007.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://kingchou007.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://kingchou007.github.io/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://kingchou007.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="十大排序算法">
+<meta itemprop="description" content="1. 冒泡排序（Bubble Sort） 重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。
+比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+def bubbleSort(arr): for i in range(1, len(arr)): for j in range(0, len(arr)-i): if arr[j] &gt; arr[j&#43;1]: arr[j], arr[j &#43; 1] = arr[j &#43; 1], arr[j] return arr 2. 选择排序 (Selection Sort) 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。 重复第二步，直到所有元素均排序完毕。 选择排序是一种简单直观的排序算法，无论什么数据进去都是 O(n²) 的时间复杂度。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。
+def selectionSort(arr): for i in range(len(arr) - 1): # 记录最小数的索引 minIndex = i for j in range(i &#43; 1, len(arr)): if arr[j] &lt; arr[minIndex]: minIndex = j # i 不是最小数时，将 i 和最小数进行交换 if i !"><meta itemprop="datePublished" content="2021-06-30T14:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2021-06-30T14:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="169"><meta itemprop="image" content="https://kingchou007.github.io/"/>
+<meta itemprop="keywords" content="algorithm," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://kingchou007.github.io/"/>
+
+<meta name="twitter:title" content="十大排序算法"/>
+<meta name="twitter:description" content="1. 冒泡排序（Bubble Sort） 重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。
+比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+def bubbleSort(arr): for i in range(1, len(arr)): for j in range(0, len(arr)-i): if arr[j] &gt; arr[j&#43;1]: arr[j], arr[j &#43; 1] = arr[j &#43; 1], arr[j] return arr 2. 选择排序 (Selection Sort) 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。 重复第二步，直到所有元素均排序完毕。 选择排序是一种简单直观的排序算法，无论什么数据进去都是 O(n²) 的时间复杂度。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。
+def selectionSort(arr): for i in range(len(arr) - 1): # 记录最小数的索引 minIndex = i for j in range(i &#43; 1, len(arr)): if arr[j] &lt; arr[minIndex]: minIndex = j # i 不是最小数时，将 i 和最小数进行交换 if i !"/>
+
+
+
+
+    <meta property="og:title" content="十大排序算法" />
+<meta property="og:description" content="1. 冒泡排序（Bubble Sort） 重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。
+比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+def bubbleSort(arr): for i in range(1, len(arr)): for j in range(0, len(arr)-i): if arr[j] &gt; arr[j&#43;1]: arr[j], arr[j &#43; 1] = arr[j &#43; 1], arr[j] return arr 2. 选择排序 (Selection Sort) 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。 重复第二步，直到所有元素均排序完毕。 选择排序是一种简单直观的排序算法，无论什么数据进去都是 O(n²) 的时间复杂度。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。
+def selectionSort(arr): for i in range(len(arr) - 1): # 记录最小数的索引 minIndex = i for j in range(i &#43; 1, len(arr)): if arr[j] &lt; arr[minIndex]: minIndex = j # i 不是最小数时，将 i 和最小数进行交换 if i !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kingchou007.github.io/posts/2021/06/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" /><meta property="og:image" content="https://kingchou007.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-30T14:00:00&#43;08:00" />
+<meta property="article:modified_time" content="2021-06-30T14:00:00&#43;08:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2021-06-30 14:00:00 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+        <link rel="shortcut icon" href="https://kingchou007.github.io/static/img/favicon.ico" type="image/x-icon" />
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://kingchou007.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://kingchou007.github.io/about/">About</a></li><li><a href="https://kingchou007.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        One minute
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://kingchou007.github.io/posts/2021/06/%E5%8D%81%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">十大排序算法</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <h2 id="1-冒泡排序bubble-sort">1. 冒泡排序（Bubble Sort）</h2>
+<p>重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。</p>
+<p>比较相邻的元素。如果第一个比第二个大，就交换他们两个。对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
+<pre><code>def bubbleSort(arr):
+    for i in range(1, len(arr)):
+        for j in range(0, len(arr)-i):
+            if arr[j] &gt; arr[j+1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+</code></pre><h2 id="2-选择排序-selection-sort">2. 选择排序 (Selection Sort)</h2>
+<p>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。
+再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
+重复第二步，直到所有元素均排序完毕。
+选择排序是一种简单直观的排序算法，无论什么数据进去都是 O(n²) 的时间复杂度。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。</p>
+<pre><code>def selectionSort(arr):
+    for i in range(len(arr) - 1):
+        # 记录最小数的索引
+        minIndex = i
+        for j in range(i + 1, len(arr)):
+            if arr[j] &lt; arr[minIndex]:
+                minIndex = j
+        # i 不是最小数时，将 i 和最小数进行交换
+        if i != minIndex:
+            arr[i], arr[minIndex] = arr[minIndex], arr[i]
+    return arr
+</code></pre><h2 id="3-插入排序insertion-sort">3. 插入排序(Insertion Sort)</h2>
+<p>将第一待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。</p>
+<p>从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。）</p>
+<p>类似扑克牌，可以做相关的理解。插入排序是一种最简单直观的排序算法，它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。</p>
+<p>插入排序和冒泡排序一样，也有一种优化算法，叫做拆半插入。</p>
+<pre><code>def insertionSort(arr):
+    for i in range(len(arr)):
+        preIndex = i-1
+        current = arr[i]
+        while preIndex &gt;= 0 and arr[preIndex] &gt; current:
+            arr[preIndex+1] = arr[preIndex]
+            preIndex-=1
+        arr[preIndex+1] = current
+    return arr
+</code></pre><h2 id="4-希尔排序-整理中">4. 希尔排序 (整理中)</h2>
+<pre><code>def shellSort(arr):
+    import math
+    gap=1
+    while(gap &lt; len(arr)/3):
+        gap = gap*3+1
+    while gap &gt; 0:
+        for i in range(gap,len(arr)):
+            temp = arr[i]
+            j = i-gap
+            while j &gt;=0 and arr[j] &gt; temp:
+                arr[j+gap]=arr[j]
+                j-=gap
+            arr[j+gap] = temp
+        gap = math.floor(gap/3)
+    return arr
+</code></pre><h2 id="5-归并排序merge-sort">5. 归并排序（Merge Sort）</h2>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kingchou007.github.io/tags/algorithm/">algorithm</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        169 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-06-30 14:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://kingchou007.github.io/">Kane Li</a></span>
+            
+            
+            
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://kingchou007.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+
+
+
+    </body>
+</html>
