@@ -110,18 +110,22 @@ h2 {
 }
 
 .one {
-  width: 160px;
-  height: 160px;
+  width: 213px;
+  height: 120px;
   position: relative;
 }
 
 .two {
-  width: 160px;
-  /* height: 80px; */
+  width: 213px;
+  height: 120px;
   position: absolute;
   transition: opacity .2s ease-in-out;
   -moz-transition: opacity .2s ease-in-out;
   -webkit-transition: opacity .2s ease-in-out;
+}
+
+a {
+  color: inherit;
 }
 
 .fade {
