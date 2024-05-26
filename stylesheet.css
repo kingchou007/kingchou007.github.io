@@ -137,3 +137,19 @@ a {
 span.highlight {
   background-color: #ffffd0;
 }
+
+/* 初始状态下，显示图像，隐藏视频 */
+#videoElement {
+  display: none;
+}
+#imageElement {
+  display: block;
+}
+
+/* 当鼠标悬停在父容器上时，显示视频，隐藏图像 */
+.two:hover #videoElement {
+  display: block;
+}
+.two:hover #imageElement {
+  display: none;
+}
