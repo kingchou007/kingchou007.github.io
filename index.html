@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
   </head>
 
@@ -33,16 +34,26 @@
                   <span style="color: red;"><strong>I am actively seeking PhD opportunities in Robotics for Fall 2025</strong></span>
                 </p> -->
 
-                <p style="text-align:center">
-                  <a href="mailto:jl3485@cornell.edu">Email</a> &nbsp;/&nbsp;
-                  <!-- <a href="data/JonBarron-CV.pdf">CV</a> &nbsp;/&nbsp; -->
-                  <!-- <a href="data/JonBarron-bio.txt">Bio</a> &nbsp;/&nbsp; -->
+                <!-- <p style="text-align:center"> -->
+                  <!-- <a href="mailto:jl3485@cornell.edu">Email</a> &nbsp;/&nbsp;
                   <a href="https://scholar.google.com/citations?hl=en&user=s93qhQ8AAAAJ&view_op=list_works&gmla=ALUCkoULW3A8ak9Na_u8MI9Nx5sErARQT7FtnsRH10ckMTE2voJDzNCXRmtuNJrkjOri_Xzh0UUjws12qYWhLgMJ">Scholar</a> &nbsp;/&nbsp;
-                  <!-- <a href="https://twitter.com/Kingchou007Li">Twitter</a> &nbsp;/&nbsp; -->
-                  <a href="https://github.com/kingchou007">Github</a> &nbsp;/&nbsp;
-                  <a href="data/wechat.pdf">WeChat</a>
+
+                  <a href="https://twitter.com/Kingchou007Li"><i class="fab fa-twitter"></i> Twitter</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/kingchou007"><i class="fab fa-github"></i></a> &nbsp;/&nbsp;
+                  <a href="https://kingchou007.github.io/"><i class="far fa-file-alt"></i> CV</a> &nbsp;/&nbsp;
+                  <a href="https://kingchou007.github.io/"><i class="fab fa-x-twitter"></i> X</a> &nbsp;/&nbsp;
+                  <a href="data/wechat.pdf"><i class="fab fa-weixin"></i> WeChat</a>
+                   -->
                   <!-- <a href="https://www.linkedin.com/in/jinzhou-l-78001212a/">Linkedin</a> -->
-                </p>
+                <!-- </p> -->
+                <div class="social-links">
+                  <a href="mailto:jl3485@cornell.edu" title="Email"><i class="fas fa-envelope"></i></a>
+                  <a href="https://scholar.google.com/citations?hl=en&user=s93qhQ8AAAAJ&view_op=list_works&gmla=ALUCkoULW3A8ak9Na_u8MI9Nx5sErARQT7FtnsRH10ckMTE2voJDzNCXRmtuNJrkjOri_Xzh0UUjws12qYWhLgMJ" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                  <a href="https://twitter.com/Kingchou007Li" title="X"><i class="fab fa-twitter"></i></a>
+                  <a href="https://github.com/kingchou007" title="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="https://kingchou007.github.io/" title="CV"><i class="far fa-file-alt"></i></a>
+                  <a href="data/wechat.pdf" title="WeChat"><i class="fab fa-weixin"></i></a>
+                </div>
               </td>
               <td style="padding:2.5%;width:30%;max-width:30%">
                 <!-- <a href=""><img style="width:100%;max-width:100%;object-fit: cover;border-radius:0%;" alt="profile photo" src="images/jz_profile.png" class="hoverZoomLink"></a> -->
@@ -55,34 +66,65 @@
 
 
         <!-- News -->
-        </table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tbody>
+            <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>News</h2>
-                <ul>
+                <h2 class="news-heading">News</h2>
+                <ul id="newsList">
                   <li>
-                    <p>[2024.05] Our paper on <a href="https://arxiv.org/abs/2403.05478">HGIC</a> was accepted to IEEE RO-MAN 2024</a>!</p>
-                </li>
-                    <li>
-                        <p>[2024.02] I recently began my journey as a Visiting Research Student at PKU-Agibot Lab</p>
-                    </li>
-                    <li>
-                        <p>[2023.12] Just wrapped up an amazing chapter at Cornell University🎓!</p>
-                    </li>
-  
+                    <p><span class="news-date">[2024.05]</span> Our paper on <a href="https://arxiv.org/abs/2403.05478">HGIC</a> was accepted to IEEE RO-MAN 2024!</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2024.02]</span> I recently began my journey as a Visiting Research Student at PKU-Agibot Lab</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2023.12]</span> Just wrapped up an amazing chapter at Cornell University🎓!</p>
+                  </li>
+                  <!-- More news items will be added here -->
                 </ul>
-
+                <a href="#" id="expandNews" class="expand-link">Show more</a>
               </td>
             </tr>
-          </tbody></table>
-
+          </tbody>
+        </table>
+        
+        <script>
+          const newsList = document.getElementById('newsList');
+          const expandLink = document.getElementById('expandNews');
+          const newsItems = newsList.getElementsByTagName('li');
+          const initialDisplay = 2;
+          let isExpanded = false;
+        
+          function toggleNews() {
+            for (let i = initialDisplay; i < newsItems.length; i++) {
+              newsItems[i].classList.toggle('hidden');
+            }
+            isExpanded = !isExpanded;
+            expandLink.textContent = isExpanded ? 'Show less' : 'Show more';
+          }
+        
+          // Initial setup
+          if (newsItems.length > initialDisplay) {
+            for (let i = initialDisplay; i < newsItems.length; i++) {
+              newsItems[i].classList.add('hidden');
+            }
+            expandLink.style.display = 'inline-block';
+          } else {
+            expandLink.style.display = 'none';
+          }
+        
+          expandLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleNews();
+          });
+        </script>
 
     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
   
   <!-- research -->
-  </table>
+
     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
         <tr>
         <td style="padding:20px;width:100%;vertical-align:middle">
@@ -275,11 +317,11 @@
      <a href="https://www.linkedin.com/in/jackieyao1999/">Jianyi(Jackie) Yao</a>, <strong>Jinzhou Li</strong>
     
         <br>
-        <em>ECE 6680 Final Project</em>
+        <em>ECE 6680 Final Project, 2023</em>
         <br>
         advisor: <a href="https://www.ece.cornell.edu/faculty-directory/kirstin-hagelskjaer-petersen">Kirstin Hagelskjaer Petersen</a>
         <br>
-        <p>We delves into the dynamics of human-robot interaction within the context of swarm robotics, focusing on the challenges and potential of integrating multiple human operators with swarm robotics systems.</p>
+        <p>We focus on the challenges and potential of integrating multiple human operators with swarm robotics systems.</p>
       </td>
       </tr>
 

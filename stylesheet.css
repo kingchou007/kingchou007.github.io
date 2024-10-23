@@ -138,3 +138,140 @@ span.highlight {
   background-color: #ffffd0;
 }
 
+/* social media icon */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.social-links a {
+  color: #555;
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Optional: Add subtle tooltips */
+.social-links a::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.social-links a:hover::after {
+  opacity: 1;
+}
+
+/* Specific colors for each icon */
+/* .social-links a[title="Email"] { color: #D44638; } */
+.social-links a[title="Google Scholar"] { color: #4285F4; }
+.social-links a[title="X"] { color: #23ace7; }
+.social-links a[title="GitHub"] { color: #181717; }
+/* .social-links a[title="CV"] { color: #00A98F; } */
+.social-links a[title="WeChat"] { color: #7BB32E; }
+
+.news {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.news h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.news ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.news li {
+  margin-bottom: 15px;
+}
+
+.news p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.news strong {
+  color: #0066cc;
+}
+
+.news a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.news a:hover {
+  text-decoration: underline;
+}
+
+/* news */
+.news-heading {
+  margin-bottom: 20px; /* Maintain normal spacing after the heading */
+}
+
+#newsList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#newsList li {
+  margin-bottom: 8px; /* Reduced spacing between news items */
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, margin 0.3s ease-out;
+  max-height: 50px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+#newsList li:last-child {
+  margin-bottom: 0;
+}
+
+#newsList li p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+#newsList li.hidden {
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
+}
+
+.expand-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.expand-link:hover {
+  color: #004080;
+  text-decoration: underline;
+}
