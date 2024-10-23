@@ -40,3 +40,77 @@ table {
     color: #0066cc;
     font-weight: 600;
   }
+
+
+/* image logo */
+
+
+
+  /* phone */
+  /* Mobile-specific styles */
+/* @media only screen and (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+  
+    table, tr, td {
+      display: block;
+      width: 100% !important;
+      padding: 10px !important;
+    }
+  
+    td {
+      text-align: center;
+    }
+  
+    .name {
+      font-size: 24px;
+    }
+  
+    img {
+      max-width: 80% !important;
+      height: auto !important;
+      margin: 0 auto;
+      display: block;
+    }
+  
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+  
+    .social-links a {
+      font-size: 20px;
+    }
+  
+    h2 {
+      font-size: 20px;
+      text-align: center;
+    }
+  
+    .papertitle {
+      font-size: 16px;
+    }
+  
+    ul {
+      padding-left: 20px;
+    }
+  
+    #newsList li p {
+      text-align: left;
+    }
+  
+    .expand-link {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+    }
+  
+    /* Adjust project layout */
+    .one, .two {
+      width: 100% !important;
+      margin-bottom: 15px;
+    }
+  } */
