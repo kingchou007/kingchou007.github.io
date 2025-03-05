@@ -53,26 +53,40 @@
               td {
                 display: block;
                 width: 100% !important;
-                padding: 10px 20px !important;
+                padding: 15px !important;
               }
               .name {
-                font-size: 24px !important;
-                margin-top: 10px;
+                font-size: 28px !important;
+                margin: 15px 0;
+                text-align: center;
               }
               p {
-                font-size: 14px !important;
+                font-size: 16px !important;
+                line-height: 1.6;
+                margin: 12px 0;
               }
               .social-links {
                 text-align: center;
-                margin: 15px 0;
+                margin: 20px 0;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
               }
               .social-links a {
-                margin: 0 10px;
+                font-size: 20px;
+                color: #555;
+                transition: color 0.3s ease;
+              }
+              .social-links a:hover {
+                color: #0366d6;
               }
               img.hoverZoomLink {
-                width: 60% !important;
-                margin: 0 auto;
+                width: 90% !important;
+                max-width: 400px !important;
+                margin: 15px auto;
                 display: block;
+                border-radius: 8px;
               }
             }
           </style>
@@ -311,8 +325,8 @@
           <br>
       <strong>Jinzhou Li</strong>*,
       <a href="https://tianhaowuhz.github.io/">Tianhao Wu</a>*,
-      <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
-      <a href="https://github.com/chenzyn">Zeyuan Chen</a>, 
+      <a href="https://jiyao06.github.io/">Jiyao Zhang</a>**, 
+      <a href="https://github.com/chenzyn">Zeyuan Chen</a>**, 
       <a href="">Haotian Jin</a>, 
       <a href="https://aaronanima.github.io/">Mingdong Wu</a>,
       <a href="https://shenyujun.github.io/">Yujun Shen</a>,
@@ -615,198 +629,6 @@
       });
     </script>
 
-
-    <!-- <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr>
-      <td style="padding:20px;width:100%;vertical-align:middle">
-        <h2>Robotics Project</h2>
-      </td>
-    </tr>
-  </tbody></table>
-
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr onmouseout="smerf_stop()" onmouseover="smerf_start()">
-      <td style="padding:10px; width:20%;vertical-align:text-top">
-        <div class="one">
-          <div class="two" id='smerf_image'><video  width=100% muted autoplay loop>
-          <source src="" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/real-dex-tactile.png' width=100%>
-        </div>
-        <script type="text/javascript">
-          function smerf_start() {
-            document.getElementById('smerf_image').style.opacity = "1";
-          }
-
-          function smerf_stop() {
-            document.getElementById('smerf_image').style.opacity = "0";
-          }
-          smerf_stop()
-        </script>
-      </td>
-      <td style="padding:10px;width:80%;vertical-align:middle">
-          <span class="papertitle">Multi-Fingered Hand with Integrated Tactile Sensors</span>
-        <br>
-        <br>
-        <a href="https://github.com/0nhc"> Zhengxiao Han</a>, <strong>Jinzhou Li</strong>
-        <p>We redesigned the dexterous hand based on the <a href="https://leaphand.com/">Leap Hand</a>, enabling it to be equipped with tactile sensors. Special credits to <strong><em><a href="https://scholar.google.com/citations?user=9vwMTB8AAAAJ">Zhengxiao</a>!!!</em></strong></p>
-        <br>
-        <br>
-        <br>
-      </td>
-    </tr>
-  </tbody></table>
-
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr onmouseout="smerf_stop()" onmouseover="smerf_start()">
-      <td style="padding:10px; width:20%;vertical-align:text-top">
-        <div class="one">
-          <div class="two" id='smerf_image'><video  width=107% muted autoplay loop>
-          <source src="" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/mri.png' width=100%>
-        </div>
-        <script type="text/javascript">
-          function smerf_start() {
-            document.getElementById('smerf_image').style.opacity = "1";
-          }
-
-          function smerf_stop() {
-            document.getElementById('smerf_image').style.opacity = "0";
-          }
-          smerf_stop()
-        </script>
-      </td>
-      <td style="padding:10px;width:80%;vertical-align:middle">
-          <span class="papertitle">Multi-Operator Control and Human Response: Understanding the Diverse Emotional Reactions to Swarm Behavior</span>
-        <br>
-        <br>
-        <a href="https://www.linkedin.com/in/jackieyao1999/">Jianyi(Jackie) Yao</a>, <strong>Jinzhou Li</strong>
-        <br>
-        <em>ECE 6680 Final Project, 2023</em>
-        <br>
-        advisor: <a href="https://www.ece.cornell.edu/faculty-directory/kirstin-hagelskjaer-petersen">Kirstin Hagelskjaer Petersen</a>
-        <br>
-        <p>We focus on the challenges and potential of integrating multiple human operators with swarm robotics systems.</p>
-      </td>
-    </tr>
-
-    <tr onmouseout="smerf_stop()" onmouseover="smerf_start()">
-      <td style="padding:10px; width:20%;vertical-align:text-top">
-        <div class="one">
-          <div class="two" id='smerf_image'><video  width=107% muted autoplay loop>
-          <source src="" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/6754.png' width=100%>
-        </div>
-        <script type="text/javascript">
-          function smerf_start() {
-            document.getElementById('smerf_image').style.opacity = "1";
-          }
-
-          function smerf_stop() {
-            document.getElementById('smerf_image').style.opacity = "0";
-          }
-          smerf_stop()
-        </script>
-      </td>
-      <td style="padding:10px;width:80%;vertical-align:middle">
-          <span class="papertitle">Effects of Greeting Gesture on Robot Acceptance</span>
-        <br>
-        <br>
-        <strong>Jinzhou Li</strong>, <a href="https://www.linkedin.com/in/jiayuan-fu/">Jiayuan Fu</a>,
-        <a href="https://www.linkedin.com/in/yunting-yan-b00426238/">Yunting Yan</a>,
-        <a href="https://www.linkedin.com/in/yichen-guo-a80028232/">Yichen Guo </a>
-        <br>
-        <em>CS 6754 Final Project</em>
-        <br>
-        advisor: <a href="https://www.mae.cornell.edu/faculty-directory/guy-hoffman">Prof. Guy Hoffman</a>
-        <br>
-        Hardware: Hello Robot Stretch RE1
-        <br>
-        <p>We study how nuanced social behaviors in robotics impact acceptance. Politeness in robotic interactions is crucial in settings with social etiquette.</p>
-      </td>
-    </tr>
-  </tbody></table> -->
-
-  <!-- <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr>
-      <td style="padding:20px;width:100%;vertical-align:middle">
-        <h2>System Research</h2>
-      </td>
-    </tr>
-  </tbody></table>
-
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr onmouseout="smerf_stop()" onmouseover="smerf_start()">
-      <td style="padding:10px; width:20%;vertical-align:text-top">
-        <div class="one">
-          <div class="two" id='smerf_image'><video  width=107% muted autoplay loop>
-          <source src="" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/peral.png' width=100%>
-        </div>
-        <script type="text/javascript">
-          function smerf_start() {
-            document.getElementById('smerf_image').style.opacity = "1";
-          }
-
-          function smerf_stop() {
-            document.getElementById('smerf_image').style.opacity = "0";
-          }
-          smerf_stop()
-        </script>
-      </td>
-      <td style="padding:10px;width:80%;vertical-align:middle">
-        <a href="https://followpearl.mit.edu/">
-          <span class="papertitle">Hybrid Agent-Based Model and Discrete Event Simulation to Optimize AUV Fleet Operations</span>
-        </a>
-        <br>
-        <br>
-        <em>M.Eng Research Project</em>
-        <br>
-        advisor: <a href="https://www.mae.cornell.edu/faculty-directory/maha-haji">Prof. Maha Haji </a>
-        <br>
-        <p>Optimize the operations of a system of systems comprised of autonomous servicing platforms (PEARL), LEO satellite constellations, and autonomous underwater vehicles (AUVs).</p>
-      </td>
-    </tr>
-
-    <tr onmouseout="smerf_stop()" onmouseover="smerf_start()">
-      <td style="padding:10px; width:20%;vertical-align:text-top">
-        <div class="one">
-          <div class="two" id='smerf_image'><video  width=107% muted autoplay loop>
-          <source src="" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/sos.png' width=90%>
-        </div>
-        <script type="text/javascript">
-          function smerf_start() {
-            document.getElementById('smerf_image').style.opacity = "1";
-          }
-
-          function smerf_stop() {
-            document.getElementById('smerf_image').style.opacity = "0";
-          }
-          smerf_stop()
-        </script>
-      </td>
-      <td style="padding:10px;width:80%;vertical-align:middle">
-          <span class="papertitle">System of Systems Concept for Eﬀective Oceans to Near Space Observation</span>
-        <br>
-        <br>
-        <em>M.Eng Research Project</em>
-        <br>
-        advisor: <a href="https://www.mae.cornell.edu/faculty-directory/maha-haji">Prof. Maha Haji (Cornell) </a> & <a href="https://aeroastro.mit.edu/people/daniel-e-hastings/">Prof. Daniel Hastings (MIT)</a>
-        <br>
-        <p>Develop an agent-based model to ﬁnd the best dynamic combinations depending on the choice of objective function.</p>
-      </td>
-    </tr>
-  </tbody></table> -->
 
   <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
     <tr>
