@@ -17,34 +17,20 @@
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table style="width:100%;bo·rder:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
               <td style="padding:2.5%;width:63%;vertical-align:middle">
                 <p class="name" style="text-align: center;">
                   Jinzhou Li
                 </p>
-                <p>I’m a Visiting Research Student at the <a href="https://cfcs.pku.edu.cn/english/about_cfcs/introduction/index.htm">Center on Frontiers of Computing Studies (CFCS) </a> in the School of Computer Science at Peking University, supervised by <a href="https://zsdonghao.github.io">Prof. Hao Dong</a>. 
-                              </p>
-
-                <p>
-                  I completed my master's degree at <a href="https://www.cornell.edu">Cornell University</a>, where I was fortunate to be advised by <a href="https://www.mae.cornell.edu/faculty-directory/maha-haji">Prof. Maha Haji</a>. Additionally, I had the opportunity to work with <a href="https://aeroastro.mit.edu/people/daniel-e-hastings"> Prof. Daniel Hastings</a>. Prior to this, I studied Computer Science & Information Systems at the University of Vermont and Johns Hopkins University.
+                <p style="text-align: justify; line-height: 1.6; margin: 1em 0;">
+                  I'm a Visiting Research Student at the <a href="https://cfcs.pku.edu.cn/english/about_cfcs/introduction/index.htm" style="color: #0366d6; text-decoration: none;">Center on Frontiers of Computing Studies (CFCS)</a> in the School of Computer Science at Peking University, supervised by <a href="https://zsdonghao.github.io" style="color: #0366d6; text-decoration: none;">Prof. Hao Dong</a>. My research interests lie in robot learning and dexterous manipulation.
                 </p>
 
-                <!-- <p>
-                  <span style="color: red;"><strong>I am actively seeking PhD opportunities in Robotics for Fall 2025</strong></span>
-                </p> -->
-
-                <!-- <p style="text-align:center"> -->
-                  <!-- <a href="mailto:jl3485@cornell.edu">Email</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com/citations?hl=en&user=s93qhQ8AAAAJ&view_op=list_works&gmla=ALUCkoULW3A8ak9Na_u8MI9Nx5sErARQT7FtnsRH10ckMTE2voJDzNCXRmtuNJrkjOri_Xzh0UUjws12qYWhLgMJ">Scholar</a> &nbsp;/&nbsp;
-
-                  <a href="https://twitter.com/Kingchou007Li"><i class="fab fa-twitter"></i> Twitter</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/kingchou007"><i class="fab fa-github"></i></a> &nbsp;/&nbsp;
-                  <a href="https://kingchou007.github.io/"><i class="far fa-file-alt"></i> CV</a> &nbsp;/&nbsp;
-                  <a href="https://kingchou007.github.io/"><i class="fab fa-x-twitter"></i> X</a> &nbsp;/&nbsp;
-                  <a href="data/wechat.pdf"><i class="fab fa-weixin"></i> WeChat</a>
-                   -->
-                  
+                <p style="text-align: justify; line-height: 1.6; margin: 1em 0;">
+                  Previously, I received my Master's degree from <a href="https://www.cornell.edu" style="color: #0366d6; text-decoration: none;">Cornell University</a>, where I was advised by <a href="https://www.mae.cornell.edu/faculty-directory/maha-haji" style="color: #0366d6; text-decoration: none;">Prof. Maha Haji</a> and collaborated with <a href="https://aeroastro.mit.edu/people/daniel-e-hastings" style="color: #0366d6; text-decoration: none;">Prof. Daniel Hastings from MIT</a>. Prior to this, I studied Computer Science & Information Systems at the University of Vermont and Johns Hopkins University.
+                </p>
+          
                 <!-- </p> -->
                 <div class="social-links">
                   <a href="mailto:" title="Email"><i class="fas fa-envelope"></i></a>
@@ -57,46 +43,13 @@
                   <!-- <a href="data/wechat.pdf" title="WeChat"><i class="fab fa-weixin"></i></a> -->
                 </div>
               </td>
-              <td style="padding:2.5%;width:30%;max-width:30%">
-                <!-- <a href=""><img style="width:100%;max-width:100%;object-fit: cover;border-radius:0%;" alt="profile photo" src="images/jz_profile.png" class="hoverZoomLink"></a> -->
-
-                <a href=""><img style="width:80%; max-width:80%; object-fit: contain; object-position: center; border-radius:0%;" alt="profile photo" src="images/jz_big_pro.png" class="hoverZoomLink"></a>
-                <p class="image-caption" style="font-family: 'Georgia', sans-serif; font-size: 0.8em; color: #777; margin-top: 8px; font-style: italic; letter-spacing: 0.5px;">Photographed in Maryland, 2022</p>
+              <td style="padding:2.5%;width:25%;max-width:25%">
+                <a href=""><img style="width:100%; max-width:100%; object-fit: cover; object-position: center; border-radius:4px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);" alt="profile photo" src="images/jz_big_pro.png" class="hoverZoomLink"></a>
               </td>
             </tr>
           </tbody>
     
-        
-        <script>
-          const newsList = document.getElementById('newsList');
-          const expandLink = document.getElementById('expandNews');
-          const newsItems = newsList.getElementsByTagName('li');
-          const initialDisplay = 2;
-          let isExpanded = false;
-        
-          function toggleNews() {
-            for (let i = initialDisplay; i < newsItems.length; i++) {
-              newsItems[i].classList.toggle('hidden');
-            }
-            isExpanded = !isExpanded;
-            expandLink.textContent = isExpanded ? 'Show less' : 'Show more';
-          }
-        
-          // Initial setup
-          if (newsItems.length > initialDisplay) {
-            for (let i = initialDisplay; i < newsItems.length; i++) {
-              newsItems[i].classList.add('hidden');
-            }
-            expandLink.style.display = 'inline-block';
-          } else {
-            expandLink.style.display = 'none';
-          }
-        
-          expandLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            toggleNews();
-          });
-        </script>
+    
 
   <!-- research -->
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
