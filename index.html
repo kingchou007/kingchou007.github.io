@@ -28,7 +28,7 @@
                 </p>
 
                 <p style="text-align: justify; line-height: 1.6; margin: 1em 0;">
-                  Previously, I received my Master's degree from <a href="https://www.cornell.edu" style="color: #0366d6; text-decoration: none;">Cornell University</a>, where I was advised by <a href="https://www.mae.cornell.edu/faculty-directory/maha-haji" style="color: #0366d6; text-decoration: none;">Prof. Maha Haji</a> and collaborated with <a href="https://aeroastro.mit.edu/people/daniel-e-hastings" style="color: #0366d6; text-decoration: none;">Prof. Daniel Hastings</a> from MIT. Prior to this, I studied Computer Science at the University of Vermont. Feel free to reach out!</p>
+                  Previously, I received my Master's degree from <a href="https://www.cornell.edu" style="color: #0366d6; text-decoration: none;">Cornell University</a>, where I was advised by <a href="https://www.mae.cornell.edu/faculty-directory/maha-haji" style="color: #0366d6; text-decoration: none;">Prof. Maha Haji</a> and collaborated with <a href="https://aeroastro.mit.edu/people/daniel-e-hastings" style="color: #0366d6; text-decoration: none;">Prof. Daniel Hastings</a> from MIT. Prior to this, I studied Computer Science at the University of Vermont.</p>
           
                 <!-- </p> -->
                 <div class="social-links">
@@ -237,8 +237,8 @@
             }
 
             document.addEventListener('DOMContentLoaded', function() {
-              document.querySelector('.filter-btn[data-category="selected"]').classList.add('active');
-              filterProjects('selected');
+              document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
+              filterProjects('all');
             });
           </script>
         </td>
@@ -480,12 +480,12 @@
         });
       }
 
-      // Show selected projects by default
+      // Show all projects by default
       document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.project-item.selected').forEach(project => {
+        document.querySelectorAll('.project-item').forEach(project => {
           project.classList.add('show');
         });
-        document.querySelector('.filter-btn[data-category="selected"]').classList.add('active');
+        document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
       });
     </script>
 
