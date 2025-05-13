@@ -111,7 +111,7 @@
           <div class="filter-container" style="text-align:left;border-bottom:1px solid #ddd;padding:0 0 12px 0;margin-top:-5px;display:flex;flex-wrap:wrap;gap:10px;">
             <a href="#" onclick="filterProjects('all')" class="filter-btn" data-category="all" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">All</a>
             <a href="#" onclick="filterProjects('selected')" class="filter-btn" data-category="selected" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Dexterous Hand</a> 
-            <!-- <a href="#" onclick="filterProjects('dexterous')" class="filter-btn" data-category="dexterous" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Dexterous Hand</a> -->
+            <a href="#" onclick="filterProjects('Sim2Real')" class="filter-btn" data-category="Sim2Real" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Sim2Real</a>
             <!-- <a href="#" onclick="filterProjects('tactile')" class="filter-btn" data-category="tactile" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Tactile</a> -->
             <!-- <a href="#" onclick="filterProjects('RL')" class="filter-btn" data-category="RL" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">RL</a> -->
             <a href="#" onclick="filterProjects('HRI')" class="filter-btn" data-category="HRI" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">HRI</a>
@@ -183,12 +183,12 @@
               background-color: #4CAF50;
             }
 
-            .filter-btn[data-category="dexterous"].active {
-              color: #2196F3 !important;
+            .filter-btn[data-category="Sim2Real"].active {
+              color: #FF9800 !important;
               background-color: rgba(33, 150, 243, 0.1);
             }
-            .filter-btn[data-category="dexterous"].active::after {
-              background-color: #2196F3;
+            .filter-btn[data-category="Sim2Real"].active::after {
+              background-color: #FF9800;
             }
 
             .filter-btn[data-category="tactile"].active {
@@ -248,9 +248,156 @@
     </tbody></table>
 
     <!-- Research -->
+       <!-- twin align-->
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item Sim2Real">
+        <td style="padding:10px; width:20%;vertical-align:text-top">
+          <div class="one">
+            <div class="two" id='smerf_image'><video  width=100.5% muted autoplay loop>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+            </video></div>
+            <img src='images/twinaligner.png' width=100%>
+          </div>
+          <script type="text/javascript">
+            function smerf_start() {
+              document.getElementById('smerf_image').style.opacity = "1";
+            }
+  
+            function smerf_stop() {
+              document.getElementById('smerf_image').style.opacity = "0";
+            }
+            smerf_stop()
+          </script>
+        </td>
 
-    <!-- Sim2Real RL -->
-    <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+        <td style="padding:10px;width:80%;vertical-align:middle">
+            <span class="papertitle">TwinAligner: Visual and Physical Real2Sim2Real
+              All-in-one for Robotic Manipulation</span>
+          <br>
+          <br>
+      <a href="https://hwfan.io/about-me/">Hongwei Fan</a>*,
+      <a href="https://daihangpku.github.io/">Hang Dai</a>*,  
+      <a href="https://jiyao06.github.io/">Jiyao Zhang</a>*,  
+      <strong>Jinzhou Li</strong>,
+      <a href="https://qiyangyan.github.io/web/">Qiyang Yan</a>,
+      <a href="">Yujie Zhao</a>,
+      <a href="">Yuxuan Lai</a>,
+      <a href="https://ha0tang.github.io/"></a>Hao Tang</a>,
+      <a href="https://zsdonghao.github.io/">Hao Dong</a>
+      <br>
+          <em style="color: gray;">Preprint, 2025</em>
+          <br>
+          <em><a href="">arXiv</a></em>, <em><a href="">website</a></em>(Coming Soon!)
+
+          <p>We combine the strengths of real-world RL and real-to-sim-to-real approaches to accelerate policy learning.</p>
+          <br>
+          <br>
+        </td>
+      </tr>
+    </table>
+    
+     <!-- sim2real clutter -->
+     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item Sim2Real">
+        <td style="padding:10px; width:20%;vertical-align:text-top">
+          <div class="one">
+            <div class="two" id='smerf_image'><video  width=100.5% muted autoplay loop>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+            </video></div>
+            <img src='images/dexgrasp.png' width=100%> 
+          </div>
+          <script type="text/javascript">
+            function smerf_start() {
+              document.getElementById('smerf_image').style.opacity = "1";
+            }
+  
+            function smerf_stop() {
+              document.getElementById('smerf_image').style.opacity = "0";
+            }
+            smerf_stop()
+          </script>
+        </td>
+
+        <td style="padding:10px;width:80%;vertical-align:middle">
+            <span class="papertitle">ClutterDexGrasp: A Sim-to-Real System for General Dexterous Target Grasping in
+              Cluttered Scenes</span>
+          <br>
+          <br>
+      <a href="https://chenzyn.github.io/">Zeyuan Chen</a>*,
+      <a href="https://qiyangyan.github.io/web/">Qiyang Yan</a>*,  
+      <a href="https://cypypccpy.github.io/">Yuanpei Chen</a>*,  
+      <a href="https://tianhaowuhz.github.io/">Tianhao Wu</a>,  
+      <a href="https://jiyao06.github.io/">Jiyao Zhang</a>,
+      <a href="https://quantumiracle.github.io/webpage/">Zihan Ding</a>,
+      <strong>Jinzhou Li</strong>,
+      <a href="https://www.yangyaodong.com/">Yaodong Yang</a>,
+      <a href="https://zsdonghao.github.io/">Hao Dong</a>
+      <br>
+          <em style="color: gray;">Preprint, 2025</em>
+          <br>
+          <em><a href="">arXiv</a></em>, <em><a href="">website</a></em> (Coming Soon!)
+
+          <p>We propose the first close-loop sim-to-real system for general dexterous grasping in cluttered scenes.</p>
+          <br>
+          <br>
+        </td>
+      </tr>
+    </table>
+
+     <!-- AdapTac -->
+     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item dexterous tactile selected">
+        <td style="padding:10px; width:20%;vertical-align:text-top">
+          <div class="one">
+            <div class="two" id='smerf_image'><video  width=100.5% muted autoplay loop>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+            </video></div>
+            <img src='images/adpatac.png' width=100%>
+          </div>
+          <script type="text/javascript">
+            function smerf_start() {
+              document.getElementById('smerf_image').style.opacity = "1";
+            }
+  
+            function smerf_stop() {
+              document.getElementById('smerf_image').style.opacity = "0";
+            }
+            smerf_stop()
+          </script>
+        </td>
+        <td style="padding:10px;width:80%;vertical-align:middle">
+            <span class="papertitle">Adaptive Visual-Tactile Fusion with Predictive Force Attention for Dexterous Manipulation</span>
+          <br>
+          <br>
+      <strong>Jinzhou Li</strong>*,
+      <a href="https://tianhaowuhz.github.io/">Tianhao Wu</a>*,
+      <a href="https://jiyao06.github.io/">Jiyao Zhang</a>**, 
+      <a href="https://github.com/chenzyn">Zeyuan Chen</a>**, 
+      <a href="">Haotian Jin</a>, 
+      <a href="https://aaronanima.github.io/">Mingdong Wu</a>,
+      <a href="https://shenyujun.github.io/">Yujun Shen</a>,
+      <a href="https://www.yangyaodong.com/">Yaodong Yang</a>,
+      <a href="https://zsdonghao.github.io/">Hao Dong</a>
+      <br>
+          <em style="color: gray;">Preprint, 2025</em>
+          <br>
+          <em><a href="https://adaptac-dex.github.io/">arXiv</a></em>, 
+          <em><a href="https://adaptac-dex.github.io/">website</a></em>,
+          <em><a href="https://adaptac-dex.github.io/">code</a></em>
+
+          <p>A future force-guided attention fusion module that adaptively adjusts the weights of visual and tactile features.</p>
+          <br>
+          <br>
+        </td>
+      </tr>
+    </table>
+  
+
+    <!-- sim launcher -->
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item RL">
         <td style="padding:10px; width:20%;vertical-align:text-top">
           <div class="one">
@@ -289,7 +436,7 @@
       <a href="https://cypypccpy.github.io/">Yuanpei Chen</a>,
       <a href="https://zsdonghao.github.io/">Hao Dong</a>
       <br>
-          <em style="color: gray;">Preprint</em>
+          <em style="color: gray;">Preprint, 2025</em>
           <br>
           <em><a href="">arXiv</a></em>, <em><a href="">website</a></em>
 
@@ -299,56 +446,9 @@
         </td>
       </tr>
     </table>
-     -->
 
-    <!-- AdapTac -->
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item dexterous tactile selected">
-        <td style="padding:10px; width:20%;vertical-align:text-top">
-          <div class="one">
-            <div class="two" id='smerf_image'><video  width=100.5% muted autoplay loop>
-            <source src="" type="video/mp4">
-            Your browser does not support the video tag.
-            </video></div>
-            <img src='images/adpatac.png' width=100%>
-          </div>
-          <script type="text/javascript">
-            function smerf_start() {
-              document.getElementById('smerf_image').style.opacity = "1";
-            }
-  
-            function smerf_stop() {
-              document.getElementById('smerf_image').style.opacity = "0";
-            }
-            smerf_stop()
-          </script>
-        </td>
-        <td style="padding:10px;width:80%;vertical-align:middle">
-            <span class="papertitle">Adaptive Visual-Tactile Fusion with Predictive Force Attention for Dexterous Manipulation</span>
-          <br>
-          <br>
-      <strong>Jinzhou Li</strong>*,
-      <a href="https://tianhaowuhz.github.io/">Tianhao Wu</a>*,
-      <a href="https://jiyao06.github.io/">Jiyao Zhang</a>**, 
-      <a href="https://github.com/chenzyn">Zeyuan Chen</a>**, 
-      <a href="">Haotian Jin</a>, 
-      <a href="https://aaronanima.github.io/">Mingdong Wu</a>,
-      <a href="https://shenyujun.github.io/">Yujun Shen</a>,
-      <a href="https://www.yangyaodong.com/">Yaodong Yang</a>,
-      <a href="https://zsdonghao.github.io/">Hao Dong</a>
-      <br>
-          <!-- <em style="color: gray;">Preprint</em> -->
-          <!-- <br> -->
-          <em><a href="https://adaptac-dex.github.io/">arXiv</a></em>, 
-          <em><a href="https://adaptac-dex.github.io/">website</a></em>,
-          <em><a href="https://adaptac-dex.github.io/">code</a></em>
-
-          <p>A future force-guided attention fusion module that adaptively adjusts the weights of visual and tactile features.</p>
-          <br>
-          <br>
-        </td>
-      </tr>
-    </table>
+   
+    <!-- 3dtacdex -->
     
     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item dexterous tactile selected">
@@ -381,7 +481,7 @@
       <a href="https://aaronanima.github.io/">Mingdong Wu</a>,
       <a href="https://zsdonghao.github.io/">Hao Dong</a>
       <br>
-          <em style="color: gray;">IEEE International Conference on Robotics and Automation (ICRA), 2025</em>
+          <em style="color: gray;">ICRA 2025</em>
           <br>
           <em><a href="https://arxiv.org/abs/2409.17549">arXiv</a></em>, <em><a href="https://3dtacdex.github.io/">website</a></em>, <em><a href="https://3dtacdex.github.io/">code</a></em>
           
@@ -423,9 +523,9 @@
       Yibei Guo,
       <a href=""></a>Rui Liu</a>
           <br>
-         <em style="color: gray;">IEEE RO-MAN 2024, Paper</em>
-         <br>
-          <em style="color: gray;"><a href="https://sites.bu.edu/mrs2023/program/list-of-accepted-papers-and-presentations/"> IEEE MRS 2023, Poster Presentation</a> </em>
+          <em style="color: gray;"><a href="https://sites.bu.edu/mrs2023/program/list-of-accepted-papers-and-presentations/"> MRS 2023, Poster Presentation</a> </em>
+          <br>
+          <em style="color: gray;">RO-MAN 2024</em>
           <br>
           <em><a href="https://arxiv.org/abs/2403.05478">arXiv</a></em>
 
