@@ -113,8 +113,8 @@
             <a href="#" onclick="filterProjects('selected')" class="filter-btn" data-category="selected" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Dexterous Hand</a> 
             <a href="#" onclick="filterProjects('Sim2Real')" class="filter-btn" data-category="Sim2Real" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Sim2Real</a>
             <!-- <a href="#" onclick="filterProjects('tactile')" class="filter-btn" data-category="tactile" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Tactile</a> -->
-            <!-- <a href="#" onclick="filterProjects('RL')" class="filter-btn" data-category="RL" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">RL</a> -->
-            <a href="#" onclick="filterProjects('HRI')" class="filter-btn" data-category="HRI" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">HRI</a>
+            <a href="#" onclick="filterProjects('RL')" class="filter-btn" data-category="RL" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">RL</a>
+            <!-- <a href="#" onclick="filterProjects('HRI')" class="filter-btn" data-category="HRI" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">HRI</a> -->
           </div>
           <style>
             @media (max-width: 768px) {
@@ -300,7 +300,7 @@
     
      <!-- sim2real clutter -->
      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item Sim2Real">
+      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item Sim2Real RL">
         <td style="padding:10px; width:20%;vertical-align:text-top">
           <div class="one">
             <div class="two" id='smerf_image'><video  width=100.5% muted autoplay loop>
@@ -493,7 +493,7 @@
       </tr>
     </table>
     
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item HRI">
         <td style="padding:10px; width:20%;vertical-align:text-top">
           <div class="one">
@@ -533,7 +533,7 @@
           <p>Hand gesture-based interactive control system for efficient and scalable multi-UAV operations. </p>
         </td>
       </tr>
-    </tbody></table>
+    </tbody></table> -->
 
     <style>
       .filter-btn {
