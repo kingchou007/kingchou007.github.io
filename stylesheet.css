@@ -159,10 +159,33 @@ span.highlight {
   transform: translateY(-2px);
 }
 
+/* Optional: Add subtle tooltips */
+.social-links a::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.social-links a:hover::after {
+  opacity: 1;
+}
+
 /* Specific colors for each icon */
+/* .social-links a[title="Email"] { color: #D44638; } */
 .social-links a[title="Google Scholar"] { color: #4285F4; }
 .social-links a[title="X"] { color: #23ace7; }
 .social-links a[title="GitHub"] { color: #181717; }
+/* .social-links a[title="CV"] { color: #00A98F; } */
 .social-links a[title="WeChat"] { color: #7BB32E; }
 
 .news {
@@ -207,7 +230,7 @@ span.highlight {
 
 /* news */
 .news-heading {
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Maintain normal spacing after the heading */
 }
 
 #newsList {
@@ -217,7 +240,7 @@ span.highlight {
 }
 
 #newsList li {
-  margin-bottom: 8px;
+  margin-bottom: 8px; /* Reduced spacing between news items */
   transition: max-height 0.3s ease-out, opacity 0.3s ease-out, margin 0.3s ease-out;
   max-height: 50px;
   opacity: 1;
@@ -254,24 +277,27 @@ span.highlight {
 }
 
 .video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
 }
 
 .video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .video-caption {
-  text-align: center;
-  margin-top: 10px;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
 }
+
 
 .video-slider {
   position: relative;
@@ -296,6 +322,26 @@ span.highlight {
 
 .video-slide.active {
   opacity: 1;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 比例 */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-caption {
+  text-align: center;
+  margin-top: 10px;
 }
 
 .slider-dots {
