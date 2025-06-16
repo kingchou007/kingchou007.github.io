@@ -42,8 +42,28 @@
                 </div>
               </td>
               <td style="padding:2.5%;width:25%;max-width:25%">
-                <a href=""><img style="width:100%; min-width:200px; max-width:100%; object-fit: cover; object-position: center; border-radius:4px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);" alt="profile photo" src="images/jz_big_pro.png" class="hoverZoomLink"></a>
-                <p style="margin-top: 1em; text-align: center;"><span class="email" style="font-family: 'Roboto', sans-serif; font-weight: 400; color: #4a6fa5; letter-spacing: 0.3px; border-bottom: 1px dotted #ccc; padding-bottom: 2px;">jinzhou.li [at] duke [dot] edu</span></p>
+                <a href="">
+                  <img 
+                    style="width:100%; 
+                           min-width:100px; 
+                           max-width:100%; 
+                           object-fit: cover; 
+                           object-position: center; 
+                           border-radius:50%; 
+                           transition: all 0.4s ease;
+                           box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                           border: 3px solid #fff;"
+                    onmouseover="this.src='images/Ghibli-JZ.png'; 
+                               this.style.transform='scale(1.05) rotate(2deg)';
+                               this.style.boxShadow='0 8px 16px rgba(0,0,0,0.2)'" 
+                    onmouseout="this.src='images/headPhoto.jpg';
+                              this.style.transform='scale(1) rotate(0deg)';
+                              this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'"
+                    alt="profile photo" 
+                    src="images/headPhoto.jpg" 
+                    class="hoverZoomLink">
+                </a>
+                <p style="margin-top: 1em; text-align: center;"><span class="email" style="font-family: 'Roboto', sans-serif; font-weight: 400; color: #4a6fa5; letter-spacing: 0.3px; border-bottom: 1px dotted #ccc; padding-bottom: 1px;">jinzhou.li [at] duke [dot] edu</span></p>
               </td>
             </tr>
           </tbody>
