@@ -6,7 +6,7 @@
     <title>Jinzhou Li | 李金洲</title>
 
     <meta name="author" content="Jinzhou Li">
-    <meta name="viewport" content="width=device-width" initial-scale=1.0>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
     <link rel="shortcut icon" href="images/shortcut.svg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -566,52 +566,7 @@
       </tr>
     </table>
     
-     <!-- sim2real clutter -->
-
-
-    
-   
-    <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item HRI">
-        <td style="padding:10px; width:20%;vertical-align:text-top">
-          <div class="one">
-            <div class="two" id='smerf_image'><video  width=107.5% muted autoplay loop>
-            <source src="" type="video/mp4">
-            Your browser does not support the video tag.
-            </video></div>
-            <img src='images/hgic.png' width=100%>
-          </div>
-          <script type="text/javascript">
-            function smerf_start() {
-              document.getElementById('smerf_image').style.opacity = "1";
-            }
-
-            function smerf_stop() {
-              document.getElementById('smerf_image').style.opacity = "0";
-            }
-            smerf_stop()
-          </script>
-        </td>
-        <td style="padding:10px;width:80%;vertical-align:middle">
-            <span class="papertitle">HGIC: A Hand Gesture-Based Interactive Control System for Efficient and Scalable Multi-UAV Operations</span>
-          <br>
-          <br>
-      <strong>Jinzhou Li</strong>,
-      Mengsha Hu,
-      Lei Xu,
-      Yibei Guo,
-      <a href=""></a>Rui Liu</a>
-          <br>
-          <em style="color: gray;"><a href="https://sites.bu.edu/mrs2023/program/list-of-accepted-papers-and-presentations/"> MRS 2023, Poster Presentation</a> </em>
-          <br>
-          <em style="color: gray;">RO-MAN 2024</em>
-          <br>
-          <em><a href="https://arxiv.org/abs/2403.05478">arXiv</a></em>
-
-          <p>Hand gesture-based interactive control system for efficient and scalable multi-UAV operations. </p>
-        </td>
-      </tr>
-    </tbody></table> -->
+  
 
     <style>
       .filter-btn {
@@ -672,146 +627,9 @@
 
     <!-- Projects -->
   </table>
-    <!-- videos -->
-    <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-      <tbody>
-        <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-            <h2>Videos</h2>
-            <div style="margin-bottom: 30px;"></div>
-            <div class="video-slider">
-              <div class="video-slider-container">
-                <div class="video-slide">
-                  <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/iPKNMKbRJLg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  </div>
-                  <p class="video-caption">Dexterous manipulation</p>
-                </div>
-                
-                <div class="video-slide">
-                  <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/IEesFSaeoiI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  </div>
-                  <p class="video-caption">Hand with tactile sensors</p>
-                </div>
-                
-                <div class="video-slide">
-                  <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/JdKj8zSYCFQ?si=jIFL-BVyqjTiq8T6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  </div>
-                  <p class="video-caption">Hive Five</p>
-                </div>
 
-                <div class="video-slide">
-                  <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/TAUBuSe_SR8?si=9RC7brQuybg2hyO6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  </div>
-                  <p class="video-caption">Unlock</p>
-                </div>
-              </div>
-              <div class="slider-dots"></div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table> -->
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const slider = document.querySelector('.video-slider-container');
-        const slides = document.querySelectorAll('.video-slide');
-        const dotsContainer = document.querySelector('.slider-dots');
-        
-        let currentPosition = 0;
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-
-        // Create dots for navigation
-        for (let i = 0; i < slides.length - 1; i++) {
-          const dot = document.createElement('div');
-          dot.className = 'dot' + (i === 0 ? ' active' : '');
-          dot.addEventListener('click', () => goToSlide(i));
-          dotsContainer.appendChild(dot);
-        }
-
-        // Initialize first slide as active
-        updateActiveSlides();
-
-        // Touch events
-        slider.addEventListener('touchstart', startDragging);
-        slider.addEventListener('touchmove', drag);
-        slider.addEventListener('touchend', stopDragging);
-
-        // Mouse events  
-        slider.addEventListener('mousedown', startDragging);
-        slider.addEventListener('mousemove', drag);
-        slider.addEventListener('mouseup', stopDragging);
-        slider.addEventListener('mouseleave', stopDragging);
-
-        function startDragging(e) {
-          isDragging = true;
-          startX = getPositionX(e);
-          slider.style.transition = 'none';
-        }
-
-        function drag(e) {
-          if (!isDragging) return;
-          e.preventDefault();
-          currentX = getPositionX(e);
-          const diff = currentX - startX;
-          const currentTransform = -currentPosition * 50;
-          slider.style.transform = `translateX(calc(${currentTransform}% + ${diff}px))`;
-        }
-
-        function stopDragging() {
-          if (!isDragging) return;
-          isDragging = false;
-          const diff = currentX - startX;
-          const threshold = slider.offsetWidth * 0.1;
-
-          if (Math.abs(diff) > threshold) {
-            if (diff > 0 && currentPosition > 0) {
-              currentPosition--;
-            } else if (diff < 0 && currentPosition < slides.length - 2) {
-              currentPosition++;
-            }
-          }
-
-          updateSlider();
-        }
-
-        function getPositionX(e) {
-          return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        }
-
-        function goToSlide(index) {
-          if (index >= 0 && index <= slides.length - 2) {
-            currentPosition = index;
-            updateSlider();
-          }
-        }
-
-        function updateSlider() {
-          slider.style.transition = 'transform 0.5s ease-in-out';
-          slider.style.transform = `translateX(-${currentPosition * 50}%)`;
-          
-          // Update dots
-          document.querySelectorAll('.dot').forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentPosition);
-          });
-
-          updateActiveSlides();
-        }
-
-        function updateActiveSlides() {
-          slides.forEach((slide, index) => {
-            slide.classList.toggle('active', 
-              index === currentPosition || index === currentPosition + 1);
-          });
-        }
-      });
-    </script>
+  
 
 
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
