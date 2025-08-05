@@ -175,7 +175,6 @@
         <tr>
         <td style="padding:20px;width:100%;vertical-align:middle">
           <h2>Research</h2>
-
           <p style="text-align: justify; line-height: 1.6; margin: 1em 0;">
             My research focuses on enabling robots to achieve human-level dexterity in complex environments by integrating multisensory intelligence with advanced control strategies and machine learning.
           </p>
@@ -186,14 +185,9 @@
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr>
         <td style="padding:5px 20px 25px 20px;width:100%;vertical-align:middle">
-          <div class="filter-container" style="text-align:left;border-bottom:1px solid #ddd;padding:0 0 12px 0;margin-top:-5px;display:flex;flex-wrap:wrap;gap:10px;">
-            <a href="#" onclick="filterProjects('all')" class="filter-btn" data-category="all" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">All</a>
-            <a href="#" onclick="filterProjects('selected')" class="filter-btn" data-category="selected" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Selected</a>
-            <a href="#" onclick="filterProjects('tactile')" class="filter-btn" data-category="tactile" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Tactile Sensing</a> 
-            <a href="#" onclick="filterProjects('Sim2Real')" class="filter-btn" data-category="Sim2Real" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Sim2Real</a>
-            <!-- <a href="#" onclick="filterProjects('tactile')" class="filter-btn" data-category="tactile" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">Tactile</a> -->
-            <a href="#" onclick="filterProjects('RL')" class="filter-btn" data-category="RL" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">RL</a>
-            <!-- <a href="#" onclick="filterProjects('HRI')" class="filter-btn" data-category="HRI" style="color:#555;text-decoration:none;font-size:14px;font-weight:500;padding:5px 10px;transition:all 0.3s ease;border-radius:3px;">HRI</a> -->
+          <div class="filter-container" style="text-align:left;border-bottom:1px solid #ddd;padding:8px 0;margin-top:8px;display:flex;flex-wrap:wrap;gap:12px;">
+            <a href="javascript:void(0);" onclick="filterProjects('selected', event)" class="filter-btn active" data-category="selected" style="color:#444;text-decoration:none;font-size:14px;font-weight:500;padding:6px 10px;transition:all 0.3s ease;border-radius:4px;">Selected</a>
+            <a href="javascript:void(0);" onclick="filterProjects('all', event)" class="filter-btn" data-category="all" style="color:#444;text-decoration:none;font-size:14px;font-weight:500;padding:6px 10px;transition:all 0.3s ease;border-radius:4px;">All by Date</a>
           </div>
           <style>
             @media (max-width: 768px) {
@@ -201,22 +195,22 @@
                 justify-content: center;
               }
               .filter-btn {
-                margin: 5px !important;
-                font-size: 12px !important;
+                margin: 6px;
+                font-size: 13px;
               }
               .project-item td {
                 display: block;
-                width: 100% !important;
+                width: 100%;
                 text-align: center;
               }
               .project-item img,
               .project-item video {
-                max-width: 200px;
+                max-width: 210px;
                 margin: 0 auto;
-                display: block !important; /* Force display */
+                display: block;
               }
               .one, .two {
-                width: 100% !important;
+                width: 100%;
                 text-align: center;
               }
             }
@@ -224,6 +218,8 @@
             .filter-btn {
               position: relative;
               overflow: hidden;
+              border: 1px solid #bbb;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             }
             
             .filter-btn::after {
@@ -233,12 +229,12 @@
               left: 0;
               width: 0;
               height: 2px;
-              background-color: #666;
+              background-color: #555;
               transition: width 0.3s ease;
             }
 
             .filter-btn.active {
-              color: #555 !important;
+              color: #444;
               background-color: transparent;
             }
 
@@ -251,51 +247,21 @@
             }
             
             .filter-btn[data-category="all"].active::after {
-              background-color: #666;
+              background-color: #555;
             }
 
             .filter-btn[data-category="selected"].active {
-              color: #4CAF50 !important;
+              color: #388E3C;
               background-color: rgba(76, 175, 80, 0.1);
             }
             .filter-btn[data-category="selected"].active::after {
-              background-color: #4CAF50;
-            }
-
-            .filter-btn[data-category="Sim2Real"].active {
-              color: #FF9800 !important;
-              background-color: rgba(33, 150, 243, 0.1);
-            }
-            .filter-btn[data-category="Sim2Real"].active::after {
-              background-color: #FF9800;
-            }
-
-            .filter-btn[data-category="tactile"].active {
-              color: #9C27B0 !important;
-              background-color: rgba(156, 39, 176, 0.1);
-            }
-            .filter-btn[data-category="tactile"].active::after {
-              background-color: #9C27B0;
-            }
-
-            .filter-btn[data-category="RL"].active {
-              color: #FF9800 !important;
-              background-color: rgba(255, 152, 0, 0.1);
-            }
-            .filter-btn[data-category="RL"].active::after {
-              background-color: #FF9800;
-            }
-
-            .filter-btn[data-category="HRI"].active {
-              color: #E91E63 !important;
-              background-color: rgba(233, 30, 99, 0.1);
-            }
-            .filter-btn[data-category="HRI"].active::after {
-              background-color: #E91E63;
+              background-color: #388E3C;
             }
           </style>
+          </style>
           <script>
-            function filterProjects(category) {
+            function filterProjects(category, event) {
+              event.preventDefault(); // Prevent default anchor behavior
               document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
               });
@@ -318,8 +284,7 @@
             }
 
             document.addEventListener('DOMContentLoaded', function() {
-              document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
-              filterProjects('all');
+              filterProjects('selected', { target: document.querySelector('.filter-btn[data-category="selected"]') });
             });
           </script>
         </td>
@@ -330,7 +295,7 @@
   
        <!-- twin align-->
        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-        <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item Sim2Real">
+        <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item all">
           <td style="padding:10px; width:20%;vertical-align:text-top">
             <div class="one">
               <div class="two" id='smerf_image'><video  width=100% muted autoplay loop>
@@ -379,7 +344,7 @@
       </table>
 
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item Sim2Real RL">
+      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item all">
         <td style="padding:10px; width:20%;vertical-align:text-top">
           <div class="one" style="max-width:300px;margin:0 auto;">
             <div class="two" id='smerf_image'><video width=100% height=auto muted autoplay loop>
@@ -423,7 +388,7 @@
       <!-- AdapTac-Dex -->
 
        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item dexterous tactile selected">
+      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item selected">
         <td style="padding:10px; width:20%;vertical-align:text-top">
           <div class="one">
             <div class="two" id='smerf_image'><video  width=100% muted autoplay loop>
@@ -471,7 +436,7 @@
 
     <!-- sim launcher -->
     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item RL">
+      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item all">
         <td style="padding:10px; width:20%;vertical-align:text-top">
           <div class="one">
             <div class="two" id='smerf_image'><video  width=100.5% muted autoplay loop>
@@ -521,7 +486,7 @@
     </table>
 
      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item dexterous tactile selected">
+      <tr onmouseout="smerf_stop()" onmouseover="smerf_start()" class="project-item selected">
         <td style="padding:10px; width:20%;vertical-align:text-top">
           <div class="one">
             <div class="two" id='smerf_image'><video  width=100.5% muted autoplay loop>
@@ -592,6 +557,7 @@
 
     <script>
       function filterProjects(category) {
+        event.preventDefault(); // Prevent default anchor behavior
         // Update active button
         document.querySelectorAll('.filter-btn').forEach(btn => {
           btn.classList.remove('active');
@@ -613,12 +579,16 @@
         });
       }
 
-      // Show all projects by default
+      // Show selected projects by default
       document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.project-item').forEach(project => {
-          project.classList.add('show');
+          if (project.classList.contains('selected')) {
+            project.classList.add('show');
+          } else {
+            project.classList.remove('show');
+          }
         });
-        document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
+        document.querySelector('.filter-btn[data-category="selected"]').classList.add('active');
       });
     </script>
 
