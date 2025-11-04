@@ -48,25 +48,19 @@
           <h1>Jinzhou Li</h1>
           <div id="more-bio" style="display: block">
             <p>I am a PhD student in Robotics at Duke University, advised by <a href="https://xianyicheng.github.io/">Prof. Xianyi Cheng</a>. </p>
-          </div>
-            <div id="more-bio" style="display: block">
-              <br>
-              <p>Previously, I worked with <a href="https://zsdonghao.github.io">Prof. Hao Dong</a> at Peking University and spent time as a research intern at <a href="https://www.agibot.com/">AgiBot</a>. I also had the opportunity to work with <a href="https://www.linkedin.com/in/mhaji/">Prof. Maha Haji</a> at Cornell and <a href="https://aeroastro.mit.edu/people/daniel-e-hastings">Prof. Daniel Hastings</a> at MIT.</p>
-            </div>
-
-            <div id="more-bio" style="display: block">
-              <br>
-              <p>My research interests include dexterous manipulation, representation learning, and reinforcement learning to enable robots to act and think like humans. </p>
-            </div>
-                      
-         
             <br>
+            <p>Previously, I worked with <a href="https://zsdonghao.github.io">Prof. Hao Dong</a> at Peking University and spent time as a research intern at <a href="https://www.agibot.com/">AgiBot</a>. I also had the opportunity to work with <a href="https://www.linkedin.com/in/mhaji/">Prof. Maha Haji</a> at Cornell and <a href="https://aeroastro.mit.edu/people/daniel-e-hastings">Prof. Daniel Hastings</a> at MIT.</p>
+            <br>
+            <p>My research interests include dexterous manipulation, representation learning, and reinforcement learning to enable robots to act and think like humans. </p>
+          </div>
+          <br>
+          <br>
+          <p>
             <a href="mailto:jinzhou.li@duke.edu">Email</a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="https://twitter.com/Kingchou007Li">X</a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="https://scholar.google.com/citations?hl=en&user=s93qhQ8AAAAJ&view_op=list_works">Google Scholar</a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="https://www.linkedin.com/in/jinzhou-l-78001212a/">LinkedIn</a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="https://github.com/kingchou007">Github</a>
-            <br><br>
           </p>
         </div>
         <div id="intro-image">
@@ -157,8 +151,8 @@
                 Cluttered Scenes</a></h3>
               <p>
                 Zeyuan Chen*, Qiyang Yan*, Yuanpei Chen*, Tianhao Wu, Jiyao Zhang, Zihan Ding, <strong>Jinzhou Li</strong>, Yaodong Yang, Hao Dong<br>
-                  <i>Conference on Robot Learning (CoRL) 2025</i><br>
-                  <font color="red"><i>Oral Presentation</i></font><br>
+                  <i>Conference on Robot Learning (CoRL) 2025</i> <br>
+                  <span style="color: red;"><b>Oral Presentation</b></span><br>
                   <a href="https://clutterdexgrasp.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
                   <a href="https://arxiv.org/html/2506.14317v2">Paper</a>
                   &nbsp;&nbsp;&bull;&nbsp;&nbsp;
@@ -209,6 +203,7 @@
                 Hao Dong
                 <br>
                   <i>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2025</i><br>
+                  <a href="https://simlauncher.github.io/#">Webpage</a> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
                   <a href="https://arxiv.org/abs/2507.04452">Paper</a> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
                   <a href="https://kingchou007.github.io/images/Training%20Timelapse.mp4">Video</a>
               </p>
@@ -359,10 +354,6 @@
 
     </div>
 
-    <div class="list-item misc" data-category="misc">
-      <div class="separator"></div>
-    </div>
-
     <!-- <div id="footer"></div><script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=n&d=YJ5tJC9Cdj8baVhSikHNQIW1U0rlJuKC09z8yCFRKEI'></script></div> -->
 
     <script>
@@ -445,7 +436,10 @@
         }
       }
 
-      update_isotope();
+      // Wait for images to load before initializing layout
+      $(window).on('load', function() {
+        update_isotope();
+      });
 
     </script>
   </body>
