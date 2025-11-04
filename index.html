@@ -45,6 +45,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 
     <!-- Custom Style -->
     <link rel="stylesheet" href="style.css">
@@ -162,7 +163,7 @@
 
           <div class="list-item publication" data-category="publication">
             <a href="https://clutterdexgrasp.github.io/" class="thumbnail">
-              <img src="images/clutterdexgrasping.gif" alt="" />
+              <img src="images/clutterdexgrasping.gif" alt="clutterdexgrasping"/>
             </a>
             <div class="project-description">
               <h3><a href="https://clutterdexgrasp.github.io/">ClutterDexGrasp: A Sim-to-Real System for General Dexterous Target Grasping in
@@ -454,8 +455,14 @@
         }
       }
 
+      // Initialize on DOM ready, then update as images load
       $(function() {
         update_isotope();
+        
+        // Update layout as images load to prevent jumping
+        $grid.imagesLoaded().progress(function() {
+          $grid.isotope('layout');
+        });
       });
 
     </script>
