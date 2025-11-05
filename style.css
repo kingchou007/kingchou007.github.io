@@ -186,6 +186,12 @@ h2 {
   margin-top: 1em;
 }
 
+.list-item::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .list-item p.date {
   display: inline-block;
   width: 3em;
