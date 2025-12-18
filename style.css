@@ -58,6 +58,9 @@ table {
   /* Keep scrollbar space constant to avoid width jumps when toggling filters */
   overflow-y: scroll;
   scrollbar-gutter: stable both-edges;
+  /* Prevent font size adjustments on mobile */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 #main {
@@ -415,4 +418,26 @@ h3 a:hover {
   position: absolute;
   bottom: 0;
   line-height: 2.5em;
+}
+
+/**************************************************/
+/* Mobile responsive styles */
+
+@media screen and (max-width: 768px) {
+  #body {
+    scrollbar-gutter: auto;
+    font-size: 16px; /* Fixed font size for mobile */
+  }
+  
+  #main {
+    width: calc(100% - 1rem);
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  .button {
+    font-size: 1.4em;
+  }
 }
