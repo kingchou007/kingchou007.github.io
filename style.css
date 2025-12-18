@@ -44,6 +44,10 @@ table {
   border-spacing: 0;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /**************************************************/
 
 #body{
@@ -51,11 +55,15 @@ table {
   font-size: 1em;
   line-height: 1.5em;
   color: #150c21;
+  /* Keep scrollbar space constant to avoid width jumps when toggling filters */
+  overflow-y: scroll;
+  scrollbar-gutter: stable both-edges;
 }
 
 #main {
-  width: 54em;
-  margin: 0px auto;
+  max-width: 900px;
+  width: calc(100% - 2rem);
+  margin: 0 auto;
   position: relative;
   min-height: 100vh;
 }
@@ -104,10 +112,108 @@ h1 {
   float: left;
   overflow: hidden;
   border-radius: 1em;
+  position: relative;
+  cursor: pointer;
 }
 
 #intro-image img {
   width: 12em;
+  height: 12em;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+#intro-image img.active {
+  opacity: 1;
+}
+
+.image-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0.5em;
+  font-size: 0.75em;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#intro-image:hover .image-hint {
+  opacity: 1;
+}
+
+/**************************************************/
+/* Research highlights section */
+
+#research-highlights {
+  margin: 3em 0 2em 0;
+  color: #2d446a;
+}
+
+#research-highlights h2 {
+  font-size: 1.4em;
+  margin-bottom: 0.4em;
+}
+
+.rh-lead {
+  max-width: 48em;
+  color: #4a5874;
+  line-height: 1.5em;
+  margin-bottom: 0.9em;
+}
+
+.rh-card {
+  border: 1px solid #bfc8d6;
+  background: linear-gradient(180deg, #f9fbff 0%, #f2f5fb 100%);
+  border-radius: 10px;
+  padding: 1em 1.1em;
+  box-shadow: 0 4px 12px rgba(42, 66, 112, 0.05);
+}
+
+.rh-card h3 {
+  font-size: 1.05em;
+  color: #2d446a;
+  margin-bottom: 0.4em;
+}
+
+.rh-card p {
+  color: #55627a;
+  line-height: 1.5em;
+}
+
+.rh-card.primary {
+  text-align: center;
+  margin-bottom: 0.8em;
+}
+
+.rh-card.primary h3 {
+  font-size: 1.15em;
+}
+
+.rh-card.pill {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.rh-row {
+  display: flex;
+  gap: 0.8em;
+  flex-wrap: wrap;
+  margin-bottom: 1.2em;
+}
+
+.rh-toggle {
+  display: inline-block;
+  margin-top: 0.4em;
+  color: #2d6bdc;
+  font-weight: 600;
 }
 
 /**************************************************/
