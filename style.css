@@ -307,6 +307,24 @@ h2 {
   color: #a0a8b0;
 }
 
+.list-item.misc {
+  line-height: 1.5em;
+}
+
+.list-item.misc p.date {
+  display: inline-block;
+  width: 3em;
+  margin: 0;
+  vertical-align: top;
+}
+
+.list-item.misc span {
+  display: inline-block;
+  max-width: calc(100% - 3.5em);
+  vertical-align: top;
+  line-height: 1.5em;
+}
+
 /**************************************************/
 /* Gallery of 3 preview videos. */
 
