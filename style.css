@@ -192,6 +192,9 @@ h2 {
   float: left;
   padding: 0;
   transition: color 0.2s;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button:hover {
