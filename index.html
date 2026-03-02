@@ -348,7 +348,6 @@
       // Bind filter button click.
       $('#filters').on( 'click', 'button', function() {
         var filterValue = $( this ).attr('data-filter');
-        localStorage.setItem('filterValue', filterValue);
         $grid.isotope({ filter: filterValue });
       });
 
@@ -362,11 +361,7 @@
       });
 
       function update_isotope() {
-        // Retrieve cached button click.
-        var defaultFilterValue = localStorage.getItem('filterValue');
-        if (defaultFilterValue == null || defaultFilterValue === ".highlight") {
-          defaultFilterValue = ".publication"
-        }
+        var defaultFilterValue = ".publication";
         $grid.isotope({ filter: defaultFilterValue });
         var buttons = document.getElementsByClassName("button");
         for (var currButton of buttons) {
