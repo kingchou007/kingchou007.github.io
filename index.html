@@ -463,7 +463,9 @@
       $(function() {
         // Apply filter immediately on load
         update_isotope();
-        
+        // Reveal grid after filter is applied to prevent flash
+        $('.grid').addClass('is-ready');
+
         // Update layout as images load to prevent jumping
         $grid.imagesLoaded().progress(function() {
           $grid.isotope('layout');

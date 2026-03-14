@@ -218,6 +218,11 @@ h2 {
 
 .grid {
   padding-bottom: 6em;
+  opacity: 0;
+}
+
+.grid.is-ready {
+  opacity: 1;
 }
 
 /* clear fix */
@@ -285,6 +290,7 @@ h2 {
   width: 100%;
   height: auto;
 }
+
 
 h3 {
   font-size: 1em;
