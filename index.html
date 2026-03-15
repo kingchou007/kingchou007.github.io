@@ -412,39 +412,7 @@
 
     <script>
 
-      // Isotope grid.
-      var $grid = $('.grid').isotope({
-        itemSelector: '.list-item',
-        layoutMode: 'fitRows',
-        transitionDuration: 0,
-        stagger: 10,
-        initLayout: true,
-        getSortData: {
-          name: '.name',
-          symbol: '.symbol',
-          number: '.number parseInt',
-          category: '[data-category]',
-          weight: function( itemElem ) {
-            var weight = $( itemElem ).find('.weight').text();
-            return parseFloat( weight.replace( /[\(\)]/g, '') );
-          }
-        }
-      });
-
-      // Bind filter button click.
-      $('#filters').on( 'click', 'button', function() {
-        var filterValue = $( this ).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-      });
-
-      // Change is-checked class on buttons.
-      $('.button-group').each( function( i, buttonGroup ) {
-        var $buttonGroup = $( buttonGroup );
-        $buttonGroup.on( 'click', 'button', function() {
-          $buttonGroup.find('.is-checked').removeClass('is-checked');
-          $( this ).addClass('is-checked');
-        });
-      });
+      var $grid;
 
       function update_isotope() {
         var defaultFilterValue = ".publication";
@@ -490,28 +458,62 @@
         var images = $('.profile-img');
         var activeIndex = images.filter('.active').index();
         var nextIndex = (activeIndex + 1) % images.length;
-        
+
         images.eq(activeIndex).removeClass('active');
         images.eq(nextIndex).addClass('active');
       }
 
-      // Click to manually switch
-      $('#intro-image').on('click', function() {
-        switchProfileImage();
-      });
-
-      // Initialize on DOM ready, then update as images load
       $(function() {
-        // Apply filter immediately on load
+        // Initialize Isotope after DOM is ready
+        $grid = $('.grid').isotope({
+          itemSelector: '.list-item',
+          layoutMode: 'fitRows',
+          transitionDuration: 0,
+          stagger: 10,
+          initLayout: true,
+          getSortData: {
+            name: '.name',
+            symbol: '.symbol',
+            number: '.number parseInt',
+            category: '[data-category]',
+            weight: function( itemElem ) {
+              var weight = $( itemElem ).find('.weight').text();
+              return parseFloat( weight.replace( /[\(\)]/g, '') );
+            }
+          }
+        });
+
+        // Bind filter button click.
+        $('#filters').on( 'click', 'button', function() {
+          var filterValue = $( this ).attr('data-filter');
+          $grid.isotope({ filter: filterValue });
+        });
+
+        // Change is-checked class on buttons.
+        $('.button-group').each( function( i, buttonGroup ) {
+          var $buttonGroup = $( buttonGroup );
+          $buttonGroup.on( 'click', 'button', function() {
+            $buttonGroup.find('.is-checked').removeClass('is-checked');
+            $( this ).addClass('is-checked');
+          });
+        });
+
+        // Click to manually switch profile image
+        $('#intro-image').on('click', function() {
+          switchProfileImage();
+        });
+
+        // Apply default filter and trigger first layout
         update_isotope();
-        // Reveal grid after filter is applied to prevent flash
+        $grid.isotope('layout');
+
+        // Reveal grid after filter is applied
         $('.grid').addClass('is-ready');
 
-        // Update layout as images load to prevent jumping
+        // Re-layout as images load
         $grid.imagesLoaded().progress(function() {
           $grid.isotope('layout');
         });
-
       });
 
     </script>
