@@ -129,7 +129,7 @@ h1 {
   border-radius: 1em;
   position: relative;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 #intro-image img {
@@ -166,67 +166,57 @@ h1 {
 }
 
 /**************************************************/
-/* Section buttons. */
+/* Section headings. */
 
-h2 {
-  font-size: 1.6em;
-  line-height: 2.4em;
-  margin-top: 0.5em;
-  color: #a0a8b0;
+h2.section-heading {
+  font-size: 1.4em;
+  line-height: 1.8em;
+  margin-top: 1.2em;
+  margin-bottom: 0.2em;
+  color: #6a727a;
+  font-weight: 500;
 }
 
-.selected h2 {
-  color: #150c21;
-}
-
-.button {
-  display: inline-block;
-  cursor: pointer;
-  border: none;
-  background: none;
-  color: #a0a8b0;
-  font-size: 1.6em;
-  line-height: 2.4em;
-  margin-top: 0.5em;
-  margin-right: 1em;
-  float: left;
-  padding: 0;
-  transition: color 0.2s;
-  outline: none;
-  box-shadow: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.button:hover {
-  color: #150c21;
-  text-decoration: none;
-}
-
-.button:active,
-.button.is-checked {
-  color: #150c21;
-}
-
-.button-group:after {
-  content: '';
-  display: block;
-  clear: both;
+.content > h2.section-heading:first-of-type {
+  margin-top: 0;
 }
 
 /**************************************************/
-/* Isotope grid list of items. */
+/* News bullet list. */
 
-.grid {
-  padding-bottom: 6em;
-  opacity: 0;
+.news-list {
+  list-style: disc;
+  padding-left: 1.4em;
+  margin-top: 0.5em;
 }
 
-.grid.is-ready {
-  opacity: 1;
+.news-list li {
+  line-height: 1.5em;
+  margin-bottom: 0.4em;
+  color: #150c21;
+}
+
+.news-list li::marker {
+  color: #a0a8b0;
+}
+
+.news-date {
+  display: inline-block;
+  min-width: 5em;
+  margin-right: 0.5em;
+  font-weight: 600;
+  color: #6a727a;
+}
+
+/**************************************************/
+/* Content list of items. */
+
+.content {
+  padding-bottom: 6em;
 }
 
 /* clear fix */
-.grid:after {
+.content:after {
   content: '';
   display: block;
   clear: both;
@@ -252,31 +242,72 @@ h2 {
   font-weight: 600;
 }
 
-.list-item.misc {
-  line-height: 1.5em;
+.news-box {
+  padding: 0.6em 0;
 }
 
-.list-item.misc p.date {
-  display: inline-block;
-  width: 3em;
+.service-item {
+  margin-top: 0.3em;
+  line-height: 1.5em;
+  color: #150c21;
+}
+
+.list-item.news {
+  display: flex;
+  align-items: baseline;
+  gap: 1.4em;
+  padding: 0.2em 0;
+  margin-top: 0;
+  line-height: 1.5em;
+  border-left: 1px solid transparent;
+}
+
+.list-item.news p.date {
+  flex: 0 0 5em;
+  width: auto;
   margin: 0;
-  vertical-align: top;
+  text-align: left;
+  color: #9aa0a8;
+  font-weight: 500;
+  font-size: 0.9em;
+  line-height: 1.55em;
 }
 
-.list-item.misc span {
-  display: inline-block;
-  max-width: calc(100% - 3.5em);
-  vertical-align: top;
+.list-item.news span {
+  flex: 1 1 auto;
+  display: block;
+  max-width: none;
+  line-height: 1.55em;
+  color: #2a2230;
+}
+
+.toggle-link {
+  display: block;
+  width: fit-content;
+  margin: 0.6em 0 0 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: rgb(20, 110, 190);
+  font-family: inherit;
+  font-size: 0.9em;
+  font-weight: 500;
   line-height: 1.5em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggle-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /**************************************************/
 /* Publication details (thumbnail media, title, and description). */
 
 .thumbnail {
-  width: 18%;
-  float: left;
-  margin-right: 3%;
+  flex: 0 0 18%;
+  display: block;
 }
 
 .thumbnail:hover {
@@ -305,7 +336,16 @@ h3 a:hover {
   color: rgb(20, 110, 190);
 }
 
+.publication-note {
+  font-size: 0.85em;
+  color: #a0a8b0;
+  margin-top: 0.2em;
+}
+
 .publication {
+  display: flex;
+  align-items: flex-start;
+  gap: 3%;
   margin-top: 1.2em;
   margin-bottom: 0;
 }
@@ -317,8 +357,8 @@ h3 a:hover {
 }
 
 .project-description {
-  width: 79%;
-  float: left;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 
@@ -327,6 +367,79 @@ h3 a:hover {
   margin: 0.5em 0;
   width: calc(100% - 3.5em);
   margin-left: 3.5em;
+}
+
+/**************************************************/
+/* Experience list items. */
+
+.experience-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 0.8em;
+}
+
+.list-item.experience {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.exp-logo {
+  flex: 0 0 3.5em;
+  height: 3.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exp-logo:hover {
+  text-decoration: none;
+}
+
+.exp-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.exp-description {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.exp-description h3 {
+  font-size: 1.05em;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin-bottom: 0.15em;
+}
+
+.exp-description p {
+  font-size: 0.95em;
+  line-height: 1.4em;
+  color: #6a727a;
+}
+
+.exp-description p.exp-pi {
+  font-size: 0.85em;
+  line-height: 1.4em;
+  margin-top: 0.1em;
+  color: #9aa0a8;
+}
+
+.exp-description p.exp-pi a {
+  color: rgb(20, 110, 190);
+}
+
+.exp-date {
+  color: #a0a8b0;
+  font-weight: 500;
+  font-size: 0.9em;
+  white-space: nowrap;
+  margin-top: 0.2em;
 }
 
 .reviewer-info h4 {
@@ -358,21 +471,38 @@ h3 a:hover {
     width: calc(100% - 1rem);
   }
 
-  .grid {
+  .content {
     padding-bottom: 1.5em;
   }
-  
+
   h1 {
     font-size: 2em;
   }
-  
-  .button {
-    font-size: 1.4em;
+
+  h2.section-heading {
+    font-size: 1.25em;
   }
 
   #footer {
     position: static;
     margin: 1.5em 0 0.6em 0;
     line-height: 1.6em;
+  }
+
+  .experience-grid {
+    gap: 0.8em;
+  }
+
+  .list-item.experience {
+    gap: 0.8em;
+  }
+
+  .exp-logo {
+    flex: 0 0 2.8em;
+    height: 2.8em;
+  }
+
+  .exp-date {
+    font-size: 0.85em;
   }
 }
