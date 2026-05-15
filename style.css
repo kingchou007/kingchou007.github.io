@@ -115,16 +115,22 @@ h1 {
 #intro {
   padding-top: 6em;
   display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(1rem, 4vw, 2rem);
 }
 
 #intro-text {
-  width: 40em;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 40em;
 }
 
 #intro-image {
-  margin: 2.7em 0 0 2em;
-  width: 12em;
-  height: 12em;
+  flex: 0 0 clamp(7.5rem, 22vw, 12rem);
+  width: clamp(7.5rem, 22vw, 12rem);
+  height: clamp(7.5rem, 22vw, 12rem);
+  margin: 2.7em 0 0 0;
   overflow: hidden;
   border-radius: 1em;
   position: relative;
@@ -133,8 +139,8 @@ h1 {
 }
 
 #intro-image img {
-  width: 12em;
-  height: 12em;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   position: absolute;
   top: 0;
@@ -306,7 +312,8 @@ h2.section-heading {
 /* Publication details (thumbnail media, title, and description). */
 
 .thumbnail {
-  flex: 0 0 18%;
+  flex: 0 0 clamp(7rem, 18vw, 10rem);
+  width: clamp(7rem, 18vw, 10rem);
   display: block;
 }
 
@@ -345,7 +352,7 @@ h3 a:hover {
 .publication {
   display: flex;
   align-items: flex-start;
-  gap: 3%;
+  gap: clamp(0.9rem, 3vw, 1.5rem);
   margin-top: 1.2em;
   margin-bottom: 0;
 }
@@ -541,32 +548,34 @@ h3 a:hover {
 
   #intro {
     padding-top: 2.75em;
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 1.2em;
+    gap: 0.7rem;
   }
 
   #intro-text {
-    width: 100%;
+    max-width: none;
   }
 
   #intro-image {
-    margin: 0;
-    width: min(15rem, 52vw);
-    height: min(15rem, 52vw);
+    flex-basis: 6.75rem;
+    width: 6.75rem;
+    height: 6.75rem;
+    margin-top: 0.25em;
+    border-radius: 0.85em;
   }
 
-  #intro-image img {
-    width: 100%;
-    height: 100%;
+  .social-links {
+    gap: 0.75rem;
+    margin-top: 1.9em;
+    margin-bottom: 1.25em;
   }
 
   .content {
-    padding-bottom: 1.5em;
+    padding-bottom: 3em;
   }
 
   h1 {
     font-size: 2em;
+    line-height: 1.2em;
   }
 
   h2.section-heading {
@@ -611,19 +620,17 @@ h3 a:hover {
   }
 
   .publication {
-    gap: 0.75em;
-    flex-direction: column;
+    gap: 0.85rem;
   }
 
   .thumbnail {
-    flex: none;
-    width: 100%;
-    max-width: 18rem;
+    flex-basis: 6.5rem;
+    width: 6.5rem;
   }
 
   .thumbnail img,
   .thumbnail video {
-    margin-top: 0;
+    margin-top: 0.15em;
   }
 
   .mentoring-table,
