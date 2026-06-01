@@ -343,9 +343,16 @@ h3 a:hover {
 }
 
 .publication-note {
-  font-size: 0.85em;
+  font-size: 1em;
   color: #a0a8b0;
   margin-top: 0.2em;
+}
+
+
+.cofirst-star {
+  font-size: 1.25em;
+  font-weight: 700;
+  vertical-align: -0.05em;
 }
 
 .publication {
