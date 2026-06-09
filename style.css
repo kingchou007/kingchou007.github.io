@@ -315,7 +315,7 @@ h2.section-heading {
   justify-content: flex-end;
   align-items: center;
   gap: 0.5em;
-  margin: -1.6em 0 0.4em 0;
+  margin: 0.4em 0 1.1em 0;
 }
 
 .pub-filter-btn {
@@ -346,6 +346,58 @@ h2.section-heading {
 .pub-filter-btn.active {
   color: rgb(20, 110, 190);
   font-weight: 600;
+}
+
+/**************************************************/
+/* Publication timeline (year-grouped, newest first). */
+
+.pub-timeline {
+  margin-top: 0.6em;
+}
+
+.pub-year + .pub-year {
+  margin-top: 1.5em;
+}
+
+/* Year dividers are only shown in the "All" view. */
+.pub-year-label {
+  display: none;
+  width: fit-content;
+  font-size: 1.05em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #6a727a;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.8em;
+  border-bottom: 2px solid rgb(20, 110, 190);
+}
+
+/* Year labels appear only in the "All" view; Selected stays a flat list. */
+.pub-timeline.with-axis .pub-year-label {
+  display: block;
+}
+
+.pub-year-list > .publication:first-child {
+  margin-top: 0.4em;
+}
+
+/* Smooth staggered entrance when toggling Selected / All. */
+@keyframes pubFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .publication,
+  .pub-year-label {
+    animation: none !important;
+  }
 }
 
 /**************************************************/
@@ -394,6 +446,12 @@ h3 a:hover {
   font-size: 1.25em;
   font-weight: 700;
   vertical-align: -0.05em;
+}
+
+.oral {
+  color: #f07c6a;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .publication {
