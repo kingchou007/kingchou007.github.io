@@ -308,6 +308,47 @@ h2.section-heading {
 }
 
 /**************************************************/
+/* Publication filter (Selected / All). */
+
+.pub-filters {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5em;
+  margin: -1.6em 0 0.4em 0;
+}
+
+.pub-filter-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #a0a8b0;
+  font-family: inherit;
+  font-size: 0.88em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pub-filter-btn:not(:last-child)::after {
+  content: "/";
+  margin-left: 0.5em;
+  color: #d6dae0;
+  font-weight: 400;
+}
+
+.pub-filter-btn:hover {
+  color: rgb(20, 110, 190);
+}
+
+.pub-filter-btn.active {
+  color: rgb(20, 110, 190);
+  font-weight: 600;
+}
+
+/**************************************************/
 /* Publication details (thumbnail media, title, and description). */
 
 .thumbnail {
