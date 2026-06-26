@@ -105,7 +105,6 @@
               <a href="https://xianyicheng.github.io/">Prof. Xianyi Cheng</a>.
               I completed my master's at <a href="https://www.cornell.edu/">Cornell University</a>, advised by <a href="https://sea.mae.cornell.edu/team/">Prof. Maha Haji</a> and <a href="https://aeroastro.mit.edu/people/daniel-e-hastings">Prof. Daniel Hastings</a>,
               and earned my bachelor's degree from the <a href="https://www.uvm.edu/">University of Vermont</a>.
-              I was fortunate to have worked with <a href="https://zsdonghao.github.io/">Prof. Hao Dong</a> at <a href="https://english.pku.edu.cn/">Peking University</a>.
               My research interests include dexterous manipulation, tactile sensing, multimodal learning, and reinforcement learning, aiming to enable robots to think and act more like humans.
             </p>
           </div>
@@ -130,6 +129,11 @@
         <h2 class="section-heading">News</h2>
         <div class="news-box">
           <div class="list-item news" data-category="news">
+            <p class="date">06.2026</p>
+            <span>One paper accepted to ECCV 2026 and one paper accepted to IROS 2026.</span>
+          </div>
+
+          <div class="list-item news" data-category="news">
             <p class="date">02.2026</p>
             <span>Co-organizing the <a href="https://manipulation-robustness.github.io/icra2026/">Workshop on Manipulation Robustness: Towards Human-Level Robustness in Real-World Manipulation</a> at ICRA 2026.</span>
           </div>
@@ -144,15 +148,12 @@
             <span>Released <a href="https://twin-aligner.github.io/">TwinAligner</a>, a physics-aware real2sim2real framework for robotic manipulation.</span>
           </div>
 
+          <div id="more-news" style="display: none;">
+
           <div class="list-item news" data-category="news">
             <p class="date">09.2025</p>
             <span><a href="https://clutterdexgrasp.github.io/">ClutterDexGrasp</a> accepted to CoRL 2025 as oral.</span>
           </div>
-
-
-
-
-          <div id="more-news" style="display: none;">
 
           <div class="list-item news" data-category="news">
               <p class="date">08.2025</p>
@@ -182,7 +183,7 @@
 
         <div id="pub-filters" class="pub-filters">
           <button type="button" class="pub-filter-btn active" data-filter="selected">Selected</button>
-          <button type="button" class="pub-filter-btn" data-filter="all">More</button>
+          <button type="button" class="pub-filter-btn" data-filter="all">All</button>
         </div>
 
         <div class="pub-timeline">
@@ -206,7 +207,8 @@
                     Xianyi Cheng<br>
                     <i>arXiv 2026</i><br>
                     <a href="https://any-ttach.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                     <a href="https://arxiv.org/abs/2605.30569">Paper</a>
+                     <a href="https://arxiv.org/abs/2605.30569">Paper</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                      Hardware Design (comming soon)
                   </p>
                 </div>
               </div>
@@ -227,7 +229,7 @@
                     <b>Jinzhou Li</b>,
                     Boyuan Chen,
                     Xianyi Cheng<br>
-                    <i>arXiv 2026</i><br>
+                    <i>IROS 2026</i><br>
                     <a href="https://robotproject8.github.io/ceer_page/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
                     <a href="https://arxiv.org/abs/2605.19981">Paper</a>
                   </p>
@@ -252,7 +254,7 @@
                     Dongjiang Li,
                     Hao Dong
                     <br>
-                    <i>arXiv 2026</i><br>
+                    <i>ECCV 2026</i><br>
                     <a href="https://hipolicy.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
                     <a href="https://arxiv.org/abs/2604.06067">Paper</a>
                   </p>
@@ -518,18 +520,25 @@
           var yearGroups = document.querySelectorAll('.pub-year');
           var timeline = document.querySelector('.pub-timeline');
           var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-          // Tracks what was visible last time, so we only animate items that are newly shown.
-          var prevVisible = new Set();
 
-          // Light, staggered fade — applied only to elements that just appeared.
-          function animateEntrance(newlyShown) {
-            if (reduceMotion || !timeline || !newlyShown.length) return;
-            newlyShown.forEach(function(el) { el.style.animation = 'none'; });
+          // Re-run a light, staggered fade on whatever is currently visible.
+          function animateEntrance() {
+            if (reduceMotion || !timeline) return;
+            var seq = [];
+            yearGroups.forEach(function(group) {
+              if (group.style.display === 'none') return;
+              var label = group.querySelector('.pub-year-label');
+              if (label && getComputedStyle(label).display !== 'none') seq.push(label);
+              group.querySelectorAll('.list-item.publication').forEach(function(it) {
+                if (it.style.display !== 'none') seq.push(it);
+              });
+            });
+            seq.forEach(function(el) { el.style.animation = 'none'; });
             // Force a reflow so the animation restarts on every toggle.
             void timeline.offsetWidth;
-            newlyShown.forEach(function(el, i) {
-              el.style.animation = 'pubFadeIn 0.26s ease both';
-              el.style.animationDelay = Math.min(i * 0.03, 0.2) + 's';
+            seq.forEach(function(el, i) {
+              el.style.animation = 'pubFadeIn 0.3s ease both';
+              el.style.animationDelay = Math.min(i * 0.035, 0.28) + 's';
             });
           }
 
@@ -551,25 +560,7 @@
             pubButtons.forEach(function(btn) {
               btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
             });
-
-            // Collect what's visible now (DOM order); animate only the newly-shown ones.
-            var nowVisible = new Set();
-            var newlyShown = [];
-            yearGroups.forEach(function(group) {
-              if (group.style.display === 'none') return;
-              var label = group.querySelector('.pub-year-label');
-              if (label && filter === 'all') {
-                nowVisible.add(label);
-                if (!prevVisible.has(label)) newlyShown.push(label);
-              }
-              group.querySelectorAll('.list-item.publication').forEach(function(it) {
-                if (it.style.display === 'none') return;
-                nowVisible.add(it);
-                if (!prevVisible.has(it)) newlyShown.push(it);
-              });
-            });
-            if (animate) animateEntrance(newlyShown);
-            prevVisible = nowVisible;
+            if (animate) animateEntrance();
           }
           pubButtons.forEach(function(btn) {
             btn.addEventListener('click', function() {
