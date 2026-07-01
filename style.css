@@ -257,6 +257,40 @@ h2.section-heading {
   color: #150c21;
 }
 
+.mentoring-label {
+  margin: 1em 0 0.3em 0;
+  font-size: 0.78em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #a0a8b0;
+}
+
+.mentoring-item {
+  margin: 0.2em 0;
+  line-height: 1.5em;
+}
+
+.mentee-name {
+  font-weight: 600;
+  color: #150c21;
+}
+
+.mentee-role {
+  color: #6a7078;
+}
+
+.mentee-role::before {
+  content: "\2014";
+  margin: 0 0.5em;
+  color: #c2c8d0;
+}
+
+.mentee-next {
+  display: block;
+  color: #6a7078;
+}
+
 .list-item.news {
   display: flex;
   align-items: baseline;
