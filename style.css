@@ -176,8 +176,8 @@ h1 {
 h2.section-heading {
   font-size: 1.4em;
   line-height: 1.8em;
-  margin-top: 1.2em;
-  margin-bottom: 0.2em;
+  margin-top: 1.8em;
+  margin-bottom: 0.35em;
   color: #6a727a;
   font-weight: 500;
 }
@@ -482,6 +482,13 @@ h3 a:hover {
   vertical-align: -0.05em;
 }
 
+.author-sup {
+  font-size: 0.72em;
+  font-weight: 700;
+  line-height: 0;
+  vertical-align: super;
+}
+
 .oral {
   color: #f07c6a;
   font-style: normal;
@@ -528,15 +535,15 @@ h3 a:hover {
 .list-item.project {
   display: flex;
   align-items: center;
-  gap: 1.2em;
+  gap: 1.1em;
   margin-top: 0;
   line-height: 1.5em;
 }
 
 .project-logo {
-  flex: 0 0 4.5em;
-  width: 4.5em;
-  height: 4.5em;
+  flex: 0 0 5em;
+  width: 5em;
+  height: 5em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -549,10 +556,9 @@ h3 a:hover {
 }
 
 .project-logo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  mix-blend-mode: multiply;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-info {
@@ -560,11 +566,18 @@ h3 a:hover {
   min-width: 0;
 }
 
+.project-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  flex-wrap: wrap;
+  margin-bottom: 0.1em;
+}
+
 .project-info h3 {
   font-size: 1.05em;
   font-weight: 600;
   line-height: 1.4em;
-  margin-bottom: 0.15em;
 }
 
 .project-info p {
@@ -575,7 +588,7 @@ h3 a:hover {
 
 .project-info p.project-links {
   font-size: 0.9em;
-  margin-top: 0.15em;
+  margin-top: 0.2em;
   color: #a0a8b0;
 }
 
@@ -588,15 +601,18 @@ h3 a:hover {
 
 .experience-grid {
   display: flex;
-  flex-direction: column;
-  gap: 1em;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8em 1em;
   margin-top: 0.8em;
 }
 
 .list-item.experience {
+  width: auto;
   display: flex;
   align-items: center;
   gap: 1.2em;
+  min-width: 0;
   margin-top: 0;
   line-height: 1.5em;
 }
@@ -729,10 +745,16 @@ h3 a:hover {
   }
 
   .experience-grid {
+    flex-direction: column;
+    align-items: stretch;
     gap: 0.8em;
   }
 
   .list-item.experience {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
     gap: 0.8em;
   }
 
@@ -746,13 +768,15 @@ h3 a:hover {
   }
 
   .list-item.project {
-    gap: 0.8em;
+    gap: 0.75em;
+    width: 100%;
+    padding: 0.65em;
   }
 
   .project-logo {
-    flex: 0 0 3.5em;
-    width: 3.5em;
-    height: 3.5em;
+    flex: 0 0 4.4em;
+    width: 4.4em;
+    min-height: 4.2em;
   }
 
   .exp-date {
