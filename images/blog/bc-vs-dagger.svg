@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Behavior cloning and DAgger distribution shift</title>
+  <desc id="desc">A minimal side-by-side diagram. Behavior cloning drifts away from the expert trajectory, while DAgger adds expert corrections on learner states.</desc>
+  <defs>
+    <marker id="arrow-blue" markerWidth="9" markerHeight="9" refX="7.4" refY="4.5" orient="auto">
+      <path d="M1.5,1.5 L7.4,4.5 L1.5,7.5 Z" fill="#146ebe" />
+    </marker>
+    <marker id="arrow-orange" markerWidth="9" markerHeight="9" refX="7.4" refY="4.5" orient="auto">
+      <path d="M1.5,1.5 L7.4,4.5 L1.5,7.5 Z" fill="#ff9900" />
+    </marker>
+    <style>
+      .bg { fill: #fff; }
+      .panel { fill: #fff; stroke: #e8edf2; stroke-width: 2; }
+      .axis { stroke: #d8dee5; stroke-width: 2; }
+      .grid { stroke: #eef2f5; stroke-width: 1; }
+      .title { fill: #150c21; font: 600 31px Asap, Arial, sans-serif; }
+      .label { fill: #6a727a; font: 500 19px Asap, Arial, sans-serif; }
+      .legend { fill: #6a727a; font: 400 18px Asap, Arial, sans-serif; }
+      .blue-label { fill: #146ebe; font: 600 18px Asap, Arial, sans-serif; }
+      .orange-label { fill: #c97900; font: 600 18px Asap, Arial, sans-serif; }
+      .expert-area { fill: #146ebe; opacity: 0.08; }
+      .robot-area { fill: #ff9900; opacity: 0.13; }
+      .expert-path { fill: none; stroke: #146ebe; stroke-width: 3.6; stroke-linecap: round; marker-end: url(#arrow-blue); }
+      .robot-path { fill: none; stroke: #ff9900; stroke-width: 3.6; stroke-linecap: round; marker-end: url(#arrow-orange); }
+      .correction { fill: none; stroke: #146ebe; stroke-width: 2.8; stroke-linecap: round; stroke-dasharray: 6 7; marker-end: url(#arrow-blue); }
+      .dot-blue { fill: #146ebe; }
+      .dot-orange { fill: #ff9900; }
+      .dot-white { fill: #fff; stroke: #146ebe; stroke-width: 2.3; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="560" />
+
+  <g transform="translate(78 54)">
+    <rect class="panel" x="0" y="0" width="500" height="390" rx="14" />
+    <text class="title" x="32" y="46">Behavior cloning</text>
+    <text class="label" x="32" y="76">learns from expert states only</text>
+
+    <line class="grid" x1="92" y1="142" x2="92" y2="315" />
+    <line class="grid" x1="180" y1="142" x2="180" y2="315" />
+    <line class="grid" x1="268" y1="142" x2="268" y2="315" />
+    <line class="grid" x1="356" y1="142" x2="356" y2="315" />
+    <line class="axis" x1="64" y1="315" x2="430" y2="315" />
+    <line class="axis" x1="64" y1="315" x2="64" y2="126" />
+
+    <ellipse class="expert-area" cx="190" cy="230" rx="142" ry="56" transform="rotate(-22 190 230)" />
+    <ellipse class="robot-area" cx="302" cy="265" rx="165" ry="66" transform="rotate(24 302 265)" />
+
+    <path class="expert-path" d="M86 294 C132 258, 180 225, 238 198 C294 172, 348 158, 410 148" />
+    <path class="robot-path" d="M86 294 C133 258, 178 232, 226 233 C274 234, 296 286, 338 304 C369 318, 395 304, 424 281" />
+
+    <circle class="dot-blue" cx="145" cy="249" r="5.5" />
+    <circle class="dot-blue" cx="224" cy="203" r="5.5" />
+    <circle class="dot-blue" cx="320" cy="165" r="5.5" />
+    <circle class="dot-orange" cx="232" cy="234" r="5.5" />
+    <circle class="dot-orange" cx="310" cy="294" r="5.5" />
+    <circle class="dot-orange" cx="386" cy="308" r="5.5" />
+
+    <text class="blue-label" x="114" y="354">expert states</text>
+    <text class="orange-label" x="296" y="354">robot drifts</text>
+  </g>
+
+  <g transform="translate(622 54)">
+    <rect class="panel" x="0" y="0" width="500" height="390" rx="14" />
+    <text class="title" x="32" y="46">DAgger</text>
+    <text class="label" x="32" y="76">adds labels where the robot goes</text>
+
+    <line class="grid" x1="92" y1="142" x2="92" y2="315" />
+    <line class="grid" x1="180" y1="142" x2="180" y2="315" />
+    <line class="grid" x1="268" y1="142" x2="268" y2="315" />
+    <line class="grid" x1="356" y1="142" x2="356" y2="315" />
+    <line class="axis" x1="64" y1="315" x2="430" y2="315" />
+    <line class="axis" x1="64" y1="315" x2="64" y2="126" />
+
+    <ellipse class="expert-area" cx="205" cy="230" rx="145" ry="58" transform="rotate(-19 205 230)" />
+    <ellipse class="robot-area" cx="246" cy="235" rx="172" ry="70" transform="rotate(-9 246 235)" />
+
+    <path class="expert-path" d="M86 294 C135 258, 184 224, 244 198 C300 174, 354 158, 418 148" />
+    <path class="robot-path" d="M86 294 C136 264, 190 235, 246 214 C300 194, 352 165, 422 150" />
+    <path class="correction" d="M206 274 C226 250, 246 225, 276 202" />
+    <path class="correction" d="M304 257 C328 226, 356 186, 392 160" />
+
+    <circle class="dot-blue" cx="142" cy="258" r="5.5" />
+    <circle class="dot-blue" cx="224" cy="202" r="5.5" />
+    <circle class="dot-blue" cx="322" cy="164" r="5.5" />
+    <circle class="dot-orange" cx="206" cy="274" r="5.5" />
+    <circle class="dot-orange" cx="304" cy="257" r="5.5" />
+    <circle class="dot-white" cx="276" cy="202" r="5.5" />
+    <circle class="dot-white" cx="392" cy="160" r="5.5" />
+
+    <text class="orange-label" x="104" y="354">label robot states</text>
+    <text class="blue-label" x="296" y="354">recover</text>
+  </g>
+
+  <g transform="translate(348 498)">
+    <circle class="dot-blue" cx="0" cy="-5" r="5.5" />
+    <text class="legend" x="16" y="0">expert trajectory</text>
+    <circle class="dot-orange" cx="182" cy="-5" r="5.5" />
+    <text class="legend" x="198" y="0">robot rollout</text>
+    <line class="correction" x1="374" y1="-5" x2="424" y2="-5" />
+    <text class="legend" x="440" y="0">expert correction</text>
+  </g>
+</svg>
