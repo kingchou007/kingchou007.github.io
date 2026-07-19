@@ -310,6 +310,7 @@ h1 {
 }
 
 .blog-post h2 {
+  clear: both;
   font-size: 1.4em;
   line-height: 1.8em;
   color: #6a727a;
@@ -326,6 +327,29 @@ h1 {
   font-size: 0.98em;
 }
 
+.margin-note {
+  width: 11.5rem;
+  color: #8d98a3;
+  font-size: 0.82em;
+  line-height: 1.42em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding-top: 0.6em;
+  border-top: 1px solid #e3e8ee;
+}
+
+.margin-note-left {
+  float: left;
+  clear: left;
+  margin: 0.35em 1.4rem 0.9em -13.2rem;
+}
+
+.margin-note-right {
+  float: right;
+  clear: right;
+  margin: 0.35em -13.2rem 0.9em 1.4rem;
+}
+
 .citation {
   color: #5f7284;
   font-size: 0.94em;
@@ -337,15 +361,18 @@ h1 {
   content: "";
 }
 
-.citation:hover {
-  color: rgb(20, 110, 190);
+.citation:hover,
+.citation:active {
+  color: #5f7284;
   text-decoration: none;
 }
 
 .citation:focus-visible {
+  color: #5f7284;
   border-radius: 3px;
   outline: 2px solid #cfe4f8;
   outline-offset: 2px;
+  text-decoration: none;
 }
 
 .blog-figure {
@@ -386,6 +413,24 @@ h1 {
   font-size: 0.92em;
 }
 
+.blog-priority-list {
+  list-style: decimal;
+  margin: 0.9em 0 0 1.35em;
+}
+
+.blog-priority-list li {
+  color: #2a2230;
+  font-size: 1em;
+  line-height: 1.55em;
+  margin-top: 0.55em;
+  padding-left: 0.2em;
+}
+
+.blog-priority-list li::marker {
+  color: #5f7284;
+  font-weight: 600;
+}
+
 .blog-references {
   list-style: decimal;
   margin: 0.8em 0 0 1.25em;
@@ -399,12 +444,14 @@ h1 {
   padding: 0.34em 0.55em;
   border-radius: 5px;
   scroll-margin-top: 35vh;
-  transition: background-color 0.18s ease, box-shadow 0.18s ease;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.18s ease;
 }
 
 .blog-references li.ref-active {
-  background: #f7fbff;
-  box-shadow: inset 2px 0 0 rgba(20, 110, 190, 0.5);
+  text-decoration: underline;
+  text-decoration-color: #8d98a3;
 }
 
 .blog-references li:focus {
@@ -1165,5 +1212,17 @@ h3 a:hover {
 @media screen and (max-width: 1180px) {
   .blog-toc {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1639px) {
+  .margin-note {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1640px) {
+  .blog-toc {
+    left: calc(50% + 620px);
   }
 }
