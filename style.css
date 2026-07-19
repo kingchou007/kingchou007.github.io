@@ -96,10 +96,6 @@ a:hover {
   color: #232f3e;
 }
 
-.brand-duke {
-  color: #012169;
-}
-
 i {
   font-style: italic;
 }
@@ -1000,10 +996,6 @@ h3 a:hover {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-}
-
-.exp-logo img.logo-amazon {
-  filter: grayscale(1) contrast(1.08);
 }
 
 .exp-description {
