@@ -17,7 +17,8 @@ Open `index.html` directly in a browser to preview. No build tools, package mana
 - **`images/`** — Active site media (profile photo, project thumbnails, videos)
 - **`docs/`** — Static assets like CV PDF
 - **`temp_unused/`** — Archived/unused media; not referenced by the live site
-- **`hugo/`** and **`blog/`** — Skeleton directories for a planned Hugo blog (currently empty/unused)
+- **`blog/`** — Static blog pages, including the blog index and individual posts
+- **`hugo/`** — Planned Hugo setup, not currently present in this checkout
 
 ### Key Libraries (loaded via CDN)
 
