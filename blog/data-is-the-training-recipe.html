@@ -1,0 +1,457 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Data Is the Training Recipe | Jinzhou Li</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://kingchou007.github.io/blog/data-is-the-training-recipe.html">
+    <meta name="description" content="A working note by Jinzhou Li on robot data sources, training recipes, post-training, dexterous-hand data, and tactile data for contact-rich manipulation.">
+    <meta name="author" content="Jinzhou Li">
+    <meta name="robots" content="noindex, follow">
+    <link rel="stylesheet" href="../style.css?v=20260718b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  </head>
+
+  <body id="body">
+    <main class="blog-main">
+      <nav class="blog-nav">
+        <a href="./" class="blog-back-link" aria-label="Back to Blog">Blog</a>
+      </nav>
+
+      <aside class="blog-toc" aria-label="Article sections">
+        <a href="#old-question">2024</a>
+        <a href="#data-sources">Sources</a>
+        <a href="#training-recipe">Recipe</a>
+        <a href="#simulation-loop">Sim</a>
+        <a href="#base-model">Base</a>
+        <a href="#modality-priority">Modalities</a>
+        <a href="#problem-itself">Problem</a>
+        <a href="#hours">Hours</a>
+        <a href="#dexterous-hand-data">Hands</a>
+        <a href="#tactile-scale">Contact</a>
+        <a href="#open-questions">Questions</a>
+        <a href="#references">References</a>
+      </aside>
+
+      <article class="blog-post">
+        <header class="blog-post-header">
+          <h1>Data Is the Training Recipe</h1>
+          <div class="blog-meta">
+            <a href="../">Jinzhou Li</a>
+            <span>Duke University</span>
+            <time datetime="2026-07-18">July 2026</time>
+            <span>10 min read</span>
+          </div>
+        </header>
+
+        <p class="blog-lede">
+          Robot learning data used to sound like a collection problem: collect demonstrations, train a policy, and
+          evaluate success. I now see it more as a training-recipe problem. Each source shifts the states a policy
+          sees, the failures it exposes, and the corrections we can make. The harder decision is what role each
+          source should play in the loop.
+        </p>
+
+        <h2 id="old-question">The old framing was data collection</h2>
+        <p>
+          In 2024, I talked with a friend who was building a data startup company. At that time, my mental model was
+          simple: what kind of data does a robot need? I mostly thought about teleoperation: which tasks to collect,
+          which initial states to cover, how many recoveries to include, and how to keep action labels clean.
+        </p>
+        <aside class="margin-note margin-note-left">2024: collect cleaner demonstrations.</aside>
+        <p>
+          I remember this was also shaped by the 2023 discussions around Diffusion Policy.  Strong behavior cloning depended as much on the data
+          recipe as on the policy class, including haptic teleoperation, good robot control, visuotactile sensing, and
+          recoveries around likely failure states
+          <a class="citation" href="#ref-chi2023">[Chi et al., 2023]</a>. The lesson was that data is not a pile of
+          successful trajectories. It is an interface between the human, the robot, and the failures we expect at
+          deployment.
+        </p>
+
+        <h2 id="data-sources">Data sources are changing</h2>
+        <p>
+          That framing still matters, but the data landscape already looks different. Robot data is no longer a
+          single stream of teleoperated demonstrations on one platform. Cross-embodiment datasets pool experience
+          across robots, tasks, scenes, and institutions
+          <a class="citation" href="#ref-openx2023">[Open X-Embodiment Collaboration et al., 2023]</a>
+          <a class="citation" href="#ref-khazatsky2024">[Khazatsky et al., 2024]</a>. Synthetic pipelines expand small
+          demonstration sets into varied trajectories
+          <a class="citation" href="#ref-mandlekar2023">[Mandlekar et al., 2023]</a>. Simulation may first be an
+          evaluation and iteration engine before it is a generator of trajectories
+          <a class="citation" href="#ref-genesis2026">[Genesis AI Team, 2026]</a>. Human egocentric video offers a
+          different signal: not robot actions directly, but priors about hands, objects, intent, and everyday
+          procedures <a class="citation" href="#ref-grauman2022">[Grauman et al., 2022]</a>. Wearable
+          physical-interaction data adds another branch. GEN-1 argues for pretraining from human physical activity
+          data, then adapting to robot tasks with a small amount of robot data
+          <a class="citation" href="#ref-generalist2026">[Generalist Team, 2026]</a>.
+        </p>
+        <p>
+          These sources are complementary, but they do not automatically compose. Teleoperation can teach action
+          grounding. Synthetic data can add coverage. Human video can teach task structure and affordances. Contact
+          data can expose physical state that vision misses. The hard part is making them meet at the policy without
+          simply adding another distribution gap.
+        </p>
+
+        <h2 id="training-recipe">The new bottleneck is the training recipe</h2>
+        <aside class="margin-note margin-note-right">2026: the mixture became the hard part.</aside>
+        <p>
+          In 2026, when I talked with him again in the Bay Area, the discussion had shifted from source discovery to
+          recipe design: how much of each source, in what order, and for which capability? The difficult part is
+          deciding the mixture, schedule, filtering, and loss weighting so that one source does not wash out another.
+        </p>
+        <p>
+          A plausible recipe looks more like curriculum design than "train on all available data": pretrain on broad
+          but weakly aligned data, adapt on robot-specific demonstrations, add synthetic variation where coverage is
+          missing, and finish with recovery data from the policy's own failures. The right schedule depends on the
+          base policy, embodiment, task horizon, and modality.
+        </p>
+        <h2 id="simulation-loop">Simulation changes the data loop</h2>
+        <aside class="margin-note margin-note-left">Simulation can decide what data to collect next.</aside>
+        <p>
+          Genesis World 1.0 makes a useful distinction: simulation should first be an evaluation and iteration
+          engine. Real robot experiments limit how fast we can compare policies, ablations, checkpoints, and data
+          mixtures. A trustworthy closed-loop simulator turns part of that bottleneck from robot time into compute
+          time
+          <a class="citation" href="#ref-genesis2026">[Genesis AI Team, 2026]</a>.
+        </p>
+        <p>
+          Evaluation can then drive collection. If simulation reveals brittleness under object variation, contact
+          conditions, or camera shifts, the next dataset should target that weakness. In this role, simulation is less
+          about replacing real data and more about deciding which real data is worth collecting.
+        </p>
+        <p>
+          This is also why evaluation should probably come before simulation-based data generation. If both training
+          and evaluation depend on the same simulated distribution too early, improvement may only mean that the
+          policy learned the simulator. A cleaner route is to build sim-real trust first, then use simulation more
+          aggressively for post-training, RL, task generation, or synthetic data.
+        </p>
+
+        <h2 id="base-model">What kind of base model do we need?</h2>
+        <aside class="margin-note margin-note-left">Replay strength is not enough; steerability matters.</aside>
+        <p>
+          A good base model for robotics cannot be judged only by offline imitation loss. It should be broad enough
+          to understand common objects and task structure, stable enough to run for long horizons, and easy to steer
+          when it is wrong. If a small amount of correction data, recovery data, force feedback, or tactile feedback
+          cannot move the policy predictably, the base model is hard to use even if it looks strong on a benchmark.
+        </p>
+        <p>
+          I care about four properties: broad priors, correctable actions, adaptation without forgetting, and
+          interpretable failures. GEN-1 is interesting in this light because its claim is a large
+          physical-interaction pretraining base followed by a small amount of robot task data
+          <a class="citation" href="#ref-generalist2026">[Generalist Team, 2026]</a>. In this view, behavior cloning
+          may only be a warm-up. It gets the robot into the task distribution; post-training and recovery data make
+          the policy reliable.
+        </p>
+
+        <h2 id="modality-priority">Modality priority should follow action ambiguity</h2>
+        <aside class="margin-note margin-note-right">Add a sensor when it removes action ambiguity, not because it is available.</aside>
+        <p>
+          Sensor choice should be driven by the ambiguity that remains for the action. For contact-rich manipulation,
+          my rough priority is:
+        </p>
+        <ol class="blog-priority-list">
+          <li>Robot state and action history, because the controller needs embodiment state, timing, and recent motion.</li>
+          <li>Vision, because it gives global object, scene, and geometry information.</li>
+          <li>Task context or language, when the robot needs to bind a goal, preference, or long-horizon instruction.</li>
+          <li>Force-torque, when the same visual state can correspond to different contact loads, constraints, or compliance.</li>
+          <li>Tactile sensing, when local contact state determines the next action.</li>
+        </ol>
+        <p>
+          This order is a diagnostic, not a rule. Add a modality only when the data can support the variation it
+          exposes. If tactile data is added before the dataset covers different force backgrounds, the policy may
+          inherit a harder out-of-distribution problem. If force or tactile data enters during targeted post-training,
+          after the base policy already handles the visual task distribution, it may be much more useful because it
+          explains the remaining failures.
+        </p>
+        <h2 id="problem-itself">Step back: what is the problem itself?</h2>
+        <p>
+          Leaving aside industry roadmaps, the core object is the data loop itself. Each added source changes what
+          states the policy understands, which failures become visible, what corrections are possible, and which
+          modality becomes useful rather than harmful. The evaluation target should not be who has more data; it
+          should be whether a source applies the right pressure to the policy.
+        </p>
+        <p>
+          Recent systems are useful as hints, not final answers. GEN-1 suggests that broad physical-interaction
+          pretraining can make a small amount of robot task data more valuable
+          <a class="citation" href="#ref-generalist2026">[Generalist Team, 2026]</a>. Sunday's ACT-2 preview suggests
+          that targeted post-training and recovery collection can turn a base model into a more reliable deployed
+          system <a class="citation" href="#ref-sunday2026">[Sunday Robotics, 2026]</a>. Genesis argues that simulation
+          should first make evaluation and iteration faster, before we trust it as a training data generator
+          <a class="citation" href="#ref-genesis2026">[Genesis AI Team, 2026]</a>. Together they point to the same
+          research object: the loop that collects data, trains a policy, exposes failure, and decides what signal
+          should enter next.
+        </p>
+        <p>
+          The structural questions matter more than any single dataset. What should be learned before the robot ever
+          touches the task? What must be learned on the robot because embodiment matters? When should a new modality
+          enter, and when does it only create a new distribution shift? Which failures call for more data, and which
+          failures mean the representation or action space is wrong?
+        </p>
+
+        <h2 id="hours">Episodes are not the only unit anymore</h2>
+        <aside class="margin-note margin-note-left">Hours matter only when they become learnable signal.</aside>
+        <p>
+          Another shift is the unit of accounting. Post-training data is no longer always counted by episodes. People
+          increasingly talk in hours: robot-hours, human-hours, and effective data-hours. But one hour of robot
+          operation is not one hour of useful supervision. A mature data collector can produce better corrections
+          because they know how to expose failures, reset quickly, avoid ambiguous labels, and demonstrate recoveries
+          the policy can learn from.
+        </p>
+        <p>
+          This is why the rise of data companies makes sense. If the bottleneck is effective data production, the
+          product is an operation that turns human time, robot time, task design, sensor calibration, and failure
+          mining into usable training signal.
+        </p>
+
+        <h2 id="dexterous-hand-data">Dexterous-hand data is still an open opportunity</h2>
+        <aside class="margin-note margin-note-right">The opportunity is the contact-state unit.</aside>
+        <p>
+          Dexterous hands sharpen the opportunity. Broad manipulation datasets are valuable, but they still leave a
+          large open space around multi-finger contact: regrasping, in-hand adjustment, recovery, hand-object
+          occlusion, and morphology-specific failure. This gap is not just a missing dataset; it asks for a new data
+          unit, not simply more successful episodes.
+        </p>
+        <p>
+          For dexterous hands, useful data may be organized around transitions: approach, first contact, force
+          buildup, contact change, regrasp, recovery, and release. The key split is between general hand priors and
+          behaviors tied to a specific sensor, hand design, or controller. This is where tactile and force signals
+          feel important, but only when they explain failures that vision and proprioception cannot.
+        </p>
+
+        <h2 id="tactile-scale">When should contact-rich data be used?</h2>
+        <aside class="margin-note margin-note-right">The timing matters more than raw scale.</aside>
+        <p>
+          If we could scale tactile data with real contact information, what would change? My guess is that scale
+          alone may not show a clear short-term effect. If a task is already solvable from vision and proprioception,
+          adding large amounts of tactile data may only increase observation complexity. The value appears when touch
+          changes the action choice by resolving what other observations cannot: local pressure, slip, contact
+          geometry, deformation, or hidden force background.
+        </p>
+        <p>
+          The choice is not simply whether to use force explicitly or implicitly. Explicit force or torque feedback
+          is useful for contact constraints, compliance, safety, and residual correction. An implicit tactile or
+          contact representation may be enough when the signal mainly disambiguates the physical state behind the
+          image. The design choice is what role contact should play in the policy.
+        </p>
+        <p>
+          The object is therefore synchronized interaction data: vision, proprioception, action, force, and touch
+          recorded while the robot makes, maintains, loses, and recovers contact. This is harder than ordinary
+          teleoperation. Sensors drift, contacts can be unsafe, materials change the signal, and the same visual state
+          can hide different force backgrounds. Scaling contact data sharpens the system problem: is the added signal
+          explaining a real failure mode, or just creating another out-of-distribution axis?
+        </p>
+        <p>
+          The upside is that the right contact-rich experience may teach priors vision cannot: when to push, when to
+          yield, and when a small correction is better than a new plan. People are
+          already expanding different contact regimes, not just adding one tactile sensor to a vision policy. FTP-1
+          studies cross-sensor tactile data <a class="citation" href="#ref-yuan2026">[Yuan et al., 2026]</a>. T-Rex
+          focuses on high-frequency tactile feedback for reactive dexterous manipulation
+          <a class="citation" href="#ref-niu2026">[Niu et al., 2026]</a>. Together, these works suggest that contact
+          data may become a new scaling axis, but only if we understand when it should enter the system.
+        </p>
+
+        <h2 id="open-questions">Questions I am left with</h2>
+        <p>
+          The field is moving from isolated robot datasets toward data engines. That makes the research questions
+          feel more operational, but not less scientific.
+        </p>
+        <ol class="blog-question-list">
+          <li>How should we choose the mixture between human video, robot teleoperation, synthetic trajectories, recovery data, and contact-rich data?</li>
+          <li>What makes a base model easy to steer, and can we measure that before deploying it on hardware?</li>
+          <li>Which parts of a policy can be learned from human physical data, and which parts still require robot embodiment data?</li>
+          <li>What is the right unit for dexterous-hand data: successful episodes, contact transitions, regrasp attempts, or recoveries?</li>
+          <li>When should simulation be used for evaluation, failure mining, data generation, or post-training RL?</li>
+          <li>When does a new modality remove action ambiguity, and when does it only introduce a new distribution shift?</li>
+          <li>Can offline signals predict real robot success well enough to guide the next data collection round?</li>
+        </ol>
+        <p>
+          My current guess is that future progress will come from treating data as an adjustable part of the robot
+          learning system. The goal is to choose the intervention at each stage, not to maximize every source at once.
+        </p>
+        <p>
+          These thoughts are still not fully mature. I am writing them down mostly as a working note, both to
+          organize my own thinking and to share the questions I currently care about. If you disagree, see a gap, or
+          think I am missing something important, I would be happy to discuss it and learn where this framing is
+          wrong.
+        </p>
+
+        <h2 id="references">References</h2>
+        <ol class="blog-references">
+          <li id="ref-chi2023">
+            <span class="ref-authors">Chi, C., Feng, S., Du, Y., Xu, Z., Cousineau, E., Burchfiel, B., and Song, S.</span>
+            <span class="ref-year">(2023).</span>
+            <span class="ref-title">Diffusion Policy: Visuomotor Policy Learning via Action Diffusion.</span>
+            <span class="ref-venue">RSS.</span>
+            <a href="https://diffusion-policy.cs.columbia.edu/">Paper</a>
+          </li>
+          <li id="ref-openx2023">
+            <span class="ref-authors">Open X-Embodiment Collaboration, Padalkar, A., Pooley, A., Jain, A., et al.</span>
+            <span class="ref-year">(2023).</span>
+            <span class="ref-title">Open X-Embodiment: Robotic Learning Datasets and RT-X Models.</span>
+            <span class="ref-venue">arXiv preprint arXiv:2310.08864.</span>
+            <a href="https://robotic-transformer-x.github.io/">Paper</a>
+          </li>
+          <li id="ref-khazatsky2024">
+            <span class="ref-authors">Khazatsky, A., Pertsch, K., Nair, S., Balakrishna, A., Dasari, S., et al.</span>
+            <span class="ref-year">(2024).</span>
+            <span class="ref-title">DROID: A Large-Scale In-the-Wild Robot Manipulation Dataset.</span>
+            <span class="ref-venue">RSS.</span>
+            <a href="https://droid-dataset.github.io/">Paper</a>
+          </li>
+          <li id="ref-mandlekar2023">
+            <span class="ref-authors">Mandlekar, A., Nasiriany, S., Wen, B., Akinola, I., Narang, Y., Fan, L., Zhu, Y., and Fox, D.</span>
+            <span class="ref-year">(2023).</span>
+            <span class="ref-title">MimicGen: A Data Generation System for Scalable Robot Learning using Human Demonstrations.</span>
+            <span class="ref-venue">CoRL.</span>
+            <a href="https://mimicgen.github.io/">Paper</a>
+          </li>
+          <li id="ref-grauman2022">
+            <span class="ref-authors">Grauman, K., Westbury, A., Byrne, E., Chavis, Z., Furnari, A., et al.</span>
+            <span class="ref-year">(2022).</span>
+            <span class="ref-title">Ego4D: Around the World in 3,000 Hours of Egocentric Video.</span>
+            <span class="ref-venue">CVPR.</span>
+            <a href="https://ego4d-data.org/">Paper</a>
+          </li>
+          <li id="ref-genesis2026">
+            <span class="ref-authors">Genesis AI Team.</span>
+            <span class="ref-year">(2026).</span>
+            <span class="ref-title">The Role of Simulation in Scalable Robotics, Genesis World 1.0, and the Path Forward.</span>
+            <span class="ref-venue">Genesis AI Blog.</span>
+            <a href="https://www.genesis.ai/blog/the-role-of-simulation-in-scalable-robotics-genesis-world-10-and-the-path-forward">Blog</a>
+          </li>
+          <li id="ref-sunday2026">
+            <span class="ref-authors">Sunday Robotics.</span>
+            <span class="ref-year">(2026).</span>
+            <span class="ref-title">ACT-2 Preview: Generalizing Reliability.</span>
+            <span class="ref-venue">Sunday Robotics Blog.</span>
+            <a href="https://www.sunday.ai/blog/act-2-preview">Blog</a>
+          </li>
+          <li id="ref-generalist2026">
+            <span class="ref-authors">Generalist Team.</span>
+            <span class="ref-year">(2026).</span>
+            <span class="ref-title">GEN-1: Scaling Embodied Foundation Models to Mastery.</span>
+            <span class="ref-venue">Generalist AI Blog.</span>
+            <a href="https://generalistai.com/blog/gen-1">Blog</a>
+          </li>
+          <li id="ref-yuan2026">
+            <span class="ref-authors">Yuan, C., Zhang, Z., Zhou, M., Chen, W., Wang, Y., Liu, Z., Niu, D., Wang, S., Zhang, H., Zhang, W., Hu, Y., Gong, Y., Xing, W., Wen, C., Lu, C., Zhang, K., and Gao, Y.</span>
+            <span class="ref-year">(2026).</span>
+            <span class="ref-title">FTP-1: A Generalist Foundation Tactile Policy Across Tactile Sensors for Contact-Rich Manipulation.</span>
+            <span class="ref-venue">arXiv preprint arXiv:2606.13102.</span>
+            <a href="https://arxiv.org/abs/2606.13102">Paper</a>
+          </li>
+          <li id="ref-niu2026">
+            <span class="ref-authors">Niu, D., Liu, Z., Wang, Z., Shao, B., Yin, Z.-H., Pai, A., Sharma, Y., Saravalle, S., Zheng, R., Wang, J., Punamiya, R., Xu, M., Xie, Y., Jiang, Y., Fu, L., et al.</span>
+            <span class="ref-year">(2026).</span>
+            <span class="ref-title">T-Rex: Tactile-Reactive Dexterous Manipulation.</span>
+            <span class="ref-venue">arXiv preprint arXiv:2606.17055.</span>
+            <a href="https://arxiv.org/abs/2606.17055">Paper</a>
+          </li>
+        </ol>
+      </article>
+    </main>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.blog-toc a'));
+        var citationLinks = Array.prototype.slice.call(document.querySelectorAll('.citation[href^="#ref-"]'));
+        var sections = tocLinks
+          .map(function(link) { return document.querySelector(link.getAttribute('href')); })
+          .filter(Boolean);
+        var refHighlightTimer = null;
+
+        function shouldReduceMotion() {
+          return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        }
+
+        function scrollToElement(element, block) {
+          element.scrollIntoView({
+            behavior: shouldReduceMotion() ? 'auto' : 'smooth',
+            block: block
+          });
+        }
+
+        function setActiveSection(id) {
+          tocLinks.forEach(function(link) {
+            var isActive = link.getAttribute('href') === '#' + id;
+            link.classList.toggle('active', isActive);
+            if (isActive) {
+              link.setAttribute('aria-current', 'location');
+            } else {
+              link.removeAttribute('aria-current');
+            }
+          });
+        }
+
+        function highlightReference(reference) {
+          document.querySelectorAll('.blog-references li.ref-active').forEach(function(item) {
+            item.classList.remove('ref-active');
+          });
+          reference.classList.add('ref-active');
+          window.clearTimeout(refHighlightTimer);
+          refHighlightTimer = window.setTimeout(function() {
+            reference.classList.remove('ref-active');
+          }, 6000);
+        }
+
+        citationLinks.forEach(function(link) {
+          link.addEventListener('click', function(event) {
+            var target = document.querySelector(link.getAttribute('href'));
+            if (!target) return;
+
+            event.preventDefault();
+            scrollToElement(target, 'center');
+            if (history.pushState) {
+              history.pushState(null, '', link.getAttribute('href'));
+            }
+            target.setAttribute('tabindex', '-1');
+            try {
+              target.focus({ preventScroll: true });
+            } catch (error) {
+              target.focus();
+            }
+            highlightReference(target);
+          });
+        });
+
+        if (window.location.hash.indexOf('#ref-') === 0) {
+          var initialReference = document.querySelector(window.location.hash);
+          if (initialReference) highlightReference(initialReference);
+        }
+
+        tocLinks.forEach(function(link) {
+          link.addEventListener('click', function(event) {
+            var target = document.querySelector(link.getAttribute('href'));
+            if (!target) return;
+
+            event.preventDefault();
+            setActiveSection(target.id);
+            scrollToElement(target, 'start');
+            if (history.pushState) {
+              history.pushState(null, '', link.getAttribute('href'));
+            }
+          });
+        });
+
+        if (!tocLinks.length || !sections.length) return;
+
+        setActiveSection(sections[0].id);
+
+        if (!('IntersectionObserver' in window)) return;
+
+        var activeId = '';
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) activeId = entry.target.id;
+          });
+          if (activeId) setActiveSection(activeId);
+        }, {
+          rootMargin: '-20% 0px -68% 0px',
+          threshold: 0
+        });
+
+        sections.forEach(function(section) { observer.observe(section); });
+      });
+    </script>
+  </body>
+</html>
