@@ -45,9 +45,8 @@
           <h1>Lessons from Imitation Learning</h1>
           <div class="blog-meta">
             <a href="../">Jinzhou Li</a>
-            <span>Duke University</span>
             <time datetime="2026-07-18">July 2026</time>
-            <span>8 min read</span>
+            <span>9 min read</span>
           </div>
         </header>
 
@@ -197,6 +196,15 @@
           add the new modality at the stage where it can explain the policy's real failure mode. For force, that
           may be during post-training correction or runtime compliance, not necessarily during the first round of
           visual imitation learning.
+        </p>
+        <p>
+          This becomes even more important for dexterous hands. A correction is rarely a clean replacement action for
+          the whole hand. It is often a local intervention: reduce contact force, change a fingertip direction,
+          stabilize before moving, recover a slipping object, or regrasp instead of continuing the nominal plan. The
+          interface decides what the correction means. A residual action, a compliant human intervention, a tactile
+          trigger, and a force target all produce different training signals. For dexterous manipulation, I therefore
+          think correction data should focus on the contact states where the base policy is steerable, rather than
+          only collecting more successful full trajectories.
         </p>
         <p>
           Another takeaway is that the base policy does not have to come from behavior cloning. It can come from
