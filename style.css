@@ -1254,13 +1254,13 @@ h3 a:hover {
   }
 
   .exp-logo-pair {
-    flex-basis: 6.1em;
-    gap: 0.5em;
+    flex-basis: 2.8em;
+    gap: 0.2em;
   }
 
   .exp-logo-pair img {
-    width: 2.8em;
-    height: 2.8em;
+    width: 1.3em;
+    height: 1.3em;
   }
 
   .projects-grid {
