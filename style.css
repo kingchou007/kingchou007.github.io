@@ -705,6 +705,40 @@ h2.section-heading {
   color: #150c21;
 }
 
+.teaching-list {
+  display: grid;
+  gap: 0.35em;
+  margin-top: 0.35em;
+}
+
+.teaching-item {
+  display: grid;
+  grid-template-columns: 5em minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: baseline;
+  line-height: 1.5em;
+  color: #150c21;
+}
+
+.teaching-term {
+  color: #6a727a;
+  font-size: 1em;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.teaching-details,
+.teaching-course,
+.teaching-role {
+  display: block;
+}
+
+.teaching-role {
+  margin-top: 0.05em;
+  color: #6a727a;
+  font-size: 0.9em;
+}
+
 .mentoring-label {
   margin: 1em 0 0.3em 0;
   font-size: 0.78em;
