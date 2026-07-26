@@ -391,6 +391,96 @@ h1 {
   text-align: center;
 }
 
+.research-map-figure {
+  margin: 1.7em 0 1.35em;
+}
+
+.research-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 360px;
+  overflow: hidden;
+  border-top: 1px solid #e8edf1;
+  border-bottom: 1px solid #e8edf1;
+  cursor: grab;
+  touch-action: none;
+}
+
+.research-map:active {
+  cursor: grabbing;
+}
+
+.research-map canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.research-map-fallback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.research-map-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8em;
+  margin-top: 0.65em;
+  color: #8d98a3;
+  font-size: 0.82em;
+}
+
+.research-map-sequence {
+  color: #52616e;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.research-map-hint {
+  flex: 0 0 auto;
+}
+
+.research-map-detail {
+  min-height: 1.5em;
+  color: #6f7b86 !important;
+  font-size: 0.9em !important;
+  line-height: 1.45em !important;
+  margin-top: 0.55em !important;
+}
+
+.research-work-list {
+  margin: 0.9em 0 0 1.15em;
+}
+
+.research-work-list li {
+  color: #2a2230;
+  font-size: 1em;
+  line-height: 1.55em;
+  margin-top: 0.65em;
+  padding-left: 0.25em;
+}
+
+.research-work-list li::marker {
+  color: #8d98a3;
+}
+
+.research-statement {
+  margin: 1em 0 1.2em;
+  padding: 0.2em 0 0.2em 1.15em;
+  border-left: 3px solid #9ebcda;
+  color: #24313c;
+  font-size: 1.08em;
+  line-height: 1.6em;
+  font-style: italic;
+}
+
 .blog-question-list {
   list-style: decimal;
   margin: 0.9em 0 0 1.35em;
@@ -988,6 +1078,16 @@ h3 a:hover {
   justify-content: center;
 }
 
+.exp-logo-pair {
+  flex-basis: 7.5em;
+  gap: 0.5em;
+}
+
+.exp-logo-pair img {
+  width: 3.5em;
+  height: 3.5em;
+}
+
 .exp-logo:hover {
   text-decoration: none;
 }
@@ -1115,6 +1215,19 @@ h3 a:hover {
     font-size: 1.8em;
   }
 
+  .research-map {
+    min-height: 310px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .research-map-meta {
+    align-items: flex-start;
+  }
+
+  .research-map-hint {
+    display: none;
+  }
+
   #footer {
     position: static;
     margin: 1.5em 0 0.6em 0;
@@ -1137,6 +1250,16 @@ h3 a:hover {
 
   .exp-logo {
     flex: 0 0 2.8em;
+    height: 2.8em;
+  }
+
+  .exp-logo-pair {
+    flex-basis: 6.1em;
+    gap: 0.5em;
+  }
+
+  .exp-logo-pair img {
+    width: 2.8em;
     height: 2.8em;
   }
 

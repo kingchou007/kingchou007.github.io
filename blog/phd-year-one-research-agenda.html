@@ -1,0 +1,669 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Research Agenda 1.0 Beta | Jinzhou Li</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://kingchou007.github.io/blog/phd-year-one-research-agenda.html">
+    <meta name="description" content="Jinzhou Li's PhD year-one research agenda: contact-rich manipulation, learning from humans, and continual learning for continually improving robots.">
+    <meta name="author" content="Jinzhou Li">
+    <meta name="robots" content="noindex, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Research Agenda 1.0 Beta">
+    <meta property="og:description" content="A research loop for continually improving robots: human physical priors, embodied contact grounding, and continual improvement.">
+    <meta property="og:url" content="https://kingchou007.github.io/blog/phd-year-one-research-agenda.html">
+    <meta property="og:image" content="https://kingchou007.github.io/images/blog/phd-year-one-research-agenda-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Research Agenda 1.0 Beta">
+    <meta name="twitter:description" content="Human Priors → Physical Grounding → Continual Improvement.">
+    <meta name="twitter:image" content="https://kingchou007.github.io/images/blog/phd-year-one-research-agenda-og.png">
+    <link rel="stylesheet" href="../style.css?v=20260724b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+  </head>
+
+  <body id="body">
+    <main class="blog-main">
+      <nav class="blog-nav">
+        <a href="./" class="blog-back-link" aria-label="Back to Blog">Blog</a>
+      </nav>
+
+      <aside class="blog-toc" aria-label="Article sections">
+        <a href="#year-one">Year one</a>
+        <a href="#research-loop">Research loop</a>
+        <a href="#contact-rich">Contact</a>
+        <a href="#human">Humans</a>
+        <a href="#continual">Continual</a>
+        <a href="#work-map">Work map</a>
+        <a href="#agenda">2026</a>
+        <a href="#evaluation">Evaluation</a>
+        <a href="#statement">Statement</a>
+      </aside>
+
+      <article class="blog-post">
+        <header class="blog-post-header">
+          <h1>Research Agenda 1.0 Beta</h1>
+          <div class="blog-meta">
+            <a href="../">Jinzhou Li</a>
+            <time datetime="2026-07-24">July 2026</time>
+            <span>8 min read</span>
+          </div>
+        </header>
+
+        <p class="blog-lede">
+          My research goal is to build robots that become better at physical interaction over time. I am especially
+          interested in tasks where geometry alone is not enough: the robot must establish contact, regulate force,
+          interpret partial physical feedback, recover from mistakes, and eventually turn its own experience into a
+          better policy. The agenda is a learning loop: acquire physical priors from humans, ground them through
+          robot contact, and improve them through the robot's own experience.
+        </p>
+
+        <h2 id="year-one">What I learned in the first year</h2>
+        <p>
+          At the beginning of my PhD, I thought tactile sensing was the center of my research. During the first year,
+          work on human interaction data and force-aware manipulation changed how I see touch. It is an important
+          instrument, but it is not the research question by itself. The larger question is
+          how a robot acquires physical intelligence that remains useful when contact conditions, objects,
+          embodiments, and tasks change.
+        </p>
+        <p>
+          This shift matters because a sensor-centered agenda can become a sequence of modality papers: add touch,
+          improve a representation, fuse it with vision, and report a gain. A robot-centered agenda asks a harder
+          question: what knowledge is missing from the policy, where can that knowledge come from, and how can the
+          robot keep improving after deployment? Touch and force matter when they answer that question.
+        </p>
+        <aside class="margin-note margin-note-right">The sensor is a means. Continually improving physical intelligence is the goal.</aside>
+
+        <h2 id="research-loop">One research loop, viewed in three dimensions</h2>
+        <p>
+          Contact-rich manipulation, learning from humans, and continual learning are not three independent themes
+          competing for equal attention. They play different roles in one causal program. <strong>Contact-rich
+          manipulation is the problem domain.</strong> <strong>Human experience is the source of an initial physical
+          prior.</strong> <strong>Continual learning is how that prior becomes reliable after deployment.</strong>
+          The XYZ view below is therefore a diagnostic map, while the arrows are the research claim: human priors
+          must be grounded in the robot's body, and failures during grounding must become new training data.
+        </p>
+
+        <figure class="research-map-figure">
+          <div class="research-map" id="research-map">
+            <canvas
+              id="research-map-canvas"
+              aria-label="Animated three-dimensional map of Jinzhou Li's papers. X is contact-rich manipulation, Y is learning from humans, and Z is continual learning. Drag to rotate the view."
+            ></canvas>
+            <p class="research-map-fallback">
+              OpenTouch, Force Policy, and Contact DAgger form a loop from human physical priors to robot grounding
+              and continual improvement.
+            </p>
+          </div>
+          <div class="research-map-meta">
+            <span class="research-map-sequence">Human Priors → Physical Grounding → Continual Improvement</span>
+            <span class="research-map-hint">Drag to rotate</span>
+          </div>
+          <p class="research-map-detail" id="research-map-detail" aria-live="polite">
+            OpenTouch → Force Policy → Contact DAgger.
+          </p>
+        </figure>
+
+        <h2 id="contact-rich">The problem: Contact-rich manipulation</h2>
+        <p>
+          Contact-rich manipulation defines the class of problems I want to solve. Tool use, insertion, pivoting,
+          surface following, in-hand adjustment, and articulated-object interaction cannot be reduced to a desired
+          end-effector trajectory. Two executions with nearly identical visual trajectories can produce different
+          outcomes because of friction, object mass, contact location, compliance, or force direction.
+        </p>
+        <h3>Physical grounding</h3>
+        <p>
+          I want to move manipulation from a trajectory-centric formulation toward an interaction-centric one. A
+          policy should reason about where contact is established, how the contact mode evolves, what forces are
+          compatible with task progress, and when a mismatch requires recovery. This motivates my current work on a
+          predictive-and-reactive force policy: a slower component generates task-level motion and an expected
+          interaction process, while a faster feedback component uses force, touch, and proprioceptive history to
+          adjust local motion or compliance.
+        </p>
+        <p>
+          Force policy is therefore a technical direction, not the final identity of the agenda. Its value should be
+          measured by whether it enables manipulation under uncertainty that position control, fixed impedance, or a
+          purely visual policy cannot handle reliably.
+        </p>
+
+        <h2 id="human">The source: Human physical priors</h2>
+        <p>
+          Human experience is the most scalable source of complex manipulation structure we currently have. People
+          naturally demonstrate tool use, dexterous contact, and long-horizon procedures. But a human demonstration
+          is not a robot action label. Human hands and robot hands differ in morphology, actuation, compliance,
+          sensing, and reachable contact configurations. Copying motion frame by frame can transfer the wrong thing.
+        </p>
+        <p>
+          My goal is to extract what is physically transferable: task intent, object progress, functional contact
+          regions, interaction phases, plausible pressure patterns, and motion priors. The robot should inherit this
+          structure while remaining free to discover an embodiment-specific solution.
+        </p>
+        <p>
+          <a href="https://opentouch-tactile.github.io/">OpenTouch</a> is an important foundation for this direction.
+          By synchronizing egocentric video, full-hand touch, and hand pose, it connects visual semantics and motion
+          with actual physical contact. In the longer term, data of this kind could provide contact priors for human
+          videos that contain rich task information but no direct tactile measurement. The central challenge is
+          cross-embodiment grounding: transferring interaction structure without assuming a shared action space.
+        </p>
+
+        <h2 id="continual">The learning mechanism: Continual improvement</h2>
+        <p>
+          A policy learned from demonstrations is a starting point, not a finished robot. Deployment introduces new
+          materials, objects, tools, mounting errors, sensor drift, and contact geometries. A robot should use these
+          interactions—especially its failures and recoveries—to improve rather than remain frozen at the moment
+          training ends.
+        </p>
+        <p>
+          I use continual learning in three time scales. The first is adaptation within one execution: recent
+          force, tactile, and proprioceptive history should change the next action immediately. The second is
+          improvement across attempts: failures, corrections, and successful recoveries should update the policy
+          with limited additional supervision. The third is long-term accumulation across tasks and embodiments:
+          new skills should reuse contact primitives and interaction structure without destroying capabilities the
+          robot already has.
+        </p>
+        <p>
+          This formulation makes continual learning a physical systems problem. Data is expensive and actively
+          generated by the current policy; some failures are unsafe; feedback is partial and noisy; and a local
+          disturbance should not always trigger permanent model change. The robot must decide which experiences are
+          worth retaining, when to update, and how to improve under new conditions without forgetting old ones.
+        </p>
+
+        <h2 id="work-map">How my current work fits</h2>
+        <p>
+          I keep only the three projects that define the causal spine of this PhD agenda:
+        </p>
+        <ul class="research-work-list">
+          <li>
+            <strong><a href="https://opentouch-tactile.github.io/">OpenTouch — Human Priors.</a></strong>
+            Capture real-world full-hand contact together with vision and pose, so the robot can begin with physical
+            interaction structure rather than learn every contact pattern from scratch.
+          </li>
+          <li>
+            <strong>Force Policy — Physical Grounding.</strong> Convert an abstract contact prior into
+            embodiment-specific action by predicting task-level interaction and reacting to force at a faster
+            control time scale.
+          </li>
+          <li>
+            <strong>Contact DAgger — Continual Improvement.</strong> Let the robot visit its own contact states,
+            request targeted human corrections when interaction departs from the intended regime, and aggregate those
+            recoveries into the next policy. It reframes DAgger's state-distribution shift as a
+            contact-distribution shift.
+          </li>
+        </ul>
+
+        <h2 id="agenda">The 2026 agenda</h2>
+        <p>
+          In the near term, I want to establish when learned force-aware policies provide a real advantage. The
+          comparison should be against strong position policies, fixed impedance control, and hand-designed hybrid
+          force control—not only against a weak baseline. Evaluation should vary friction, object mass, contact
+          geometry, perturbations, force bias, and sensor noise. The important outcomes are task success, peak force,
+          recovery time, and generalization to unseen contact conditions.
+        </p>
+        <p>
+          The next step is to connect OpenTouch-style human interaction data to robot policy initialization. I want
+          to study joint visual–pose–touch pretraining, functional contact representations, interaction phases, and
+          contact retargeting. The test is simple to state: can human contact data reduce the amount of real robot
+          data required while improving generalization to unseen objects, tools, and physical conditions?
+        </p>
+        <p>
+          The longer-term system closes the loop. Human experience provides an initial physical prior. The robot
+          grounds that prior in its own embodiment, executes a contact-rich task, diagnoses mismatches through
+          physical feedback and task outcomes, stores useful recoveries, and improves the next execution. Each cycle
+          moves the robot from imitating available experience toward forming its own.
+        </p>
+
+        <h2 id="evaluation">What would count as progress?</h2>
+        <p>
+          A coherent agenda needs shared evaluation, not one metric for each paper. I want to measure whether a
+          system can start from less robot data, operate under wider physical variation, recover from perturbations,
+          and improve across attempts without losing previous abilities. These criteria test the entire loop.
+        </p>
+        <ol class="blog-question-list">
+          <li>Does human experience reduce robot data requirements rather than merely add another pretraining loss?</li>
+          <li>Does contact sensing change the action when vision and geometry are ambiguous?</li>
+          <li>Does adaptation improve recovery under controlled physical perturbations?</li>
+          <li>Does learning from new interaction preserve previously acquired skills?</li>
+          <li>Can the same interaction representation transfer across tasks, tools, sensors, or embodiments?</li>
+        </ol>
+        <p>
+          These questions also prevent the agenda from becoming “tactile for tactile’s sake.” A new sensor,
+          representation, model, or controller is useful only when it improves the larger loop from human prior to
+          grounded interaction to continual improvement.
+        </p>
+
+        <h2 id="statement">The one-sentence version</h2>
+        <blockquote class="research-statement">
+          My research develops continually improving robots for contact-rich manipulation. I study how robots can
+          learn transferable physical interaction priors from human experience, ground them in embodiment-specific
+          manipulation policies, and continually improve through real-world interaction.
+        </blockquote>
+        <p>
+          This is the research identity I want to develop after year one: not a collection of tactile projects, but
+          a connected program for robots that learn from people, understand contact, and become better through
+          experience.
+        </p>
+      </article>
+    </main>
+
+    <script>
+      (function() {
+        var root = document.getElementById('research-map');
+        var canvas = document.getElementById('research-map-canvas');
+        var detail = document.getElementById('research-map-detail');
+        if (!root || !canvas || !detail || !canvas.getContext) return;
+
+        var context = canvas.getContext('2d');
+        var papers = [
+          {
+            name: 'OpenTouch',
+            x: 0.78, y: 0.96, z: 0.24,
+            role: 'core',
+            note: 'Stage 1 · Human Priors: full-hand contact data with vision, touch, and pose.',
+            offset: [-84, -24]
+          },
+          {
+            name: 'Force Policy',
+            x: 0.97, y: 0.28, z: 0.78,
+            role: 'core',
+            note: 'Stage 2 · Physical Grounding: predictive task policy with fast force-aware reaction.',
+            offset: [16, -32]
+          },
+          {
+            name: 'Contact DAgger',
+            x: 0.96, y: 0.78, z: 0.92,
+            role: 'current',
+            note: 'Stage 3 · Continual Improvement: human corrections on contact states visited by the robot.',
+            offset: [18, -18]
+          }
+        ];
+
+        var colors = {
+          core: '#2c6f9f',
+          current: '#f07c6a',
+          foreground: '#24313c',
+          muted: '#8d98a3',
+          grid: '#e5eaee',
+          axis: '#6f7d89',
+          background: 'rgba(255, 255, 255, 0.88)'
+        };
+
+        var width = 0;
+        var height = 0;
+        var pixelRatio = 1;
+        var yaw = -0.72;
+        var pitch = 0.51;
+        var dragging = false;
+        var moved = false;
+        var pointerX = 0;
+        var pointerY = 0;
+        var lastX = 0;
+        var lastY = 0;
+        var animationStart = 0;
+        var animationDone = false;
+        var screenPapers = [];
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function resize() {
+          var box = root.getBoundingClientRect();
+          width = Math.max(320, Math.round(box.width));
+          height = Math.max(300, Math.round(box.height));
+          pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+          canvas.width = Math.round(width * pixelRatio);
+          canvas.height = Math.round(height * pixelRatio);
+          canvas.style.width = width + 'px';
+          canvas.style.height = height + 'px';
+          context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+          draw(performance.now());
+        }
+
+        function rotate(point) {
+          var cy = Math.cos(yaw);
+          var sy = Math.sin(yaw);
+          var cp = Math.cos(pitch);
+          var sp = Math.sin(pitch);
+          var rx = point.x * cy - point.y * sy;
+          var ry = point.x * sy + point.y * cy;
+          return {
+            x: rx,
+            y: ry * cp - point.z * sp,
+            depth: ry * sp + point.z * cp
+          };
+        }
+
+        function project(point) {
+          var rotated = rotate(point);
+          var scale = Math.min(width * 0.42, height * 0.55);
+          return {
+            x: width * 0.46 + rotated.x * scale,
+            y: height * 0.72 + rotated.y * scale,
+            depth: rotated.depth
+          };
+        }
+
+        function line(pointA, pointB, color, lineWidth, dash) {
+          var a = project(pointA);
+          var b = project(pointB);
+          context.save();
+          context.strokeStyle = color;
+          context.lineWidth = lineWidth;
+          context.setLineDash(dash || []);
+          context.beginPath();
+          context.moveTo(a.x, a.y);
+          context.lineTo(b.x, b.y);
+          context.stroke();
+          context.restore();
+        }
+
+        function arrow(pointA, pointB) {
+          var a = project(pointA);
+          var b = project(pointB);
+          var angle = Math.atan2(b.y - a.y, b.x - a.x);
+          context.save();
+          context.strokeStyle = colors.axis;
+          context.fillStyle = colors.axis;
+          context.lineWidth = 1.35;
+          context.beginPath();
+          context.moveTo(a.x, a.y);
+          context.lineTo(b.x, b.y);
+          context.stroke();
+          context.beginPath();
+          context.moveTo(b.x, b.y);
+          context.lineTo(b.x - 8 * Math.cos(angle - Math.PI / 6), b.y - 8 * Math.sin(angle - Math.PI / 6));
+          context.lineTo(b.x - 8 * Math.cos(angle + Math.PI / 6), b.y - 8 * Math.sin(angle + Math.PI / 6));
+          context.closePath();
+          context.fill();
+          context.restore();
+          return b;
+        }
+
+        function drawGrid() {
+          var levels = [0.25, 0.5, 0.75, 1];
+          levels.forEach(function(level) {
+            line({ x: level, y: 0, z: 0 }, { x: level, y: 1, z: 0 }, colors.grid, 1);
+            line({ x: 0, y: level, z: 0 }, { x: 1, y: level, z: 0 }, colors.grid, 1);
+            line({ x: 0, y: 0, z: level }, { x: 1, y: 0, z: level }, colors.grid, 1, [3, 4]);
+            line({ x: 0, y: 0, z: level }, { x: 0, y: 1, z: level }, colors.grid, 1, [3, 4]);
+          });
+        }
+
+        function drawAxisLabel(text, point, dx, dy, align) {
+          context.save();
+          context.fillStyle = colors.foreground;
+          context.font = '600 ' + (width < 520 ? 10 : 12) + 'px Asap, sans-serif';
+          context.textAlign = align;
+          context.textBaseline = 'middle';
+          context.fillText(text, point.x + dx, point.y + dy);
+          context.restore();
+        }
+
+        function drawAxes() {
+          var xEnd = arrow({ x: 0, y: 0, z: 0 }, { x: 1.15, y: 0, z: 0 });
+          var yEnd = arrow({ x: 0, y: 0, z: 0 }, { x: 0, y: 1.15, z: 0 });
+          var zEnd = arrow({ x: 0, y: 0, z: 0 }, { x: 0, y: 0, z: 1.15 });
+          drawAxisLabel('X · Contact-Rich', xEnd, xEnd.x > width * 0.5 ? 8 : -8, 4, xEnd.x > width * 0.5 ? 'left' : 'right');
+          drawAxisLabel('Y · Learning from Humans', yEnd, yEnd.x > width * 0.5 ? 8 : -8, 4, yEnd.x > width * 0.5 ? 'left' : 'right');
+          drawAxisLabel('Z · Continual Learning', zEnd, zEnd.x > width * 0.5 ? 8 : -8, -6, zEnd.x > width * 0.5 ? 'left' : 'right');
+        }
+
+        function drawStageArrow(fromPaper, toPaper, progress) {
+          if (progress <= 0) return;
+          var from = project(fromPaper);
+          var target = project(toPaper);
+          var end = {
+            x: from.x + (target.x - from.x) * progress,
+            y: from.y + (target.y - from.y) * progress
+          };
+          var angle = Math.atan2(end.y - from.y, end.x - from.x);
+          context.save();
+          context.globalAlpha = 0.45 + progress * 0.35;
+          context.strokeStyle = colors.core;
+          context.fillStyle = colors.core;
+          context.lineWidth = 1.8;
+          context.beginPath();
+          context.moveTo(from.x, from.y);
+          context.lineTo(end.x, end.y);
+          context.stroke();
+          if (progress > 0.92) {
+            context.beginPath();
+            context.moveTo(end.x, end.y);
+            context.lineTo(end.x - 8 * Math.cos(angle - Math.PI / 6), end.y - 8 * Math.sin(angle - Math.PI / 6));
+            context.lineTo(end.x - 8 * Math.cos(angle + Math.PI / 6), end.y - 8 * Math.sin(angle + Math.PI / 6));
+            context.closePath();
+            context.fill();
+          }
+          context.restore();
+        }
+
+        function drawResearchPath(now) {
+          var progress = reduceMotion ? 1 : Math.max(0, Math.min(1, (now - animationStart - 820) / 720));
+          drawStageArrow(papers[0], papers[1], Math.min(1, progress * 2));
+          drawStageArrow(papers[1], papers[2], Math.max(0, Math.min(1, progress * 2 - 1)));
+        }
+
+        function easeOutCubic(value) {
+          return 1 - Math.pow(1 - value, 3);
+        }
+
+        function paperProgress(index, now) {
+          if (reduceMotion) return 1;
+          var delay = 180 + index * 220;
+          var progress = (now - animationStart - delay) / 760;
+          return easeOutCubic(Math.max(0, Math.min(1, progress)));
+        }
+
+        function drawPaper(paper, index, now) {
+          var progress = paperProgress(index, now);
+          if (progress <= 0) return null;
+          var position = {
+            x: paper.x * progress,
+            y: paper.y * progress,
+            z: paper.z * progress
+          };
+          var point = project(position);
+          var floorPoint = project({ x: position.x, y: position.y, z: 0 });
+          var color = colors[paper.role];
+          var radius = paper.role === 'current' ? 7 : 5.5;
+
+          context.save();
+          context.globalAlpha = Math.min(1, progress * 1.4);
+          context.strokeStyle = paper.role === 'current' ? 'rgba(240, 124, 106, 0.34)' : 'rgba(146, 160, 173, 0.20)';
+          context.lineWidth = 1;
+          context.setLineDash([3, 4]);
+          context.beginPath();
+          context.moveTo(floorPoint.x, floorPoint.y);
+          context.lineTo(point.x, point.y);
+          context.stroke();
+          context.setLineDash([]);
+
+          if (paper.role === 'current') {
+            context.strokeStyle = 'rgba(240, 124, 106, 0.22)';
+            context.lineWidth = 5;
+            context.beginPath();
+            context.arc(point.x, point.y, radius + 5, 0, Math.PI * 2);
+            context.stroke();
+          }
+
+          context.fillStyle = color;
+          context.strokeStyle = '#ffffff';
+          context.lineWidth = 2;
+          context.beginPath();
+          context.arc(point.x, point.y, radius, 0, Math.PI * 2);
+          context.fill();
+          context.stroke();
+
+          if (progress > 0.62) {
+            var labelAlpha = Math.min(1, (progress - 0.62) / 0.38);
+            var fontSize = width < 520 ? 10 : 12;
+            var labelX = point.x + paper.offset[0];
+            var labelY = point.y + paper.offset[1];
+            context.globalAlpha = labelAlpha;
+            context.font = (paper.role === 'current' ? '600 ' : '500 ') + fontSize + 'px Asap, sans-serif';
+            var labelWidth = context.measureText(paper.name).width;
+            context.fillStyle = colors.background;
+            context.fillRect(labelX - 4, labelY - fontSize, labelWidth + 8, fontSize + 6);
+            context.strokeStyle = 'rgba(141, 152, 163, 0.35)';
+            context.lineWidth = 1;
+            context.beginPath();
+            context.moveTo(point.x, point.y);
+            context.lineTo(labelX + (paper.offset[0] < 0 ? labelWidth : 0), labelY - 3);
+            context.stroke();
+            context.fillStyle = paper.role === 'current' ? colors.current : colors.foreground;
+            context.textAlign = 'left';
+            context.textBaseline = 'alphabetic';
+            context.fillText(paper.name, labelX, labelY);
+          }
+          context.restore();
+
+          return {
+            paper: paper,
+            x: point.x,
+            y: point.y,
+            radius: radius + 8,
+            depth: point.depth
+          };
+        }
+
+        function draw(now) {
+          context.clearRect(0, 0, width, height);
+          drawGrid();
+          drawAxes();
+          drawResearchPath(now);
+          screenPapers = papers
+            .map(function(paper, index) { return drawPaper(paper, index, now); })
+            .filter(Boolean)
+            .sort(function(a, b) { return a.depth - b.depth; });
+
+          var finalTime = animationStart + 180 + papers.length * 220 + 760;
+          if (!reduceMotion && !animationDone && now < finalTime) {
+            window.requestAnimationFrame(draw);
+          } else {
+            animationDone = true;
+          }
+        }
+
+        function findPaper(x, y) {
+          var closest = null;
+          var distance = Infinity;
+          screenPapers.forEach(function(item) {
+            var dx = item.x - x;
+            var dy = item.y - y;
+            var currentDistance = Math.sqrt(dx * dx + dy * dy);
+            if (currentDistance < item.radius && currentDistance < distance) {
+              closest = item.paper;
+              distance = currentDistance;
+            }
+          });
+          return closest;
+        }
+
+        root.addEventListener('pointerdown', function(event) {
+          dragging = true;
+          moved = false;
+          lastX = event.clientX;
+          lastY = event.clientY;
+          root.setPointerCapture(event.pointerId);
+        });
+
+        root.addEventListener('pointermove', function(event) {
+          var box = root.getBoundingClientRect();
+          pointerX = event.clientX - box.left;
+          pointerY = event.clientY - box.top;
+          if (dragging) {
+            var deltaX = event.clientX - lastX;
+            var deltaY = event.clientY - lastY;
+            if (Math.abs(deltaX) + Math.abs(deltaY) > 2) moved = true;
+            yaw += deltaX * 0.008;
+            pitch = Math.max(-1.05, Math.min(1.05, pitch + deltaY * 0.006));
+            lastX = event.clientX;
+            lastY = event.clientY;
+            draw(performance.now());
+            return;
+          }
+          var hovered = findPaper(pointerX, pointerY);
+          root.style.cursor = hovered ? 'pointer' : 'grab';
+          if (hovered) detail.textContent = hovered.name + ' — ' + hovered.note;
+        });
+
+        root.addEventListener('pointerup', function(event) {
+          dragging = false;
+          root.releasePointerCapture(event.pointerId);
+        });
+
+        root.addEventListener('pointercancel', function() {
+          dragging = false;
+        });
+
+        root.addEventListener('pointerleave', function() {
+          if (!dragging) root.style.cursor = 'grab';
+        });
+
+        if ('ResizeObserver' in window) {
+          new ResizeObserver(resize).observe(root);
+        } else {
+          window.addEventListener('resize', resize);
+        }
+        animationStart = performance.now();
+        resize();
+      })();
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.blog-toc a'));
+        var sections = tocLinks
+          .map(function(link) { return document.querySelector(link.getAttribute('href')); })
+          .filter(Boolean);
+
+        function shouldReduceMotion() {
+          return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        }
+
+        function setActiveSection(id) {
+          tocLinks.forEach(function(link) {
+            var isActive = link.getAttribute('href') === '#' + id;
+            link.classList.toggle('active', isActive);
+            if (isActive) {
+              link.setAttribute('aria-current', 'location');
+            } else {
+              link.removeAttribute('aria-current');
+            }
+          });
+        }
+
+        tocLinks.forEach(function(link) {
+          link.addEventListener('click', function(event) {
+            var target = document.querySelector(link.getAttribute('href'));
+            if (!target) return;
+            event.preventDefault();
+            setActiveSection(target.id);
+            target.scrollIntoView({
+              behavior: shouldReduceMotion() ? 'auto' : 'smooth',
+              block: 'start'
+            });
+            if (history.pushState) history.pushState(null, '', link.getAttribute('href'));
+          });
+        });
+
+        if (!tocLinks.length || !sections.length) return;
+        setActiveSection(sections[0].id);
+        if (!('IntersectionObserver' in window)) return;
+
+        var activeId = '';
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) activeId = entry.target.id;
+          });
+          if (activeId) setActiveSection(activeId);
+        }, {
+          rootMargin: '-20% 0px -68% 0px',
+          threshold: 0
+        });
+
+        sections.forEach(function(section) { observer.observe(section); });
+      });
+    </script>
+  </body>
+</html>
