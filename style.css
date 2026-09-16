@@ -777,7 +777,7 @@ h2.section-heading {
 
 .mentoring-item {
   display: grid;
-  grid-template-columns: 14.5em max-content max-content max-content;
+  grid-template-columns: 14.5em 17em 6em max-content;
   gap: 1em;
   align-items: baseline;
   width: fit-content;
@@ -877,12 +877,19 @@ h2.section-heading {
 /**************************************************/
 /* Publication filter (Selected / All). */
 
+.publication-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0.2em 0 1.1em 0;
+}
+
 .pub-filters {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 0.5em;
-  margin: 0.4em 0 1.1em 0;
+  margin: 0;
 }
 
 .pub-filter-btn {
@@ -988,6 +995,12 @@ h2.section-heading {
   height: auto;
 }
 
+.thumbnail video.redex-preview {
+  aspect-ratio: 20 / 13;
+  object-fit: cover;
+  object-position: center;
+}
+
 
 h3 {
   font-size: var(--type-title);
@@ -1003,9 +1016,12 @@ h3 a:hover {
 }
 
 .publication-note {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9em;
   font-size: var(--type-meta);
   color: #a0a8b0;
-  margin-top: 0.2em;
+  margin: 0;
 }
 
 
@@ -1016,16 +1032,20 @@ h3 a:hover {
 }
 
 .author-sup {
-  font-size: 0.72em;
+  font-size: 0.8em;
   font-weight: 700;
   line-height: 0;
   vertical-align: super;
 }
 
+.advising-sup {
+  font-size: 0.72em;
+}
+
 .oral {
-  color: #8d98a3;
-  font-style: normal;
-  font-weight: 600;
+  color: #c62828;
+  font-style: inherit;
+  font-weight: normal;
 }
 
 .publication {
@@ -1045,6 +1065,7 @@ h3 a:hover {
 .publication-workshop {
   color: #8d98a3;
   font-size: 0.9em;
+  font-style: normal;
 }
 
 .project-description {
@@ -1079,9 +1100,9 @@ h3 a:hover {
 }
 
 .project-logo {
-  flex: 0 0 5em;
-  width: 5em;
-  height: 5em;
+  flex: 0 0 4.6em;
+  width: 4.6em;
+  height: 4.6em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1158,8 +1179,8 @@ h3 a:hover {
 }
 
 .exp-logo {
-  flex: 0 0 3.25em;
-  height: 3.25em;
+  flex: 0 0 3em;
+  height: 3em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1177,7 +1198,7 @@ h3 a:hover {
 }
 
 .exp-logo img.logo-agibot {
-  transform: scale(1.22);
+  transform: scale(1.12);
 }
 
 .exp-description {
@@ -1314,8 +1335,8 @@ h3 a:hover {
   }
 
   .exp-logo {
-    flex: 0 0 2.6em;
-    height: 2.6em;
+    flex: 0 0 2.4em;
+    height: 2.4em;
   }
 
   .projects-grid {
@@ -1329,9 +1350,9 @@ h3 a:hover {
   }
 
   .project-logo {
-    flex: 0 0 4.4em;
-    width: 4.4em;
-    min-height: 4.2em;
+    flex: 0 0 4.1em;
+    width: 4.1em;
+    height: 4.1em;
   }
 
   .publication {
