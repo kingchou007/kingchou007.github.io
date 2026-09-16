@@ -3,3 +3,8 @@
 .idea
 __pycache__
 .DS_Store
+
+# Private local drafts and blog assets must not be published.
+/.private/
+/blog/
+/images/blog/

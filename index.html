@@ -82,7 +82,7 @@
 
 
     <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css?v=20260731-28">
+    <link rel="stylesheet" href="style.css?v=20260906-2">
 
     <!-- Preload hero image (LCP) -->
     <link rel="preload" as="image" href="images/ljz2025head.jpg?v=20260509" fetchpriority="high">
@@ -126,7 +126,7 @@
       <div class="content">
 
         <h2 class="section-heading">News</h2>
-        <div class="news-box">        
+        <div class="news-box">
           <div class="list-item news" data-category="news">
             <p class="date">06.2026</p>
             <span><a href="https://hipolicy.github.io/">Hierarchical Policy</a> accepted to ECCV 2026, and <a href="https://robotproject8.github.io/ceer_page/">CEER</a> accepted to IROS 2026.</span>
@@ -191,11 +191,14 @@
         </div>
 
         <h2 class="section-heading">Publications</h2>
-        <p class="publication-note">* equal contribution</p>
-
-        <div id="pub-filters" class="pub-filters">
-          <button type="button" class="pub-filter-btn active" data-filter="selected">Selected</button>
-          <button type="button" class="pub-filter-btn" data-filter="all">All</button>
+        <div class="publication-meta">
+          <p class="publication-note">
+            <span><sup>*</sup> equal contribution</span>
+          </p>
+          <div id="pub-filters" class="pub-filters">
+            <button type="button" class="pub-filter-btn active" data-filter="selected">Selected</button>
+            <button type="button" class="pub-filter-btn" data-filter="all">All</button>
+          </div>
         </div>
 
         <div class="pub-timeline">
@@ -204,42 +207,45 @@
             <div class="pub-year-label">2026</div>
             <div class="pub-year-list">
 
-              <div class="list-item publication" data-category="publication">
+              <div class="list-item publication selected" data-category="publication">
                 <a class="thumbnail">
-                  <img src="images/force.png" alt="Force-to-Belief" width="200" height="130" loading="lazy" decoding="async" />
+                  <video class="redex-preview" src="images/flip_10x.mp4" poster="images/contact-aware-poster.jpg" aria-label="ReDex: Reconstructing robust dexterous behavior from human corrections via finger-level compliance" width="200" height="130" autoplay muted loop playsinline preload="metadata"></video>
                 </a>
                 <div class="project-description">
-                  <h3>Force-to-Belief: Turning Noisy Proprioception into Action-Relevant Belief</h3>
+                  <h3>ReDex: Repairing Sim-to-Real Dexterous Policies by Finger-Level Compliant Interaction</h3>
                   <p>
-                    Yuxiao Zhu<span class="cofirst-star">*</span>,
-                    <b>Jinzhou Li</b><span class="cofirst-star">*</span>,
-                    Yifei Dong,
-                    Haoyu Li,
-                    Xinyuan Luo,
+                    <b>Jinzhou Li</b>,
+                    Hadi Tabatabaee,
+                    Kelin Yu,
+                    Yuyin Sun,
+                    Cheng-Hao Kuo,
+                    Roberto Martín-Martín,
+                    Nima Fazeli,
+                    Alice Wu,
                     Xianyi Cheng<br>
-                    <i class="publication-workshop">RSS 2026 Workshop on Planning and Control with Imperfect Sensors and Perception</i>
+                    <i>In submission</i>
                   </p>
                 </div>
               </div>
 
               <div class="list-item publication selected" data-category="publication">
-                <a href="https://any-ttach.github.io/" class="thumbnail">
-                  <img src="images/any_ttach-cropped.png" alt="Any-ttach interchangeable end-effectors and tools" width="200" height="131" loading="lazy" decoding="async" />
+                <a class="thumbnail">
+                  <video src="images/copre-ee-preview.mp4?v=20260906-4" poster="images/copre-ee-poster.jpg?v=20260906-4" aria-label="CoPRE end-effector demonstration with Collision, Weak contact, and Replan captions" width="640" height="360" autoplay muted loop playsinline preload="metadata"></video>
                 </a>
                 <div class="project-description">
-                  <h3><a href="https://any-ttach.github.io/">Any-ttach: Quick End-effector Swapping Enables Manipulation Dexterity with Simplicity</a></h3>
+                  <h3>CoPRE: Improving Sensitivity in Proprioceptive Contact Detection for Low-Cost Robot Arms</h3>
                   <p>
-                    Weizhe Ni*,
+                    Yuxiao Zhu<span class="cofirst-star">*</span>,
                     <b>Jinzhou Li</b><span class="cofirst-star">*</span>,
+                    Yifei Dong,
+                    Muhammad Suhail,
+                    Chunyuan Yang,
+                    Xinyuan Luo,
                     Haoyu Li,
-                    Wenjing Pan,
-                    Cody Andres Alessio-Bunnell,
+                    Boyuan Chen,
                     Xianyi Cheng<br>
-                    <i class="publication-workshop">RSS 2026 Workshop on Dexterous Manipulation: Scalable Learning for Human-Level Skills</i><br>
-                    <i>arXiv 2026</i><br>
-                    <a href="https://any-ttach.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                     <a href="https://arxiv.org/abs/2605.30569">Paper</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                      Hardware Design
+                    <span class="publication-workshop">RSS 2026 Workshop on Planning and Control with Imperfect Sensors and Perception</span><br>
+                    <i>In submission</i>
                   </p>
                 </div>
               </div>
@@ -262,7 +268,29 @@
                     Xianyi Cheng<br>
                     <i>IROS 2026</i><br>
                     <a href="https://robotproject8.github.io/ceer_page/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                    <a href="https://arxiv.org/abs/2605.19981">Paper</a>
+                    <a href="https://arxiv.org/pdf/2605.19981">Paper</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="list-item publication selected" data-category="publication">
+                <a href="https://any-ttach.github.io/" class="thumbnail">
+                  <img src="images/any_ttach-cropped.png" alt="Any-ttach interchangeable end-effectors and tools" width="200" height="131" loading="lazy" decoding="async" />
+                </a>
+                <div class="project-description">
+                  <h3><a href="https://any-ttach.github.io/">Any-ttach: Quick End-effector Swapping Enables Manipulation Dexterity with Simplicity</a></h3>
+                  <p>
+                    Weizhe Ni<span class="cofirst-star">*</span>,
+                    <b>Jinzhou Li</b><span class="cofirst-star">*</span>,
+                    Haoyu Li,
+                    Wenjing Pan,
+                    Cody Andres Alessio-Bunnell,
+                    Xianyi Cheng<br>
+                    <i class="publication-workshop">RSS 2026 Workshop on Dexterous Manipulation: Scalable Learning for Human-Level Skills</i><br>
+                    <i>arXiv 2026</i><br>
+                    <a href="https://any-ttach.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                    <a href="https://arxiv.org/pdf/2605.30569">Paper</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                    Hardware
                   </p>
                 </div>
               </div>
@@ -287,28 +315,21 @@
                     <br>
                     <i>ECCV 2026</i><br>
                     <a href="https://hipolicy.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                    <a href="https://arxiv.org/abs/2604.06067">Paper</a>
+                    <a href="https://arxiv.org/pdf/2604.06067">Paper</a>
                   </p>
                 </div>
               </div>
 
-            </div>
-          </section>
-
-          <section class="pub-year" data-year="2025">
-            <div class="pub-year-label">2025</div>
-            <div class="pub-year-list">
-
               <div class="list-item publication selected" data-category="publication">
                 <a href="https://opentouch-tactile.github.io/" class="thumbnail">
-                  <img src="images/opentouch.gif" alt="opentouch" width="200" height="130" loading="lazy" decoding="async" />
+                  <video src="images/opentouch-preview.mp4" poster="images/opentouch-poster.jpg" aria-label="OpenTouch full-hand tactile interaction" width="200" height="130" autoplay muted loop playsinline preload="metadata"></video>
                 </a>
                 <div class="project-description">
                   <h3><a href="https://opentouch-tactile.github.io/">OpenTouch: Bringing Full-Hand Touch to Real-World Interaction</a></h3>
                   <p>
-                    Yuxin Ray Song*,
+                    Yuxin Ray Song<span class="cofirst-star">*</span>,
                     <b>Jinzhou Li</b><span class="cofirst-star">*</span>,
-                    Rao Fu*,
+                    Rao Fu<span class="cofirst-star">*</span>,
                     Devin Murphy,
                     Kaichen Zhou,
                     Rishi Shiv,
@@ -322,16 +343,22 @@
                     Wojciech Matusik,
                     Paul Pu Liang
                     <br>
-                      <i>arXiv 2025</i><br>
-                      <a href="https://opentouch-tactile.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                      <a href="https://arxiv.org/abs/2512.16842">Paper</a>
-                      &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                      <a href="https://github.com/OpenTouch-MIT/opentouch">Code</a>
+                    <i>arXiv 2026</i><br>
+                    <a href="https://opentouch-tactile.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                    <a href="https://arxiv.org/pdf/2512.16842">Paper</a>
+                    &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                    <a href="https://github.com/OpenTouch-MIT/opentouch">Code</a>
                   </p>
                 </div>
               </div>
 
-      
+            </div>
+          </section>
+
+          <section class="pub-year" data-year="2025">
+            <div class="pub-year-label">2025</div>
+            <div class="pub-year-list">
+
                             <div class="list-item publication" data-category="publication">
                 <a href="https://twin-aligner.github.io/" class="thumbnail">
                   <img src="images/twin-aligner.webp" alt="twinaligner" loading="lazy" decoding="async" />
@@ -339,9 +366,9 @@
                 <div class="project-description">
                   <h3><a href="https://twin-aligner.github.io/">TwinAligner: Visual-Dynamic Alignment Empowers Physics-aware Real2Sim2Real for Robotic Manipulation</a></h3>
                   <p>
-                    Hongwei Fan*,
-                    Hang Dai*,
-                    Jiyao Zhang*,
+                    Hongwei Fan<span class="cofirst-star">*</span>,
+                    Hang Dai<span class="cofirst-star">*</span>,
+                    Jiyao Zhang<span class="cofirst-star">*</span>,
                     <b>Jinzhou Li</b>,
                     Qiyang Yan,
                     Yujie Zhao,
@@ -351,9 +378,58 @@
                     Hao Dong<br>
                     <i>arXiv 2025</i><br>
                       <a href="https://twin-aligner.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                      <a href="https://arxiv.org/abs/2512.19390">Paper</a>
+                      <a href="https://arxiv.org/pdf/2512.19390">Paper</a>
                       &nbsp;&nbsp;&bull;&nbsp;&nbsp;
                       <a href="https://github.com/TwinAligner/TwinAligner">Code</a>
+                  </p>
+                </div>
+              </div>
+
+                  <div class="list-item publication" data-category="publication">
+                <a href="https://arxiv.org/abs/2507.04452" class="thumbnail"><img src="images/simlauncher.png" alt="" loading="lazy" decoding="async" /></a>
+                <div class="project-description">
+                  <h3><a href="https://arxiv.org/abs/2507.04452">SimLauncher: Launching Sample-Efficient Real-world Robotic Reinforcement Learning via Simulation Pre-training</a></h3>
+                  <p>
+                    Mingdong Wu<span class="cofirst-star">*</span>,
+                    Lehong Wu<span class="cofirst-star">*</span>,
+                    Yizhuo Wu<span class="cofirst-star">*</span>,
+                    Weiyao Huang,
+                    Hongwei Fan,
+                    Zheyuan Hu,
+                    Haoran Geng,
+                    <b>Jinzhou Li</b>,
+                    Jiahe Ying,
+                    Long Yang,
+                    Yuanpei Chen,
+                    Hao Dong
+                    <br>
+                      <i>IROS 2025</i><br>
+                      <a href="https://simlauncher.github.io/#">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                      <a href="https://arxiv.org/pdf/2507.04452">Paper</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="list-item publication selected" data-category="publication">
+                <a href="https://adaptac-dex.github.io/" class="thumbnail">
+                  <video src="images/adaptac-dex-preview.mp4" poster="images/adaptac-dex-poster.jpg" aria-label="AdapTac-Dex adaptive visuo-tactile manipulation" width="200" height="130" autoplay muted loop playsinline preload="metadata"></video></a>
+                <div class="project-description">
+                  <h3><a href="https://adaptac-dex.github.io/">AdapTac-Dex: Adaptive Visuo-Tactile Fusion with Predictive Force Attention for Dexterous Manipulation</a></h3>
+                  <p>
+                    <b>Jinzhou Li</b><span class="cofirst-star">*</span>,
+                    Tianhao Wu<span class="cofirst-star">*</span>,
+                    Jiyao Zhang<sup class="author-sup">**</sup>,
+                    Zeyuan Chen<sup class="author-sup">**</sup>,
+                    Haotian Jin,
+                    Mingdong Wu,
+                    Yujun Shen,
+                    Yaodong Yang,
+                    Hao Dong<br>
+                      <i>IROS 2025</i><br>
+                      <a href="https://adaptac-dex.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                      <a href="https://arxiv.org/pdf/2505.13982">Paper</a>
+                      &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                      <a href="https://github.com/kingchou007/adaptac-dex">Code</a>
                   </p>
                 </div>
               </div>
@@ -366,79 +442,30 @@
                   <h3><a href="https://clutterdexgrasp.github.io/">ClutterDexGrasp: A Sim-to-Real System for General Dexterous Target Grasping in
                     Cluttered Scenes</a></h3>
                   <p>
-                    Zeyuan Chen*,
-                    Qiyang Yan*,
-                    Yuanpei Chen*,
+                    Zeyuan Chen<span class="cofirst-star">*</span>,
+                    Qiyang Yan<span class="cofirst-star">*</span>,
+                    Yuanpei Chen<span class="cofirst-star">*</span>,
                     Tianhao Wu,
                     Jiyao Zhang,
                     Zihan Ding,
                     <b>Jinzhou Li</b>,
                     Yaodong Yang,
                     Hao Dong<br>
-                      <i>CoRL 2025</i> <span class="oral">(Oral ~5%)</span> <br>
+                      <i>CoRL 2025, <span class="oral">oral</span></i> <br>
                       <a href="https://clutterdexgrasp.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                      <a href="https://arxiv.org/html/2506.14317v2">Paper</a>
-                  </p>
-                </div>
-              </div>
-
-                  <div class="list-item publication" data-category="publication">
-                <a href="https://arxiv.org/abs/2507.04452" class="thumbnail"><img src="images/simlauncher.png" alt="" loading="lazy" decoding="async" /></a>
-                <div class="project-description">
-                  <h3><a href="https://arxiv.org/abs/2507.04452">SimLauncher: Launching Sample-Efficient Real-world Robotic Reinforcement Learning via Simulation Pre-training</a></h3>
-                  <p>
-                    Mingdong Wu*,
-                    Lehong Wu*,
-                    Yizhuo Wu*,
-                    Weiyao Huang,
-                    Hongwei Fan,
-                    Zheyuan Hu,
-                    Haoran Geng,
-                    <b>Jinzhou Li</b>,
-                    Jiahe Ying,
-                    Long Yang,
-                    Yuanpei Chen,
-                    Hao Dong
-                    <br>
-                      <i>IROS 2025</i><br>
-                      <a href="https://simlauncher.github.io/#">Webpage</a> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                      <a href="https://arxiv.org/abs/2507.04452">Paper</a>
+                      <a href="https://arxiv.org/pdf/2506.14317v2">Paper</a>
                   </p>
                 </div>
               </div>
 
               <div class="list-item publication selected" data-category="publication">
-                <a href="https://adaptac-dex.github.io/" class="thumbnail">
-                  <img src="images/adaptac-dex.png" alt="adaptac-dex" loading="lazy" decoding="async" /></a>
+                <a href="https://3dtacdex.github.io/" class="thumbnail"><img src="images/3dtacdex.png" alt="3DTac-Dex" loading="lazy" decoding="async" /></a>
                 <div class="project-description">
-                  <h3><a href="https://adaptac-dex.github.io/">AdapTac-Dex: Adaptive Visuo-Tactile Fusion with Predictive Force Attention for Dexterous Manipulation</a></h3>
-                  <p>
-                    <b>Jinzhou Li</b><span class="cofirst-star">*</span>,
-                    Tianhao Wu*,
-                    Jiyao Zhang<sup class="author-sup">+</sup>,
-                    Zeyuan Chen<sup class="author-sup">+</sup>,
-                    Haotian Jin,
-                    Mingdong Wu,
-                    Yujun Shen,
-                    Yaodong Yang,
-                    Hao Dong<br>
-                      <i>IROS 2025</i><br>
-                      <a href="https://adaptac-dex.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                      <a href="https://arxiv.org/abs/2505.13982">Paper</a>
-                      &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                      <a href="https://github.com/kingchou007/adaptac-dex">Code</a>
-                  </p>
-                </div>
-              </div>
-
-              <div class="list-item publication selected" data-category="publication">
-                <a href="https://3dtacdex.github.io/" class="thumbnail"><img src="images/3dtacdex.png" alt="" loading="lazy" decoding="async" /></a>
-                <div class="project-description">
-                  <h3><a href="https://3dtacdex.github.io/">Canonical Representation and Force-Based Pretraining of 3D Tactile for Dexterous Visuo-Tactile Policy Learning</a></h3>
+                  <h3><a href="https://3dtacdex.github.io/">3DTac-Dex: Canonical Representation and Force-Based Pretraining of 3D Tactile for Dexterous Visuo-Tactile Policy Learning</a></h3>
                   <p>
                     Tianhao Wu,
-                    <b>Jinzhou Li</b>*,
-                    Jiyao Zhang*,
+                    <b>Jinzhou Li</b><span class="cofirst-star">*</span>,
+                    Jiyao Zhang<span class="cofirst-star">*</span>,
                     Mingdong Wu,
                     Hao Dong<br>
                       <i>ICRA 2025</i><br>
@@ -527,7 +554,7 @@
         <h2 class="section-heading">Students I Work With</h2>
         <div class="mentoring-list">
           <p class="mentoring-item">
-            <a href="https://yuxiaozhu.me/" class="mentee-name mentee-name-link">Yuxiao Zhu</a>
+            <span class="mentee-name">Yuxiao Zhu</span>
             <span class="mentee-role">Undergraduate CS Duke</span>
             <span class="mentee-year">2026 - now</span>
           </p>
@@ -542,7 +569,12 @@
             <span class="mentee-year">2026 - now</span>
           </p>
           <p class="mentoring-item">
-            <a href="https://www.linkedin.com/in/codyandresalessio-bunnell" class="mentee-name mentee-name-link">Cody Andres Alessio-Bunnell</a>
+            <span class="mentee-name">Henry Bao</span>
+            <span class="mentee-role">Undergraduate ECE</span>
+            <span class="mentee-year">2026 - now</span>
+          </p>
+          <p class="mentoring-item">
+            <span class="mentee-name">Cody Andres Alessio-Bunnell</span>
             <span class="mentee-role">Undergraduate ME Duke</span>
             <span class="mentee-year">2025 - 2026</span>
             <span class="mentee-next">Next &rarr; PhD UT Austin</span>
