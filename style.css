@@ -769,6 +769,16 @@ h2.section-heading {
   margin-top: 0.25em;
 }
 
+.past-students > summary {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.past-students > summary:hover,
+.past-students > summary:focus-visible {
+  color: rgb(20, 110, 190);
+}
+
 .mentoring-list {
   display: flex;
   flex-direction: column;
