@@ -1042,10 +1042,17 @@ h3 a:hover {
   font-size: 0.72em;
 }
 
+.publication-venue {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45em;
+  white-space: nowrap;
+}
+
 .oral {
   color: #c62828;
-  font-style: inherit;
-  font-weight: normal;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .publication {
