@@ -113,8 +113,9 @@ b {
 
 h1 {
   font-size: 2.4rem;
-  line-height: 2.4em;
+  line-height: 1.25;
   font-weight: 500;
+  margin-bottom: 1rem;
 }
 
 .social-links {
@@ -122,7 +123,7 @@ h1 {
   gap: 1.2em;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 2.5em;
+  margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
 
@@ -568,7 +569,7 @@ h1 {
 /* Profile image and description. */
 
 #intro {
-  padding-top: 6em;
+  padding-top: 4em;
   display: flex;
   align-items: flex-start;
   gap: 2rem;
@@ -582,11 +583,15 @@ h1 {
   line-height: var(--line-body);
 }
 
+#more-bio p + p {
+  margin-top: 0.75rem;
+}
+
 #intro-image {
   flex: 0 0 12em;
   width: 12em;
   height: 12em;
-  margin: 2.7em 0 0;
+  margin: 0.25em 0 0;
   overflow: hidden;
   border-radius: 1em;
   position: relative;
@@ -633,9 +638,9 @@ h1 {
 h2.section-heading {
   font-size: var(--type-section);
   line-height: 1.4;
-  margin-top: 1.8em;
+  margin-top: 1.6em;
   margin-bottom: 0.35em;
-  color: #6a727a;
+  color: #3f4650;
   font-weight: 500;
 }
 
@@ -756,6 +761,31 @@ h2.section-heading {
   font-size: var(--type-body);
 }
 
+.mentoring-list {
+  padding-left: 1.15rem;
+  list-style: disc;
+}
+
+.mentoring-item {
+  margin-top: 0.35rem;
+  font-size: var(--type-body);
+  line-height: var(--line-body);
+}
+
+.mentoring-item::marker {
+  color: #6a727a;
+}
+
+.mentee-role,
+.mentee-year,
+.mentee-next {
+  color: #6a727a;
+}
+
+.mentee-year {
+  white-space: nowrap;
+}
+
 .list-item.news {
   display: flex;
   align-items: baseline;
@@ -771,7 +801,7 @@ h2.section-heading {
   width: auto;
   margin: 0;
   text-align: left;
-  color: #9aa0a8;
+  color: #6a727a;
   font-weight: 500;
   font-size: var(--type-secondary);
   line-height: 1.55em;
@@ -829,7 +859,7 @@ h2.section-heading {
   padding: 0;
   border: none;
   background: transparent;
-  color: #a0a8b0;
+  color: #6a727a;
   font-family: inherit;
   font-size: var(--type-secondary);
   font-weight: 500;
@@ -953,7 +983,7 @@ h3 a:hover {
   align-items: baseline;
   gap: 0.9em;
   font-size: var(--type-meta);
-  color: #a0a8b0;
+  color: #6a727a;
   margin: 0;
 }
 
@@ -999,11 +1029,15 @@ h3 a:hover {
 .publication p {
   font-size: var(--type-body);
   line-height: var(--line-body);
-  color: #a0a8b0;
+  color: #6a727a;
+}
+
+.publication p b {
+  color: #3f4650;
 }
 
 .publication-workshop {
-  color: #8d98a3;
+  color: #6a727a;
   font-size: 0.9em;
   font-style: normal;
 }
@@ -1097,67 +1131,87 @@ h3 a:hover {
 }
 
 /**************************************************/
-/* Experience list items. */
+/* Compact Experience logo row. */
 
 .experience-grid {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 0.8em 2.4em;
-  margin-top: 0.8em;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem 1rem;
+  margin: 1rem 0 1.25rem;
+  padding: 0;
+  list-style: none;
 }
 
-.list-item.experience {
-  width: auto;
-  display: flex;
-  align-items: center;
-  gap: 1.2em;
+.experience-item {
+  flex: 0 0 7rem;
   min-width: 0;
-  margin-top: 0;
-  line-height: 1.5em;
+}
+
+.experience-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  color: inherit;
+  text-align: center;
+  border-radius: 0.2rem;
+}
+
+.experience-link:hover {
+  text-decoration: none;
+}
+
+.experience-link:hover .exp-name {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.experience-link:focus-visible {
+  outline: 2px solid rgb(20, 110, 190);
+  outline-offset: 5px;
 }
 
 .exp-logo {
-  flex: 0 0 3em;
-  height: 3em;
+  width: 4.75rem;
+  max-width: 100%;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.exp-logo:hover {
-  text-decoration: none;
-}
-
 .exp-logo img {
+  display: block;
+  width: auto;
+  height: auto;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  border-radius: 0.4em;
 }
 
 .exp-logo img.logo-agibot {
   transform: scale(1.12);
 }
 
-.exp-description {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.exp-description h3 {
-  font-size: var(--type-title);
-  font-weight: 400;
-  line-height: 1.45;
-  margin-bottom: 0.15em;
-}
-
-.exp-description p {
-  font-size: var(--type-body);
+.exp-name {
+  display: block;
+  font-size: var(--type-meta);
   font-weight: 400;
   line-height: var(--line-body);
+}
+
+.exp-caption {
+  max-width: 100%;
+}
+
+.exp-role {
+  display: block;
+  margin-top: 0.15rem;
   color: #6a727a;
+  font-size: 0.8rem;
+  line-height: 1.4;
 }
 
 .reviewer-info h4 {
@@ -1187,11 +1241,11 @@ h3 a:hover {
   }
   
   #main {
-    width: calc(100% - 1rem);
+    width: calc(100% - 2rem);
   }
 
   #intro {
-    padding-top: 2.75em;
+    padding-top: 2em;
     flex-direction: column-reverse;
     align-items: center;
     gap: 1.2em;
@@ -1204,14 +1258,14 @@ h3 a:hover {
 
   #intro-image {
     flex: none;
-    width: min(15rem, 52vw);
-    height: min(15rem, 52vw);
+    width: 9rem;
+    height: 9rem;
     margin-top: 0;
   }
 
   .social-links {
     gap: 1.2em;
-    margin-top: 2.5em;
+    margin-top: 1.5em;
     margin-bottom: 1.5em;
   }
 
@@ -1261,22 +1315,17 @@ h3 a:hover {
   }
 
   .experience-grid {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.8em;
+    gap: 1.25rem 1rem;
+    margin: 1rem 0 1.25rem;
   }
 
-  .list-item.experience {
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-    gap: 0.8em;
+  .experience-item {
+    flex-basis: 6.5rem;
   }
 
   .exp-logo {
-    flex: 0 0 2.4em;
-    height: 2.4em;
+    width: 4.25rem;
+    height: 2.25rem;
   }
 
   .projects-grid {
@@ -1303,6 +1352,17 @@ h3 a:hover {
     display: none;
   }
 
+  .mentoring-item {
+    margin-top: 0.55rem;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media screen and (max-width: 1180px) {
