@@ -82,7 +82,7 @@
 
 
     <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css?v=20260929-17">
+    <link rel="stylesheet" href="style.css?v=20261002-1">
 
     <!-- Preload hero image (LCP) -->
     <link rel="preload" as="image" href="images/ljz2025head.jpg?v=20260509" fetchpriority="high">
@@ -192,15 +192,11 @@
           <button type="button" id="toggle-news" class="toggle-link">Show more</button>
         </div>
 
-        <h2 class="section-heading">Publications</h2>
+        <h2 class="section-heading">Selected Publications</h2>
         <div class="publication-meta">
           <p class="publication-note">
             <span><sup>*</sup> equal contribution</span>
           </p>
-          <div id="pub-filters" class="pub-filters">
-            <button type="button" class="pub-filter-btn active" data-filter="selected">Selected</button>
-            <button type="button" class="pub-filter-btn" data-filter="all">All</button>
-          </div>
         </div>
 
         <div class="pub-timeline">
@@ -279,30 +275,6 @@
                     <i>arXiv 2026</i><br>
                     <a href="https://any-ttach.github.io/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
                     <a href="https://arxiv.org/pdf/2605.30569">Paper</a>
-                  </p>
-                </div>
-              </div>
-
-              <div class="list-item publication" data-category="publication">
-                <a href="https://robotproject8.github.io/ceer_page/" class="thumbnail">
-                  <img src="images/ceer.png" alt="CEER hierarchical humanoid loco-manipulation framework" width="200" height="125" loading="lazy" decoding="async" />
-                </a>
-                <div class="project-description">
-                  <h3><a href="https://robotproject8.github.io/ceer_page/">CEER: Compliant End-Effector and Root Control as a Unified Interface for Hierarchical Humanoid Loco-Manipulation</a></h3>
-                  <p>
-                    Xinyuan Luo,
-                    Xingrui Chen,
-                    Xunjian Yin,
-                    Hongxuan Wu,
-                    Boxi Xia,
-                    Zhuoqun Chen,
-                    <b>Jinzhou Li</b>,
-                    Boyuan Chen,
-                    Xianyi Cheng<br>
-                    <i>IROS 2026</i><br>
-                    <a href="https://robotproject8.github.io/ceer_page/">Webpage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                    <a href="https://arxiv.org/pdf/2605.19981">Paper</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                    <a href="https://github.com/stevenryanrobot/ceer_deploy">Code</a>
                   </p>
                 </div>
               </div>
@@ -649,62 +621,6 @@
           toggleNews.textContent = 'Show more';
         }
 
-        var pubFilters = document.getElementById('pub-filters');
-        if (pubFilters) {
-          var pubButtons = pubFilters.querySelectorAll('.pub-filter-btn');
-          var publications = document.querySelectorAll('.list-item.publication');
-          var yearGroups = document.querySelectorAll('.pub-year');
-          var timeline = document.querySelector('.pub-timeline');
-          var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-          // Re-run a light, staggered fade on whatever is currently visible.
-          function animateEntrance() {
-            if (reduceMotion || !timeline) return;
-            var seq = [];
-            yearGroups.forEach(function(group) {
-              if (group.style.display === 'none') return;
-              var label = group.querySelector('.pub-year-label');
-              if (label && getComputedStyle(label).display !== 'none') seq.push(label);
-              group.querySelectorAll('.list-item.publication').forEach(function(it) {
-                if (it.style.display !== 'none') seq.push(it);
-              });
-            });
-            seq.forEach(function(el) { el.style.animation = 'none'; });
-            // Force a reflow so the animation restarts on every toggle.
-            void timeline.offsetWidth;
-            seq.forEach(function(el, i) {
-              el.style.animation = 'pubFadeIn 0.3s ease both';
-              el.style.animationDelay = Math.min(i * 0.035, 0.28) + 's';
-            });
-          }
-
-          function applyPubFilter(filter, animate) {
-            // Year labels are shown only in the "All" view.
-            if (timeline) timeline.classList.toggle('with-axis', filter === 'all');
-            publications.forEach(function(item) {
-              var show = filter === 'all' || item.classList.contains('selected');
-              item.style.display = show ? '' : 'none';
-            });
-            // Hide year markers whose papers are all filtered out.
-            yearGroups.forEach(function(group) {
-              var items = group.querySelectorAll('.list-item.publication');
-              var anyVisible = Array.prototype.some.call(items, function(it) {
-                return it.style.display !== 'none';
-              });
-              group.style.display = anyVisible ? '' : 'none';
-            });
-            pubButtons.forEach(function(btn) {
-              btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
-            });
-            if (animate) animateEntrance();
-          }
-          pubButtons.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-              applyPubFilter(btn.getAttribute('data-filter'), true);
-            });
-          });
-          applyPubFilter('selected', false);
-        }
       });
     </script>
   </body>
