@@ -898,6 +898,19 @@ h2.section-heading {
   object-position: center;
 }
 
+.publication-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 20 / 13;
+  margin-top: 0.4em;
+  border-radius: 5px;
+  background: #edf3f8;
+  color: #246390;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
 
 h3 {
   font-size: var(--type-title);
@@ -1005,6 +1018,13 @@ h3 a:hover {
   gap: 1.1em;
   margin-top: 0;
   line-height: 1.5em;
+}
+
+.project-logo-placeholder {
+  background: #edf3f8;
+  color: #246390;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 .project-logo {
