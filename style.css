@@ -892,12 +892,6 @@ h2.section-heading {
   height: auto;
 }
 
-.thumbnail video.redex-preview {
-  aspect-ratio: 20 / 13;
-  object-fit: cover;
-  object-position: center;
-}
-
 .publication-placeholder {
   display: flex;
   align-items: center;
