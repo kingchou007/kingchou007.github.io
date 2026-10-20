@@ -82,7 +82,7 @@
 
 
     <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css?v=20261013-1">
+    <link rel="stylesheet" href="style.css?v=20261019-12">
 
     <!-- Preload hero image (LCP) -->
     <link rel="preload" as="image" href="images/ljz2025head.jpg?v=20260509" fetchpriority="high">
@@ -103,12 +103,13 @@
             <p>
               I am a second-year Ph.D. student in Robotics at <a href="https://www.duke.edu/" class="brand-duke">Duke University</a>, advised by
               <a href="https://xianyicheng.github.io/">Prof. Xianyi Cheng</a>.
-              My research focuses on dexterous manipulation, tactile sensing, and reinforcement learning.
+              My research interests include large-scale reinforcement learning, dexterous manipulation, and multisensory learning with tactile and force sensing.
             </p>
             <p>
-              Before Duke, I worked with <a href="https://zsdonghao.github.io/">Prof. Hao Dong</a> at <a href="https://english.pku.edu.cn/">Peking University</a>.
+              Before Duke, I worked with <a href="https://zsdonghao.github.io/">Prof. Hao Dong</a> at <a href="https://cfcs.pku.edu.cn/english/">Peking University</a>.
               I completed my master's at <a href="https://www.cornell.edu/">Cornell University</a>, advised by <a href="https://sea.mae.cornell.edu/team/">Prof. Maha Haji</a> and <a href="https://aeroastro.mit.edu/people/daniel-e-hastings">Prof. Daniel Hastings</a>,
               and earned my bachelor's degree from the <a href="https://www.uvm.edu/">University of Vermont</a>.
+              I have also spent time at <a href="https://www.agibot.com/research/">AGIBOT</a> (2024-2025) and <a href="https://www.amazon.science/research-areas/robotics">Amazon Robotics</a> (2026).
             </p>
           </div>
           <p>
@@ -129,6 +130,11 @@
 
         <h2 class="section-heading">News</h2>
         <div class="news-box">
+          <div class="list-item news" data-category="news">
+            <p class="date">10.2026</p>
+            <span>Released <a href="https://arxiv.org/abs/2610.07525">ReDex</a>, which improves sim-to-real dexterous policies through finger-level human corrections.</span>
+          </div>
+
           <div class="list-item news" data-category="news">
             <p class="date">05.2026</p>
             <span>
@@ -175,6 +181,60 @@
           </div>
 
           <button type="button" id="toggle-news" class="toggle-link">Show more</button>
+        </div>
+
+        <div class="affiliations-slider" aria-label="Affiliation logos">
+          <button class="affiliation-arrow affiliation-prev" type="button" aria-label="Previous affiliations" aria-controls="experience" disabled><span aria-hidden="true">‹</span></button>
+          <ul class="experience-grid" id="experience" aria-label="Affiliations" tabindex="0">
+            <li class="experience-item">
+              <a href="https://www.amazon.science/research-areas/robotics" class="experience-link" aria-label="Amazon Robotics — Applied Scientist Intern, Summer 2026">
+                <span class="exp-logo exp-logo-amazon">
+                  <img src="images/logo/amazon-wordmark.webp" class="logo-amazon" alt="Amazon Robotics" width="1800" height="757" loading="lazy" decoding="async" />
+                </span>
+              </a>
+            </li>
+
+            <li class="experience-item">
+              <a href="https://www.duke.edu/" class="experience-link" aria-label="Duke University — PhD Student, 2025–present">
+                <span class="exp-logo exp-logo-duke">
+                  <img src="images/logo/duke-wordmark.svg" alt="Duke University" width="99" height="34" loading="lazy" decoding="async" />
+                </span>
+              </a>
+            </li>
+
+            <li class="experience-item">
+              <a href="https://cfcs.pku.edu.cn/english/" class="experience-link" aria-label="Peking University — Visiting Student">
+                <span class="exp-logo exp-logo-pku">
+                  <img src="images/logo/pku.png" alt="Peking University seal" width="48" height="48" loading="lazy" decoding="async" />
+                </span>
+              </a>
+            </li>
+
+            <li class="experience-item">
+              <a href="https://www.cornell.edu/" class="experience-link" aria-label="Cornell University — Master’s Student">
+                <span class="exp-logo exp-logo-cornell">
+                  <img src="images/logo/cornell.png" alt="Cornell University seal" width="48" height="48" loading="lazy" decoding="async" />
+                </span>
+              </a>
+            </li>
+
+            <li class="experience-item">
+              <a href="https://www.uvm.edu/" class="experience-link" aria-label="University of Vermont — Undergraduate">
+                <span class="exp-logo exp-logo-uvm">
+                  <img src="images/logo/uvm.png?v=20260929" alt="University of Vermont V shield" width="48" height="48" loading="lazy" decoding="async" />
+                </span>
+              </a>
+            </li>
+
+            <li class="experience-item">
+              <a href="https://www.agibot.com/research/" class="experience-link" aria-label="AgiBot — Research Intern">
+                <span class="exp-logo exp-logo-agibot">
+                  <img src="images/logo/o6yqfHC-8Cs8zFGcqZZGW.webp" class="logo-agibot" alt="AgiBot" width="200" height="200" loading="lazy" decoding="async" />
+                </span>
+              </a>
+            </li>
+          </ul>
+          <button class="affiliation-arrow affiliation-next" type="button" aria-label="Next affiliations" aria-controls="experience" disabled><span aria-hidden="true">›</span></button>
         </div>
 
         <h2 class="section-heading">Selected Publications</h2>
@@ -445,81 +505,6 @@
 
         </div>
 
-        <h2 class="section-heading" id="experience">Experience</h2>
-        <ul class="experience-grid" aria-labelledby="experience">
-          <li class="experience-item">
-            <a href="https://www.amazon.science/research-areas/robotics" class="experience-link" title="Amazon Robotics — Applied Scientist Intern, Summer 2026" aria-label="Amazon Robotics — Applied Scientist Intern, Summer 2026">
-              <span class="exp-logo">
-                <img src="images/amazon_logo.jpeg" alt="Amazon Robotics" width="200" height="200" loading="lazy" decoding="async" />
-              </span>
-              <span class="exp-caption" aria-hidden="true">
-                <span class="exp-name">Amazon</span>
-                <span class="exp-role">Applied Scientist Intern (26 summer)</span>
-              </span>
-            </a>
-          </li>
-
-          <li class="experience-item">
-            <a href="https://www.duke.edu/" class="experience-link" aria-label="Duke University — PhD Student, 2025–present">
-              <span class="exp-logo">
-                <img src="images/duke_university_wordmark_navyblue_012169.svg" alt="Duke University" width="236" height="108" loading="lazy" decoding="async" />
-              </span>
-              <span class="exp-caption" aria-hidden="true">
-                <span class="exp-name">Duke</span>
-                <span class="exp-role">PhD Student (25–)</span>
-              </span>
-            </a>
-          </li>
-
-          <li class="experience-item">
-            <a href="https://english.pku.edu.cn/" class="experience-link" aria-label="Peking University — Visiting Student">
-              <span class="exp-logo">
-                <img src="images/logo/pku.png" alt="Peking University seal" width="48" height="48" loading="lazy" decoding="async" />
-              </span>
-              <span class="exp-caption" aria-hidden="true">
-                <span class="exp-name">PKU</span>
-                <span class="exp-role">Visiting Student</span>
-              </span>
-            </a>
-          </li>
-
-          <li class="experience-item">
-            <a href="https://www.agibot.com/research" class="experience-link" title="AgiBot — Research Intern" aria-label="AgiBot — Research Intern">
-              <span class="exp-logo">
-                <img src="images/logo/o6yqfHC-8Cs8zFGcqZZGW.webp" class="logo-agibot" alt="AgiBot" width="200" height="200" loading="lazy" decoding="async" />
-              </span>
-              <span class="exp-caption" aria-hidden="true">
-                <span class="exp-name">AgiBot</span>
-                <span class="exp-role">Research Intern</span>
-              </span>
-            </a>
-          </li>
-
-          <li class="experience-item">
-            <a href="https://www.cornell.edu/" class="experience-link" aria-label="Cornell University — Master’s Student">
-              <span class="exp-logo">
-                <img src="images/logo/cornell.png" alt="Cornell University seal" width="48" height="48" loading="lazy" decoding="async" />
-              </span>
-              <span class="exp-caption" aria-hidden="true">
-                <span class="exp-name">Cornell</span>
-                <span class="exp-role">Master’s Student</span>
-              </span>
-            </a>
-          </li>
-
-          <li class="experience-item">
-            <a href="https://www.uvm.edu/" class="experience-link" aria-label="University of Vermont — Undergraduate">
-              <span class="exp-logo">
-                <img src="images/logo/uvm.png?v=20260929" alt="University of Vermont V shield" width="48" height="48" loading="lazy" decoding="async" />
-              </span>
-              <span class="exp-caption" aria-hidden="true">
-                <span class="exp-name">Vermont</span>
-                <span class="exp-role">Undergraduate</span>
-              </span>
-            </a>
-          </li>
-        </ul>
-
         <h2 class="section-heading">Teaching</h2>
         <div class="teaching-list">
           <div class="teaching-item">
@@ -599,6 +584,70 @@
             toggleNews.textContent = hidden ? 'Show less' : 'Show more';
           });
           toggleNews.textContent = 'Show more';
+        }
+
+        var track = document.getElementById('experience');
+        var previous = document.querySelector('.affiliation-prev');
+        var next = document.querySelector('.affiliation-next');
+        if (track && previous && next) {
+          function updateArrows() {
+            previous.disabled = track.scrollLeft <= 1;
+            next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
+          }
+          function slide(direction) {
+            var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            track.scrollBy({
+              left: direction * Math.max(128, track.clientWidth * 0.75),
+              behavior: reducedMotion ? 'instant' : 'smooth'
+            });
+          }
+          previous.addEventListener('click', function() { slide(-1); });
+          next.addEventListener('click', function() { slide(1); });
+          track.addEventListener('scroll', updateArrows, { passive: true });
+          track.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+              event.preventDefault();
+              slide(event.key === 'ArrowLeft' ? -1 : 1);
+            }
+          });
+
+          var drag = null;
+          var suppressClickUntil = 0;
+          track.addEventListener('pointerdown', function(event) {
+            if (event.pointerType !== 'mouse' || event.button !== 0) return;
+            drag = { x: event.clientX, scroll: track.scrollLeft, moved: false };
+          });
+          track.addEventListener('pointermove', function(event) {
+            if (!drag) return;
+            var distance = event.clientX - drag.x;
+            if (!drag.moved && Math.abs(distance) > 5) {
+              drag.moved = true;
+              track.setPointerCapture(event.pointerId);
+              track.classList.add('is-dragging');
+            }
+            if (drag.moved) {
+              event.preventDefault();
+              track.scrollLeft = drag.scroll - distance;
+            }
+          });
+          function finishDrag(event) {
+            if (!drag) return;
+            if (drag.moved) suppressClickUntil = performance.now() + 150;
+            drag = null;
+            track.classList.remove('is-dragging');
+            if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
+          }
+          window.addEventListener('pointerup', finishDrag);
+          track.addEventListener('pointercancel', finishDrag);
+          track.addEventListener('click', function(event) {
+            if (performance.now() < suppressClickUntil) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+          }, true);
+          track.addEventListener('dragstart', function(event) { event.preventDefault(); });
+          new ResizeObserver(updateArrows).observe(track);
+          updateArrows();
         }
 
       });

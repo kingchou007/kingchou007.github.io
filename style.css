@@ -1085,87 +1085,173 @@ h3 a:hover {
 }
 
 /**************************************************/
-/* Compact Experience logo row. */
+/* Affiliation logos between News and Selected Publications. */
+
+.affiliations-slider {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr) 1.75rem;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 784px;
+  margin: 0.9rem auto 1.4rem;
+}
 
 .experience-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1.5rem 1rem;
-  margin: 1rem 0 1.25rem;
-  padding: 0;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0.3rem 0;
   list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+  touch-action: pan-x pan-y;
+}
+
+.experience-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.experience-grid.is-dragging {
+  scroll-snap-type: none;
+  cursor: grabbing;
+}
+
+.affiliation-arrow {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #657180;
+  font: 400 1.75rem/1 Arial, sans-serif;
+  cursor: pointer;
+  border-radius: 0.35rem;
+}
+
+.affiliation-arrow:hover:not(:disabled) {
+  color: #146ebe;
+  background: #f5f7fa;
+}
+
+.affiliation-arrow:disabled {
+  color: #d3d9e0;
+  cursor: default;
 }
 
 .experience-item {
-  flex: 0 0 7rem;
+  flex: 0 0 8rem;
   min-width: 0;
+  scroll-snap-align: start;
 }
 
 .experience-link {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.55rem;
+  justify-content: center;
+  min-height: 3.5rem;
   color: inherit;
   text-align: center;
   border-radius: 0.2rem;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .experience-link:hover {
   text-decoration: none;
 }
 
-.experience-link:hover .exp-name {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.experience-link:focus-visible {
+.experience-link:focus-visible,
+.experience-grid:focus-visible,
+.affiliation-arrow:focus-visible {
   outline: 2px solid rgb(20, 110, 190);
   outline-offset: 5px;
 }
 
 .exp-logo {
-  width: 4.75rem;
-  max-width: 100%;
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  --logo-height: 2.5rem;
+  width: var(--logo-height);
+  height: var(--logo-height);
+  position: relative;
+  overflow: hidden;
+  flex: none;
 }
 
 .exp-logo img {
+  position: absolute;
   display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
-.exp-logo img.logo-agibot {
-  transform: scale(1.12);
+/* Balance wordmark and emblem sizes. Image offsets remove asset padding;
+   wrapper transforms align the visible ink's optical center. */
+.exp-logo-amazon {
+  --logo-height: 1.625rem;
+  width: calc(var(--logo-height) * 3.319444);
+  transform: translateY(0.28125rem);
 }
 
-.exp-name {
-  display: block;
-  font-size: var(--type-meta);
-  font-weight: 400;
-  line-height: var(--line-body);
+.exp-logo-amazon img {
+  width: 125.523%;
+  height: 175.231%;
+  left: -12.831%;
+  top: -37.5%;
 }
 
-.exp-caption {
-  max-width: 100%;
+.exp-logo-duke {
+  --logo-height: 1.875rem;
+  width: calc(var(--logo-height) * 2.911765);
+  transform: translateY(-0.21875rem);
 }
 
-.exp-role {
-  display: block;
-  margin-top: 0.15rem;
-  color: #6a727a;
-  font-size: 0.8rem;
-  line-height: 1.4;
+.exp-logo-pku {
+  --logo-height: 2.75rem;
+}
+
+.exp-logo-agibot {
+  transform: translateY(-0.21875rem);
+}
+
+.exp-logo-agibot img {
+  width: 136.986%;
+  height: 136.986%;
+  left: -20.548%;
+  top: -17.808%;
+}
+
+.exp-logo-cornell {
+  --logo-height: 2.875rem;
+}
+
+.exp-logo-cornell img {
+  width: 100.629%;
+  height: 100.629%;
+  left: -0.3145%;
+  top: -0.3145%;
+}
+
+.exp-logo-uvm {
+  --logo-height: 2.625rem;
+  width: calc(var(--logo-height) * 0.946237);
+}
+
+.exp-logo-uvm img {
+  width: 109.091%;
+  height: 103.226%;
+  left: -4.545%;
+  top: -2.151%;
 }
 
 .reviewer-info h4 {
@@ -1268,18 +1354,17 @@ h3 a:hover {
     line-height: 1.6em;
   }
 
+  .affiliations-slider {
+    gap: 0.25rem;
+    margin: 0.75rem 0 1.25rem;
+  }
+
   .experience-grid {
-    gap: 1.25rem 1rem;
-    margin: 1rem 0 1.25rem;
+    gap: 0.5rem;
   }
 
   .experience-item {
-    flex-basis: 6.5rem;
-  }
-
-  .exp-logo {
-    width: 4.25rem;
-    height: 2.25rem;
+    flex-basis: 7.5rem;
   }
 
   .projects-grid {
@@ -1310,13 +1395,6 @@ h3 a:hover {
     margin-top: 0.55rem;
   }
 
-}
-
-@media screen and (max-width: 480px) {
-  .experience-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 @media screen and (max-width: 1180px) {
