@@ -761,6 +761,23 @@ h2.section-heading {
   font-size: var(--type-body);
 }
 
+.mentoring-group-heading {
+  margin-top: 0.9rem;
+  font-size: var(--type-body);
+  font-weight: 500;
+}
+
+.mentoring-group > summary {
+  display: list-item;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.mentoring-group > summary:hover,
+.mentoring-group > summary:focus-visible {
+  color: rgb(20, 110, 190);
+}
+
 .mentoring-list {
   padding-left: 1.15rem;
   list-style: disc;
@@ -1294,6 +1311,10 @@ h3 a:hover {
   #intro-text {
     width: 100%;
     max-width: none;
+  }
+
+  #intro-text h1 {
+    text-align: center;
   }
 
   #intro-image {
