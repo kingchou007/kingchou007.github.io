@@ -761,6 +761,17 @@ h2.section-heading {
   font-size: var(--type-body);
 }
 
+.mentoring-invitation {
+  padding: 0.8rem 1rem;
+  border-left: 3px solid rgb(20, 110, 190);
+  border-radius: 0 6px 6px 0;
+  background: #f3f7fc;
+}
+
+.mentoring-invitation strong {
+  font-weight: 600;
+}
+
 .mentoring-group-heading {
   margin-top: 0.9rem;
   font-size: var(--type-body);
@@ -1003,7 +1014,7 @@ h3 a:hover {
 .publication-workshop {
   color: #6a727a;
   font-size: 0.9em;
-  font-style: normal;
+  font-style: italic;
 }
 
 .project-description {
